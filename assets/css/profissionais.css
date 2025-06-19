@@ -1,20 +1,139 @@
-/* Arquivo: assets/css/profissionais.css */
+/* ============================================= */
+/* --- ARQUIVO: profissionais.css (VERSÃO "CAPRICHADA") --- */
+/* ============================================= */
 
-.plans-section { padding: 80px 0; }
-.plans-container { display: flex; justify-content: center; align-items: center; gap: 40px; margin-top: 60px; flex-wrap: wrap; }
-.plan-card { background-color: var(--white-color); border-radius: var(--border-radius); box-shadow: 0 5px 25px rgba(0,0,0,0.1); width: 350px; padding: 30px; border: 2px solid transparent; position: relative; }
-.plan-card.featured { border-color: var(--primary-color); }
-.plan-badge { position: absolute; top: -15px; left: 50%; transform: translateX(-50%); background-color: var(--primary-color); color: var(--white-color); padding: 5px 15px; border-radius: 20px; font-size: 0.9rem; font-weight: 700; }
-.plan-header { text-align: center; border-bottom: 1px solid var(--light-color); padding-bottom: 20px; margin-bottom: 20px; }
-.plan-header h3 { font-family: var(--font-headings); font-size: 1.6rem; color: var(--dark-color); }
-.plan-price { font-size: 2.8rem; font-weight: 800; color: var(--primary-color); font-family: var(--font-headings); }
+/* [NOVO] Keyframes para animações de entrada */
+@keyframes fadeInSlideUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* HERO ESPECÍFICO PARA PROFISSIONAIS */
+.hero-professionals {
+    background-color: var(--dark-color);
+    background-image: linear-gradient(rgba(44, 62, 80, 0.9), rgba(44, 62, 80, 0.9)), url('https://images.unsplash.com/photo-1517048676732-d65bc937f952?q=80&w=2070&auto=format&fit=crop');
+    background-size: cover;
+    background-position: center;
+    color: var(--white-color);
+    padding: 100px 0;
+    text-align: center;
+}
+.hero-professionals .hero-title {
+    font-size: 3rem;
+    color: var(--white-color);
+    animation: fadeInSlideUp 0.8s ease-out forwards;
+}
+.hero-professionals .hero-subtitle {
+    font-size: 1.25rem;
+    color: var(--light-color);
+    opacity: 0; /* Começa invisível para a animação */
+    margin-bottom: 40px;
+    animation: fadeInSlideUp 0.8s 0.2s ease-out forwards; /* Atraso de 0.2s */
+}
+.hero-professionals .btn {
+    opacity: 0;
+    animation: fadeInSlideUp 0.8s 0.4s ease-out forwards; /* Atraso de 0.4s */
+}
+
+
+/* SEÇÃO COMO FUNCIONA */
+.how-it-works-pro { padding: 80px 0; background-color: var(--white-color); }
+.steps-container { display: flex; justify-content: space-around; gap: 30px; margin-top: 50px; text-align: center; }
+.step-card { padding: 20px; }
+.step-icon { font-size: 3.5rem; color: var(--primary-color); margin-bottom: 20px; transition: transform 0.3s ease; }
+.step-card:hover .step-icon { transform: scale(1.1) rotate(-5deg); }
+.step-card h3 { font-family: var(--font-headings); color: var(--dark-color); font-size: 1.5rem; margin-bottom: 10px; }
+
+
+/* SEÇÃO DE PLANOS COM ANIMAÇÕES */
+.plans-section { padding: 80px 0; background-color: var(--light-color); }
+.plans-container { display: flex; justify-content: center; align-items: flex-end; gap: 40px; margin-top: 60px; flex-wrap: wrap; }
+.plan-card {
+    background-color: var(--white-color);
+    border-radius: var(--border-radius);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.08); /* Sombra mais suave */
+    width: 380px;
+    padding: 40px;
+    border: 3px solid transparent;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    position: relative;
+}
+/* [ANIMAÇÃO] Efeito de flutuar e sombra mais forte no hover */
+.plan-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 40px rgba(0,0,0,0.12);
+}
+.plan-card.featured {
+    border-color: var(--primary-color);
+    transform: scale(1.05); /* Deixa o premium sempre maior */
+}
+.plan-card.featured:hover {
+    transform: scale(1.08) translateY(-10px); /* Efeito de hover ainda mais forte */
+}
+.plan-badge { position: absolute; top: -18px; left: 50%; transform: translateX(-50%); background-color: var(--primary-color); color: var(--white-color); padding: 5px 20px; border-radius: 20px; font-size: 0.9rem; font-weight: 700; }
+.plan-header { text-align: center; padding-bottom: 20px; margin-bottom: 25px; border-bottom: 1px solid var(--light-color); }
+.plan-header h3 { font-family: var(--font-headings); font-size: 1.8rem; color: var(--dark-color); }
+.plan-price { font-size: 3rem; font-weight: 800; color: var(--primary-color); font-family: var(--font-headings); }
 .plan-price span { font-size: 1rem; font-weight: 400; color: var(--text-color); }
-.plan-features { list-style: none; margin-bottom: 30px; }
-.plan-features li { margin-bottom: 15px; }
-.plan-features i { color: var(--secondary-color); margin-right: 10px; }
-.plan-card .btn { display: block; width: 100%; text-align: center; }
+.plan-features { list-style: none; margin-bottom: 40px; padding: 0; }
+.plan-features li { margin-bottom: 15px; display: flex; align-items: center; gap: 10px; }
+.plan-features li i { color: var(--secondary-color); }
+.plan-features li.disabled { color: #95a5a6; text-decoration: line-through; }
+.plan-features li.disabled i { color: #e74c3c; }
+.plan-card .btn { display: block; width: 100%; text-align: center; padding: 15px; }
 
-.faq-section { padding: 80px 0; background-color: var(--light-color); }
+
+/* [NOVO] EFEITO SANFONA (ACCORDION) PARA O FAQ */
+.faq-section { padding: 80px 0; }
 .faq-container { max-width: 800px; margin: 0 auto; }
-.faq-item { background-color: var(--white-color); border-radius: var(--border-radius); padding: 20px; margin-bottom: 15px; box-shadow: 0 2px 5px rgba(0,0,0,0.05); }
-.faq-question { font-family: var(--font-headings); font-size: 1.2rem; color: var(--dark-color); margin-bottom: 10px; }
+.faq-item {
+    background-color: var(--white-color);
+    border-radius: var(--border-radius);
+    margin-bottom: 15px;
+    border: 1px solid #e0e0e0;
+    overflow: hidden; /* Essencial para a animação de altura */
+}
+.faq-question {
+    font-family: var(--font-headings);
+    font-size: 1.2rem;
+    color: var(--dark-color);
+    padding: 20px;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: background-color 0.2s ease;
+}
+.faq-question:hover {
+    background-color: #f9f9f9;
+}
+/* Ícone de "+" que vira "x" */
+.faq-question::after {
+    content: '\2b'; /* Código do caractere '+' */
+    font-size: 1.5rem;
+    color: var(--primary-color);
+    transition: transform 0.3s ease-out;
+    font-weight: bold;
+}
+.faq-item.active .faq-question::after {
+    transform: rotate(45deg);
+}
+.faq-answer {
+    max-height: 0; /* Começa fechado */
+    overflow: hidden;
+    transition: max-height 0.5s ease-out, padding 0.5s ease-out;
+    padding: 0 20px;
+}
+.faq-item.active .faq-answer {
+    max-height: 300px; /* Altura suficiente para o conteúdo */
+    padding: 0 20px 20px 20px;
+}
+
+/* SEÇÃO DE CADASTRO */
+/* (Os estilos que já criamos antes) */

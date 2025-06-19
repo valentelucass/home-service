@@ -1,0 +1,149 @@
+/* ============================================= */
+/* --- ARQUIVO: pages.css (VERSÃO FINAL) --- */
+/* ============================================= */
+
+/* Estilos gerais para páginas de conteúdo */
+.page-section {
+    padding: 80px 0;
+}
+.page-header {
+    text-align: center;
+    margin-bottom: 60px;
+}
+.page-header h1 {
+    font-family: var(--font-headings);
+    color: var(--dark-color);
+    font-size: 3rem;
+    margin-bottom: 10px;
+}
+.page-content {
+    max-width: 800px;
+    margin: 0 auto;
+    line-height: 1.8;
+}
+.page-content h2 {
+    font-family: var(--font-headings);
+    color: var(--dark-color);
+    font-size: 2rem;
+    margin-top: 40px;
+    margin-bottom: 20px;
+    border-bottom: 2px solid var(--light-color);
+    padding-bottom: 10px;
+}
+.page-content p {
+    margin-bottom: 20px;
+}
+
+/* Estilos para a página de Login */
+.login-form {
+    max-width: 450px;
+    margin: 0 auto;
+    background-color: var(--white-color);
+    padding: 40px;
+    border-radius: var(--border-radius);
+    box-shadow: 0 5px 25px rgba(0,0,0,0.1);
+}
+.login-form .form-group {
+    margin-bottom: 20px;
+}
+.login-form label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 500;
+}
+.login-form input {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: var(--border-radius);
+}
+.login-form .btn {
+    width: 100%;
+    padding: 15px;
+}
+.login-form .form-footer {
+    text-align: center;
+    margin-top: 20px;
+    font-size: 0.9rem;
+}
+
+/* Estilos para a página de Blog */
+.blog-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+}
+.blog-post-card {
+    background-color: var(--white-color);
+    border-radius: var(--border-radius);
+    box-shadow: 0 5px 25px rgba(0,0,0,0.08);
+    overflow: hidden;
+}
+.blog-post-card img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+}
+.blog-post-card__content {
+    padding: 25px;
+}
+.blog-post-card__content h3 {
+    font-family: var(--font-headings);
+    color: var(--dark-color);
+    margin-bottom: 15px;
+}
+
+/* [INÍCIO] ESTILOS CORRIGIDOS E COMPLETOS PARA O FAQ INTERATIVO */
+.faq-container {
+    max-width: 800px;
+    margin: 0 auto;
+}
+.faq-item {
+    background-color: var(--white-color);
+    border-radius: var(--border-radius);
+    margin-bottom: 15px;
+    border: 1px solid #e0e0e0;
+    overflow: hidden;
+}
+.faq-question {
+    font-family: var(--font-headings);
+    font-size: 1.2rem;
+    color: var(--dark-color);
+    padding: 20px;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: background-color 0.2s ease;
+}
+.faq-question:hover {
+    background-color: #f9f9f9;
+}
+.faq-question::after {
+    content: '\2b'; /* Código do caractere '+' */
+    font-size: 1.5rem;
+    color: var(--primary-color);
+    transition: transform 0.3s ease-out;
+    font-weight: bold;
+}
+.faq-item.active .faq-question {
+    color: var(--primary-color);
+}
+.faq-item.active .faq-question::after {
+    transform: rotate(45deg); /* Transforma o '+' em 'x' */
+}
+.faq-answer {
+    max-height: 0; /* Começa fechado */
+    overflow: hidden;
+    transition: max-height 0.5s ease-out, padding 0.5s ease-out;
+    padding: 0 20px;
+}
+.faq-answer p {
+    margin: 0;
+    padding-bottom: 20px; /* Adiciona espaçamento interno na resposta */
+}
+.faq-item.active .faq-answer {
+    max-height: 300px; /* Altura suficiente para o conteúdo */
+    padding: 0 20px 0 20px;
+}
+/* [FIM] ESTILOS DO FAQ */

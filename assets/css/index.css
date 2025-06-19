@@ -1,4 +1,19 @@
-/* Arquivo: assets/css/index.css */
+/* ============================================= */
+/* --- ARQUIVO: index.css (VERSÃO "CAPRICHADA") --- */
+/* ============================================= */
+
+/* [ANIMAÇÃO DE ENTRADA] Prepara os elementos para a animação */
+.animated-section {
+    opacity: 0;
+    transform: translateY(50px);
+    transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+/* Estado final da animação */
+.animated-section.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
 
 /* HERO */
 .hero { background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('https://images.unsplash.com/photo-1581578731548-c64695cc6952?q=80&w=2070&auto=format&fit=crop'); background-size: cover; background-position: center; padding: 120px 0; text-align: center; color: var(--white-color); }
@@ -9,27 +24,56 @@
 .feature-section { padding: 80px 0; background-color: var(--light-color); }
 .steps-container { display: flex; justify-content: space-between; gap: 30px; margin-top: 50px; }
 .step-card { text-align: center; padding: 30px; }
-.step-icon { font-size: 3rem; color: var(--primary-color); margin-bottom: 20px; }
+.step-icon { font-size: 3rem; color: var(--primary-color); margin-bottom: 20px; transition: transform 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94); }
+.step-card:hover .step-icon { transform: translateY(-10px) rotate(-5deg); } /* Efeito de 'pular' no ícone */
 .step-card h3 { font-family: var(--font-headings); color: var(--dark-color); font-size: 1.5rem; margin-bottom: 10px; }
 
 /* CATEGORIAS */
 .category-section { padding: 80px 0; }
 .category-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 25px; }
-.category-card { background-color: var(--white-color); border: 1px solid #ddd; border-radius: var(--border-radius); padding: 40px 20px; text-align: center; text-decoration: none; color: var(--text-color); box-shadow: 0 4px 15px rgba(0,0,0,0.05); cursor: pointer; }
-.category-card:hover { border-color: var(--primary-color); }
-.category-card i { font-size: 2.5rem; color: var(--primary-color); margin-bottom: 15px; }
+.category-card { 
+    background-color: var(--white-color); 
+    border: 1px solid #e0e0e0;
+    border-radius: var(--border-radius); 
+    padding: 40px 20px; 
+    text-align: center; 
+    text-decoration: none; 
+    color: var(--text-color); 
+    box-shadow: 0 4px 15px rgba(0,0,0,0.05); 
+    cursor: pointer;
+    transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+}
+/* [EFEITO HOVER AVANÇADO] */
+.category-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 12px 25px rgba(41, 128, 185, 0.15); /* Sombra azulada */
+    border-color: var(--primary-color);
+}
+.category-card i { font-size: 2.5rem; color: var(--primary-color); margin-bottom: 15px; transition: transform 0.3s ease; }
+.category-card:hover i { transform: scale(1.2); }
 .category-card h3 { font-family: var(--font-headings); color: var(--dark-color); font-size: 1.2rem; }
 
 /* DEPOIMENTOS */
-.testimonial-section { padding: 80px 0; background-color: var(--light-color); }
+.testimonial-section { padding: 80px 0; background-color: #f8f9fa; }
 .testimonial-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; }
-.testimonial-card { background-color: var(--white-color); padding: 30px; border-radius: var(--border-radius); border-left: 5px solid var(--primary-color); box-shadow: 0 5px 15px rgba(0,0,0,0.08); }
-.testimonial-text { font-style: italic; margin-bottom: 20px; }
+.testimonial-card { 
+    background-color: var(--white-color); 
+    padding: 30px; 
+    border-radius: var(--border-radius); 
+    border-top: 5px solid var(--primary-color); /* Borda no topo em vez da esquerda */
+    box-shadow: 0 8px 30px rgba(0,0,0,0.07);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.testimonial-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 35px rgba(0,0,0,0.1);
+}
+.testimonial-text { font-style: italic; margin-bottom: 20px; font-size: 1.1rem; }
 .testimonial-author { font-weight: 700; color: var(--dark-color); }
 
 /* CTA PARA PROFISSIONAIS */
 .cta-section { background-color: var(--primary-color); color: var(--white-color); padding: 80px 0; text-align: center; }
-.cta-title { font-family: var(--font-headings); font-size: 2.5rem; margin-bottom: 15px; }
+.cta-title { font-family: var(--font-headings); font-size: 2.5rem; margin-bottom: 15px; color: var(--white-color); }
 .cta-text { max-width: 600px; margin: 0 auto 30px auto; opacity: 0.9; }
 
 /* CONTATO */

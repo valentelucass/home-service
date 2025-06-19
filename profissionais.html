@@ -4,138 +4,160 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Junte-se ao Home Service! Tenha sua vitrine digital, alcance mais clientes e gerencie seu negócio com nossos planos de assinatura.">
-    
     <title>Para Profissionais - Home Service</title>
-    
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700;800&family=Roboto:wght@400;500&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
-    
     <link rel="stylesheet" href="assets/css/base.css">
     <link rel="stylesheet" href="assets/css/profissionais.css">
 </head>
 <body>
 
     <header class="main-header">
-        <div class="container">
-            <a href="index.html" class="logo">HOME SERVICE</a>
-            <nav class="main-nav">
-                <ul>
-                    <li><a href="index.html#categorias">Categorias</a></li>
-                    <li><a href="index.html#como-funciona">Como Funciona</a></li>
-                    <li><a href="marketplace.html">Loja</a></li>
-                </ul>
-            </nav>
-             <div class="header-right">
-                <a href="profissionais.html" class="btn btn-secondary active">Área do Profissional</a>
-                <button class="mobile-menu-toggle" aria-label="Abrir menu">
-                    <i class="fa-solid fa-bars"></i>
-                </button>
-            </div>
+    <div class="container">
+        <a href="index.html" class="logo">HOME SERVICE</a>
+
+        <nav class="main-nav">
+            <ul>
+                <li><a href="index.html#categorias">Categorias</a></li>
+                <li><a href="index.html#como-funciona">Como Funciona</a></li>
+                <li><a href="marketplace.html">Loja</a></li>
+            </ul>
+        </nav>
+
+        <div class="header-actions">
+            <a href="sobre.html" class="nav-link">Sobre Nós</a>
+            <a href="login.html" class="nav-link nav-link--icon">
+                <i class="fa-solid fa-user"></i>
+                <span>Login</span>
+            </a>
+            <a href="profissionais.html" class="btn btn-secondary">Área do Profissional</a>
+            <button class="mobile-menu-toggle" aria-label="Abrir menu">
+                <i class="fa-solid fa-bars"></i>
+            </button>
         </div>
-    </header>
+    </div>
+</header>
 
     <main>
-        <section class="hero-small">
+        <section class="hero-professionals">
             <div class="container">
-                <h1 class="section-title">Sua vitrine digital para alcançar mais clientes</h1>
-                <p class="section-subtitle">Conecte-se diretamente com pessoas que precisam do seu talento, sem intermediários e sem taxas por serviço.</p>
+                <h1 class="hero-title">Mais Clientes, Zero Taxas.</h1>
+                <p class="hero-subtitle">Junte-se à plataforma que mais cresce e crie sua vitrine digital para ser encontrado por milhares de pessoas na sua região.</p>
+                <a href="#plans" class="btn btn-primary btn-large">Ver Planos e Cadastrar <i class="fa-solid fa-arrow-down"></i></a>
             </div>
         </section>
 
-        <section class="plans-section">
+        <section class="how-it-works-pro">
+            <div class="container">
+                <h2 class="section-title">É simples assim:</h2>
+                <div class="steps-container">
+                    <div class="step-card">
+                        <div class="step-icon"><i class="fa-solid fa-address-card"></i></div>
+                        <h3>1. Crie seu Perfil</h3>
+                        <p>Monte sua vitrine com fotos, serviços e sua área de atendimento em minutos.</p>
+                    </div>
+                    <div class="step-card">
+                        <div class="step-icon"><i class="fa-solid fa-mobile-screen-button"></i></div>
+                        <h3>2. Receba Contatos</h3>
+                        <p>Clientes te encontram e falam com você direto no seu WhatsApp ou telefone.</p>
+                    </div>
+                    <div class="step-card">
+                        <div class="step-icon"><i class="fa-solid fa-handshake"></i></div>
+                        <h3>3. Feche Negócios</h3>
+                        <p>Negocie diretamente, sem intermediários. O valor do serviço é 100% seu!</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="plans" class="plans-section">
             <div class="container">
                 <h2 class="section-title">Escolha o plano ideal para você</h2>
                 <div class="plans-container">
                     <div class="plan-card">
                         <div class="plan-header">
-                            <h3>Plano Básico</h3>
-                            <p class="plan-price">R$ 29,00 <span>/mês</span></p>
+                            <h3>Gratuito</h3>
+                            <p class="plan-price">R$ 0,00<span></span></p>
                         </div>
                         <ul class="plan-features">
-                            <li><i class="fa-solid fa-check"></i> Perfil visível na plataforma</li>
-                            <li><i class="fa-solid fa-check"></i> Apareça nas buscas da sua região</li>
-                            <li><i class="fa-solid fa-check"></i> Contato direto de clientes via WhatsApp</li>
-                            <li><i class="fa-solid fa-check"></i> Link exclusivo do seu perfil para divulgação</li>
+                            <li><i class="fa-solid fa-check"></i> Perfil Básico Visível</li>
+                            <li><i class="fa-solid fa-check"></i> Receba até 5 contatos/mês</li>
+                            <li><i class="fa-solid fa-check"></i> Link do Perfil para Divulgação</li>
+                            <li class="disabled"><i class="fa-solid fa-times"></i> Destaque nas Buscas</li>
+                            <li class="disabled"><i class="fa-solid fa-times"></i> Portfólio com Galeria de Fotos</li>
                         </ul>
-                        <a href="#" class="btn btn-secondary">Começar com o Básico</a>
+                        <a href="#cadastro" class="btn btn-secondary">Criar Perfil Grátis</a>
                     </div>
 
                     <div class="plan-card featured">
                         <div class="plan-badge">Mais Popular</div>
                         <div class="plan-header">
-                            <h3>Plano Premium</h3>
+                            <h3>Premium</h3>
                             <p class="plan-price">R$ 99,00 <span>/mês</span></p>
                         </div>
                         <ul class="plan-features">
-                            <li><i class="fa-solid fa-check"></i> <strong>Todos os benefícios do Básico</strong></li>
+                            <li><i class="fa-solid fa-check"></i> <strong>Todos os benefícios do Gratuito</strong></li>
+                            <li><i class="fa-solid fa-check"></i> Contatos <strong>ilimitados</strong> via WhatsApp</li>
                             <li><i class="fa-solid fa-star"></i> <strong>Destaque no topo das buscas</strong></li>
-                            <li><i class="fa-solid fa-check"></i> Perfil completo com portfólio de fotos</li>
+                            <li><i class="fa-solid fa-check"></i> Portfólio completo com Galeria de Fotos</li>
                             <li><i class="fa-solid fa-check"></i> Selo de "Profissional Verificado"</li>
-                            <li><i class="fa-solid fa-check"></i> Acesso a descontos em nossa loja</li>
+                            <li><i class="fa-solid fa-check"></i> Acesso a descontos na nossa Loja</li>
                         </ul>
-                        <a href="#" class="btn btn-primary">Escolher o Premium</a>
+                        <a href="#cadastro" class="btn btn-primary">Escolher o Premium</a>
                     </div>
                 </div>
             </div>
         </section>
+        
+        <section id="cadastro" class="signup-section">
+             </section>
 
-         <section class="faq-section">
-            <div class="container">
-                <h2 class="section-title">Perguntas Frequentes</h2>
-                <div class="faq-container">
-                    <div class="faq-item">
-                        <h3 class="faq-question">O Home Service cobra comissão por serviço?</h3>
-                        <p class="faq-answer">Não! Nosso modelo é 100% livre de comissões. Você paga apenas a assinatura mensal e todo o valor combinado com o cliente é seu.</p>
-                    </div>
-                    <div class="faq-item">
-                        <h3 class="faq-question">Como recebo o contato dos clientes?</h3>
-                        <p class="faq-answer">O cliente vê seu perfil e clica no botão para falar com você diretamente no seu WhatsApp ou para te ligar, sem nenhum intermediário.</p>
-                    </div>
-                    <div class="faq-item">
-                        <h3 class="faq-question">Posso cancelar quando quiser?</h3>
-                        <p class="faq-answer">Sim. Nossos planos não têm fidelidade. Você pode cancelar ou alterar seu plano a qualquer momento, sem burocracia.</p>
-                    </div>
-                </div>
-            </div>
-        </section>
+        <section class="faq-section">
+             </section>
     </main>
 
     <footer class="main-footer-section">
-        <div class="container">
-            <div class="footer-grid">
-                <div class="footer-column about-column">
-                    <h3 class="footer-logo">HOME SERVICE</h3>
-                    <p>A plataforma que conecta você aos melhores profissionais, de forma justa e transparente.</p>
-                    <div class="social-links">
-                        <a href="#"><i class="fa-brands fa-instagram"></i></a>
-                        <a href="#"><i class="fa-brands fa-facebook"></i></a>
-                        <a href="#"><i class="fa-brands fa-linkedin"></i></a>
-                    </div>
-                </div>
-                <div class="footer-column">
-                    <h4>Navegação</h4>
-                    <ul>
-                        <li><a href="index.html#categorias">Categorias</a></li>
-                        <li><a href="profissionais.html">Sou Profissional</a></li>
-                        <li><a href="marketplace.html">Nossa Loja</a></li>
-                        <li><a href="index.html#depoimentos">Depoimentos</a></li>
-                    </ul>
-                </div>
-                <div class="footer-column">
-                    <h4>Contato</h4>
-                    <ul>
-                        <li><a href="#">Central de Ajuda</a></li>
-                        <li><a href="mailto:contato@homeservice.com.br">contato@homeservice.com.br</a></li>
-                    </ul>
+    <div class="container">
+        <div class="footer-grid">
+            <div class="footer-column about-column">
+                <h3 class="footer-logo">HOME SERVICE</h3>
+                <p>A plataforma que conecta você aos melhores profissionais, de forma justa e transparente.</p>
+                <div class="social-links">
+                    <a href="#" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+                    <a href="#" aria-label="Facebook"><i class="fa-brands fa-facebook"></i></a>
+                    <a href="#" aria-label="LinkedIn"><i class="fa-brands fa-linkedin"></i></a>
                 </div>
             </div>
-            <div class="footer-bottom">
-                <p>&copy; 2025 Home Service. Todos os direitos reservados. Feito com <i class="fa-solid fa-heart"></i> no Brasil.</p>
+
+            <div class="footer-column">
+                <h4>Navegação</h4>
+                <ul>
+                    <li><a href="sobre.html">Sobre Nós</a></li>
+                    <li><a href="index.html#categorias">Categorias</a></li>
+                    <li><a href="marketplace.html">Loja</a></li>
+                    <li><a href="blog.html">Blog</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-column">
+                <h4>Suporte</h4>
+                <ul>
+                    <li><a href="faq.html">FAQ (Perguntas Frequentes)</a></li>
+                    <li><a href="contato.html">Fale Conosco</a></li>
+                    <li><a href="termos.html">Termos de Uso e Privacidade</a></li>
+                </ul>
             </div>
         </div>
-    </footer>
+        <div class="footer-bottom">
+            <p>&copy; 2025 Home Service. Todos os direitos reservados.</p>
+        </div>
+    </div>
+</footer>
 
-    <script src="assets/js/script.js"></script>
-
+    <script src="assets/js/helpers.js"></script>
+    <script src="assets/js/components.js"></script>
+    <script src="assets/js/animations.js"></script>
+    <script src="assets/js/main.js"></script>
+    
 </body>
 </html>

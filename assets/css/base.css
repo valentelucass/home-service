@@ -1,4 +1,6 @@
-/* ARQUIVO: base.css (VERSÃO FINAL CORRIGIDA) */
+/* ============================================= */
+/* --- ARQUIVO: base.css (VERSÃO FINAL E ESTÁVEL) --- */
+/* ============================================= */
 
 /* 1. FUNDAMENTOS E VARIÁVEIS GLOBAIS */
 :root {
@@ -17,56 +19,181 @@
 * { margin: 0; padding: 0; box-sizing: border-box; }
 html { scroll-behavior: smooth; }
 body { font-family: var(--font-body); color: var(--text-color); line-height: 1.6; background-color: var(--white-color); }
-.container { width: 90%; max-width: 1100px; margin: 0 auto; }
+.container { width: 90%; max-width: 1200px; margin: 0 auto; }
 
 /* 2. COMPONENTES E UTILITÁRIOS */
-
-/* Botões */
 .btn { display: inline-block; padding: 12px 28px; border-radius: var(--border-radius); text-decoration: none; font-weight: 700; font-family: var(--font-headings); transition: transform 0.2s ease, background-color 0.2s ease; border: none; cursor: pointer; text-align: center; }
 .btn-primary { background-color: var(--primary-color); color: var(--white-color); }
 .btn-primary:hover { background-color: #3498db; transform: translateY(-3px); }
 .btn-secondary { background-color: transparent; color: var(--primary-color); border: 2px solid var(--primary-color); }
 .btn-secondary:hover { background-color: var(--primary-color); color: var(--white-color); }
-.btn-light { background-color: var(--white-color); color: var(--dark-color); }
-.btn-light:hover { background-color: var(--light-color); transform: translateY(-3px); }
-.btn-large { padding: 15px 35px; font-size: 1.1rem; }
 
-/* Modificador BEM para o botão do WhatsApp */
+/* [INÍCIO] CÓDIGO ADICIONADO CONFORME SOLICITADO */
+.btn-light {
+    background-color: var(--white-color);
+    color: var(--dark-color);
+}
+.btn-light:hover {
+    background-color: var(--light-color);
+    transform: translateY(-3px);
+}
+/* [FIM] CÓDIGO ADICIONADO */
+
 .btn-whatsapp { background-color: var(--secondary-color); color: var(--white-color); }
 .btn-whatsapp:hover { background-color: #2ecc71; transform: translateY(-3px); }
 .btn-whatsapp i { margin-right: 8px; }
 
-/* Títulos e Componentes Gerais */
 .section-title { font-family: var(--font-headings); color: var(--dark-color); font-size: 2.8rem; text-align: center; margin-bottom: 20px; }
 .section-subtitle { text-align: center; font-size: 1.1rem; max-width: 600px; margin: 0 auto 60px auto; }
-.hero-small { background-color: var(--light-color); padding: 60px 0; text-align: center; }
 .rating-stars { color: #f1c40f; }
 
 /* 3. HEADER E FOOTER (COMPONENTES GLOBAIS) */
-.main-header { background-color: var(--white-color); padding: 15px 0; box-shadow: 0 2px 10px rgba(0,0,0,0.1); position: sticky; top: 0; z-index: 1000; }
-.main-header .container { display: flex; justify-content: space-between; align-items: center; }
-.logo { font-family: var(--font-headings); font-weight: 800; font-size: 1.5rem; color: var(--dark-color); text-decoration: none; }
-.main-nav ul { list-style: none; display: flex; gap: 30px; }
-.main-nav a { text-decoration: none; color: var(--text-color); font-weight: 500; position: relative; padding-bottom: 5px; }
-.main-nav a::after { content: ''; position: absolute; bottom: 0; left: 0; width: 0; height: 2px; background-color: var(--primary-color); transition: width 0.3s ease; }
-.main-nav a:hover::after, .main-nav a.active::after { width: 100%; }
-.main-nav a.active { color: var(--primary-color); font-weight: 700; }
-.header-right { display: flex; align-items: center; gap: 15px; }
-.mobile-menu-toggle { display: none; background: none; border: none; font-size: 1.5rem; color: var(--dark-color); cursor: pointer; }
-.main-footer-section { background-color: var(--dark-color); color: var(--light-color); padding-top: 60px; }
-.footer-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 40px; padding-bottom: 40px; }
-.footer-logo { font-family: var(--font-headings); font-weight: 800; font-size: 1.5rem; margin-bottom: 15px; }
-.about-column p { color: #bdc3c7; }
-.social-links { margin-top: 20px; }
-.social-links a { color: var(--light-color); text-decoration: none; font-size: 1.5rem; margin-right: 15px; transition: color 0.3s ease; }
-.social-links a:hover { color: var(--primary-color); }
-.footer-column h4 { font-family: var(--font-headings); font-size: 1.2rem; margin-bottom: 20px; }
-.footer-column ul { list-style: none; }
-.footer-column ul li { margin-bottom: 10px; }
-.footer-column ul a { color: #bdc3c7; text-decoration: none; transition: color 0.3s ease; }
-.footer-column ul a:hover { color: var(--white-color); }
-.footer-bottom { border-top: 1px solid #34495e; text-align: center; padding: 20px 0; font-size: 0.9rem; color: #bdc3c7; }
-.footer-bottom .fa-heart { color: var(--primary-color); }
+
+/* [INÍCIO] CÓDIGO CORRIGIDO PARA O HEADER DE BARRA ÚNICA */
+.main-header {
+    background-color: var(--white-color);
+    box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    border-bottom: 1px solid var(--light-color);
+    padding: 0 20px;
+}
+.main-header .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 80px;
+}
+.logo {
+    font-family: var(--font-headings);
+    font-weight: 800;
+    font-size: 1.5rem;
+    color: var(--dark-color);
+    text-decoration: none;
+}
+.main-nav {
+    flex-grow: 1;
+    display: flex;
+    justify-content: center;
+}
+.main-nav ul {
+    list-style: none;
+    display: flex;
+    align-items: center;
+    gap: 30px;
+    margin: 0;
+    padding: 0;
+}
+.main-nav a {
+    text-decoration: none;
+    color: var(--text-color);
+    font-weight: 500;
+    transition: color 0.2s ease;
+}
+.main-nav a:hover {
+    color: var(--primary-color);
+}
+.header-actions {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+.header-actions .nav-link {
+    font-weight: 500;
+    text-decoration: none;
+    color: var(--text-color);
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    transition: color 0.2s ease;
+}
+.header-actions .nav-link:hover {
+    color: var(--primary-color);
+}
+.header-actions .nav-link--icon i {
+    font-size: 1.1rem;
+}
+.header-actions .btn {
+    padding: 10px 24px;
+}
+.mobile-menu-toggle {
+    display: none;
+    background: none;
+    border: none;
+    font-size: 1.8rem;
+    color: var(--dark-color);
+    cursor: pointer;
+    margin-left: 10px;
+}
+/* [FIM] CÓDIGO CORRIGIDO PARA O HEADER */
+
+
+/* [INÍCIO] CÓDIGO FINAL E CORRIGIDO PARA O FOOTER */
+.main-footer-section {
+    background-color: var(--dark-color);
+    color: #bdc3c7;
+    padding: 60px 0 0 0;
+}
+.footer-grid {
+    display: grid;
+    grid-template-columns: 1.5fr 1fr 1fr; 
+    gap: 40px;
+    padding-bottom: 40px;
+}
+.footer-logo {
+    font-family: var(--font-headings);
+    font-weight: 800;
+    font-size: 1.5rem;
+    margin-bottom: 15px;
+    color: var(--white-color);
+}
+.about-column p {
+    color: #bdc3c7;
+    margin-bottom: 20px;
+}
+.social-links a {
+    color: #bdc3c7;
+    text-decoration: none;
+    font-size: 1.5rem;
+    margin-right: 15px;
+    transition: color 0.3s ease;
+}
+.social-links a:hover {
+    color: var(--primary-color);
+}
+.footer-column h4 {
+    font-family: var(--font-headings);
+    font-size: 1.2rem;
+    margin-bottom: 20px;
+    color: var(--white-color);
+}
+.footer-column ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+.footer-column ul li {
+    margin-bottom: 12px;
+}
+.footer-column ul a {
+    color: #bdc3c7;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+.footer-column ul a:hover {
+    color: var(--white-color);
+    padding-left: 5px;
+}
+.footer-bottom {
+    border-top: 1px solid #34495e;
+    text-align: center;
+    padding: 20px 0;
+    font-size: 0.9rem;
+    color: #95a5a6;
+}
+/* [FIM] CÓDIGO FINAL E CORRIGIDO PARA O FOOTER */
+
 
 /* 4. ESTILOS GLOBAIS DO JS (NOTIFICAÇÕES) */
 .notification { position: fixed; bottom: 20px; left: 50%; transform: translateX(-50%); padding: 15px 25px; border-radius: var(--border-radius); color: var(--white-color); font-family: var(--font-body); font-weight: 500; z-index: 2000; box-shadow: 0 4px 15px rgba(0,0,0,0.2); text-align: center; }
@@ -75,16 +202,25 @@ body { font-family: var(--font-body); color: var(--text-color); line-height: 1.6
 .notification-warning { background-color: #f1c40f; color: #333; }
 .notification-error { background-color: #e74c3c; }
 
+
 /* 5. MEDIA QUERIES GLOBAIS */
+@media (max-width: 992px) {
+    .main-nav,
+    .header-actions .nav-link,
+    .header-actions .btn {
+        display: none;
+    }
+    .mobile-menu-toggle {
+        display: block;
+    }
+    .main-nav.active { display: block; position: absolute; top: 80px; left: 0; width: 100%; background-color: var(--white-color); box-shadow: 0 5px 10px rgba(0,0,0,0.1); }
+    .main-nav.active ul { flex-direction: column; padding: 10px 0; gap: 0; }
+    .main-nav.active ul a { display: block; padding: 15px; text-align: center; border-bottom: 1px solid var(--light-color); }
+}
 @media (max-width: 768px) {
     .section-title { font-size: 2.2rem; }
-    .main-header .btn-secondary { display: none; }
-    .mobile-menu-toggle { display: block; }
-    .main-nav { display: none; position: absolute; top: 100%; left: 0; width: 100%; background-color: var(--white-color); box-shadow: 0 5px 10px rgba(0,0,0,0.1); }
-    .main-nav.active { display: block; }
-    .main-nav ul { flex-direction: column; padding: 20px; text-align: center; }
     .footer-grid { grid-template-columns: 1fr; text-align: center; }
-    .social-links { justify-content: center; }
+    .about-column .social-links { justify-content: center; }
 }
 @media (max-width: 480px) {
     .section-title { font-size: 1.8rem; }

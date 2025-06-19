@@ -3,15 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Encontre as melhores diaristas em sua região. Veja perfis, avaliações e entre em contato diretamente.">
-    
-    <title>Diaristas - Home Service</title>
-    
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700;800&family=Roboto:wght@400;500&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
-    
+    <meta name="description" content="Serviços de mecânica, lava-rápido, estética automotiva e mais para o seu veículo.">
+    <title>Serviços Automotivos - Home Service</title>
     <link rel="stylesheet" href="../assets/css/base.css">
     <link rel="stylesheet" href="../assets/css/listing.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700;800&family=Roboto:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
 </head>
 <body>
 
@@ -39,10 +36,10 @@
             <div class="container">
                 <div class="listing-header">
                     <div class="listing-title">
-                        <h1>Diaristas em Natal</h1>
-                        <p>Praça de Boa Viagem</p>
+                        <h1>Serviços Automotivos</h1>
+                        <p>Cuide do seu carro com profissionais de confiança.</p>
                     </div>
-                    <div class="listing-filters">
+                     <div class="listing-filters">
                         <div class="filter-group">
                             <label for="distance">Distância: até <span id="radius-value">15</span> km</label>
                             <input type="range" id="radius" name="distance" min="1" max="50" value="15">
@@ -59,75 +56,57 @@
 
                 <div class="provider-list">
                     <div class="provider-card">
-                        <img src="https://via.placeholder.com/80" alt="Foto de Joana Lima" class="provider-avatar">
-                        <div class="provider-info">
-                            <h3 class="provider-name">Joana Lima</h3>
-                            <p class="provider-specialties">Faxina, Lavanderia, Passadeira</p>
-                            <div class="provider-rating">
-                                <div class="rating-stars">
-                                    <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
-                                </div>
-                                <span class="rating-number">5.0</span>
-                                <span class="rating-count">(42 avaliações)</span>
+                        <img src="https://via.placeholder.com/80" alt="Foto de Rafael Souza" class="provider-card__avatar">
+                        <div class="provider-card__info">
+                            <h3 class="provider-card__name">Rafael Souza</h3>
+                            <p class="provider-card__specialties">Mecânico, Alinhamento e Balanceamento</p>
+                             <div class="provider-card__rating">
+                                <div class="rating-stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star-half-stroke"></i></div>
+                                <span class="rating-number">4.6</span><span class="rating-count">(88 avaliações)</span>
                             </div>
-                            <p class="provider-distance"><i class="fa-solid fa-location-dot"></i> 2.1 km de distância</p>
+                            <p class="provider-card__distance"><i class="fa-solid fa-location-dot"></i> 1.5 km de distância</p>
                         </div>
-                        <div class="provider-actions">
+                        <div class="provider-card__actions">
                             <a href="#" class="btn btn-secondary">Ver Perfil</a>
-                            <button class="btn btn-whatsapp" onclick="openWhatsApp('Joana Lima')">
-                                <i class="fa-brands fa-whatsapp"></i> Chamar
-                            </button>
+                            <button class="btn btn--whatsapp" onclick="openWhatsApp('Rafael Souza')"><i class="fa-brands fa-whatsapp"></i> Chamar</button>
                         </div>
                     </div>
 
+                    <div class="provider-card">
+                        <img src="https://via.placeholder.com/80" alt="Foto de Lave-Car Estética" class="provider-card__avatar">
+                        <div class="provider-card__info">
+                            <h3 class="provider-card__name">Lave-Car Estética</h3>
+                            <p class="provider-card__specialties">Lava-rápido, Polimento, Higienização</p>
+                             <div class="provider-card__rating">
+                                <div class="rating-stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
+                                <span class="rating-number">5.0</span><span class="rating-count">(102 avaliações)</span>
+                            </div>
+                            <p class="provider-card__distance"><i class="fa-solid fa-location-dot"></i> 4.0 km de distância</p>
+                        </div>
+                        <div class="provider-card__actions">
+                            <a href="#" class="btn btn-secondary">Ver Perfil</a>
+                            <button class="btn btn--whatsapp" onclick="openWhatsApp('Lave-Car Estética')"><i class="fa-brands fa-whatsapp"></i> Chamar</button>
+                        </div>
+                    </div>
                     
-
                     <div class="provider-card">
-                        <img src="https://via.placeholder.com/80" alt="Foto de Maria Santos" class="provider-avatar">
-                        <div class="provider-info">
-                            <h3 class="provider-name">Maria Santos</h3>
-                            <p class="provider-specialties">Faxina, Cozinheira</p>
-                            <div class="provider-rating">
-                                <div class="rating-stars">
-                                     <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star-half-stroke"></i>
-                                </div>
-                                <span class="rating-number">4.2</span>
-                                <span class="rating-count">(28 avaliações)</span>
+                        <img src="https://via.placeholder.com/80" alt="Foto de Anahel Ferreira" class="provider-card__avatar">
+                        <div class="provider-card__info">
+                            <h3 class="provider-card__name">Anahel Ferreira</h3>
+                            <p class="provider-card__specialties">Eletricista de Automóveis, Som e Acessórios</p>
+                             <div class="provider-card__rating provider-card__rating--empty">
+                               <span>Sem avaliações ainda</span>
                             </div>
-                            <p class="provider-distance"><i class="fa-solid fa-location-dot"></i> 4.1 km de distância</p>
+                            <p class="provider-card__distance"><i class="fa-solid fa-location-dot"></i> 6.2 km de distância</p>
                         </div>
-                        <div class="provider-actions">
+                        <div class="provider-card__actions">
                             <a href="#" class="btn btn-secondary">Ver Perfil</a>
-                            <button class="btn btn-whatsapp" onclick="openWhatsApp('Maria Santos')">
-                                <i class="fa-brands fa-whatsapp"></i> Chamar
-                            </button>
-                        </div>
-                    </div>
-
-                    <div class="provider-card">
-                        <img src="https://via.placeholder.com/80" alt="Foto de Ana Costa" class="provider-avatar">
-                        <div class="provider-info">
-                            <h3 class="provider-name">Ana Costa</h3>
-                            <p class="provider-specialties">Faxina, Passadeira, Lavanderia</p>
-                            <div class="provider-rating">
-                                <div class="rating-stars">
-                                     <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star-half-stroke"></i>
-                                </div>
-                                <span class="rating-number">4.8</span>
-                                <span class="rating-count">(35 avaliações)</span>
-                            </div>
-                            <p class="provider-distance"><i class="fa-solid fa-location-dot"></i> 6.7 km de distância</p>
-                        </div>
-                        <div class="provider-actions">
-                            <a href="#" class="btn btn-secondary">Ver Perfil</a>
-                            <button class="btn btn-whatsapp" onclick="openWhatsApp('Ana Costa')">
-                                <i class="fa-brands fa-whatsapp"></i> Chamar
-                            </button>
+                            <button class="btn btn--whatsapp" onclick="openWhatsApp('Anahel Ferreira')"><i class="fa-brands fa-whatsapp"></i> Chamar</button>
                         </div>
                     </div>
                 </div>
 
-                <div class="listing-footer">
+                 <div class="listing-footer">
                     <a href="../index.html#categorias" class="btn btn-secondary"><i class="fa-solid fa-arrow-left"></i> Voltar às Categorias</a>
                 </div>
             </div>
@@ -170,6 +149,5 @@
     </footer>
 
     <script src="../assets/js/script.js"></script>
-
 </body>
 </html>

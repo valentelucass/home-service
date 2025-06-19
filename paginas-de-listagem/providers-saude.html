@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Encontre cuidadores de idosos, personal trainers, fisioterapeutas e outros profissionais de saúde.">
+    <title>Saúde e Bem-estar - Home Service</title>
+    <link rel="stylesheet" href="../assets/css/base.css">
+    <link rel="stylesheet" href="../assets/css/listing.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700;800&family=Roboto:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+</head>
+<body>
+
+    <header class="main-header"></header>
+
+    <main>
+        <section class="listing-page">
+            <div class="container">
+                <div class="listing-header">
+                    <div class="listing-title">
+                        <h1>Saúde e Bem-estar</h1>
+                        <p>Cuidando de quem você ama e de você mesmo.</p>
+                    </div>
+                     <div class="listing-filters">
+                        <div class="filter-group">
+                            <label for="distance">Distância: até <span id="radius-value">15</span> km</label>
+                            <input type="range" id="radius" name="distance" min="1" max="50" value="15">
+                        </div>
+                        <div class="filter-group">
+                            <label for="sort">Ordenar por:</label>
+                            <select name="sort" id="sort">
+                                <option value="rating">Melhor Avaliação</option>
+                                <option value="distance">Menor Distância</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                <div class="provider-list">
+                     <div class="provider-card">
+                        <img src="https://via.placeholder.com/80" alt="Foto de Beatriz Lima" class="provider-avatar">
+                        <div class="provider-info">
+                            <h3 class="provider-name">Rayane Soares</h3>
+                            <p class="provider-specialties">Cuidadora de crianças</p>
+                             <div class="provider-rating">
+                                <div class="rating-stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
+                                <span class="rating-number">5.0</span><span class="rating-count">(12 avaliações)</span>
+                            </div>
+                            <p class="provider-distance"><i class="fa-solid fa-location-dot"></i> 11.2 km de distância</p>
+                        </div>
+                        <div class="provider-actions">
+                            <a href="#" class="btn btn-secondary">Ver Perfil</a>
+                            <button class="btn btn-whatsapp" onclick="openWhatsApp('Beatriz Lima')"><i class="fa-brands fa-whatsapp"></i> Chamar</button>
+                        </div>
+                    </div>
+                <div class="provider-list">
+                     <div class="provider-card">
+                        <img src="https://via.placeholder.com/80" alt="Foto de Beatriz Lima" class="provider-avatar">
+                        <div class="provider-info">
+                            <h3 class="provider-name">Luana Lima</h3>
+                            <p class="provider-specialties">Cuidadora de Idosos, Técnica em Enfermagem</p>
+                             <div class="provider-rating">
+                                <div class="rating-stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
+                                <span class="rating-number">5.0</span><span class="rating-count">(12 avaliações)</span>
+                            </div>
+                            <p class="provider-distance"><i class="fa-solid fa-location-dot"></i> 11.2 km de distância</p>
+                        </div>
+                        <div class="provider-actions">
+                            <a href="#" class="btn btn-secondary">Ver Perfil</a>
+                            <button class="btn btn-whatsapp" onclick="openWhatsApp('Beatriz Lima')"><i class="fa-brands fa-whatsapp"></i> Chamar</button>
+                        </div>
+                    </div>
+                     <div class="provider-card">
+                        <img src="https://via.placeholder.com/80" alt="Foto de Tiago Rocha" class="provider-avatar">
+                        <div class="provider-info">
+                            <h3 class="provider-name">Tiago Rocha</h3>
+                            <p class="provider-specialties">Personal Trainer</p>
+                             <div class="provider-rating">
+                                <div class="rating-stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star-half-stroke"></i></div>
+                                <span class="rating-number">4.9</span><span class="rating-count">(35 avaliações)</span>
+                            </div>
+                            <p class="provider-distance"><i class="fa-solid fa-location-dot"></i> 2.5 km de distância</p>
+                        </div>
+                        <div class="provider-actions">
+                            <a href="#" class="btn btn-secondary">Ver Perfil</a>
+                            <button class="btn btn-whatsapp" onclick="openWhatsApp('Tiago Rocha')"><i class="fa-brands fa-whatsapp"></i> Chamar</button>
+                        </div>
+                    </div>
+                </div>
+                 <div class="listing-footer">
+                    <a href="../index.html#categorias" class="btn btn-secondary"><i class="fa-solid fa-arrow-left"></i> Voltar às Categorias</a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="main-footer-section">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-column about-column">
+                    <h3 class="footer-logo">HOME SERVICE</h3>
+                    <p>A plataforma que conecta você aos melhores profissionais, de forma justa e transparente.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fa-brands fa-instagram"></i></a>
+                        <a href="#"><i class="fa-brands fa-facebook"></i></a>
+                        <a href="#"><i class="fa-brands fa-linkedin"></i></a>
+                    </div>
+                </div>
+                <div class="footer-column">
+                    <h4>Navegação</h4>
+                    <ul>
+                        <li><a href="../index.html#categorias">Categorias</a></li>
+                        <li><a href="../profissionais.html">Sou Profissional</a></li>
+                        <li><a href="../marketplace.html">Nossa Loja</a></li>
+                        <li><a href="../index.html#depoimentos">Depoimentos</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h4>Contato</h4>
+                    <ul>
+                        <li><a href="#">Central de Ajuda</a></li>
+                        <li><a href="mailto:contato@homeservice.com.br">contato@homeservice.com.br</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Home Service. Todos os direitos reservados. Feito com <i class="fa-solid fa-heart"></i> no Brasil.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="../assets/js/script.js"></script>
+</body>
+</html>

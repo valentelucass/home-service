@@ -1,0 +1,150 @@
+/* Arquivo: assets/css/listing.css */
+
+.listing-page {
+    padding: 60px 0;
+    background-color: #f8f9fa;
+}
+
+/* Cabeçalho da Listagem */
+.listing-header {
+    background-color: var(--white-color);
+    padding: 25px;
+    border-radius: var(--border-radius);
+    box-shadow: 0 4px 15px rgba(0,0,0,0.07);
+    margin-bottom: 40px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.listing-title h1 {
+    font-family: var(--font-headings);
+    color: var(--dark-color);
+    font-size: 2rem;
+    margin: 0;
+}
+.listing-title p {
+    font-size: 1.1rem;
+    color: var(--text-color);
+}
+
+.listing-filters {
+    display: flex;
+    gap: 30px;
+    flex-wrap: wrap;
+}
+
+.filter-group {
+    display: flex;
+    flex-direction: column;
+}
+.filter-group label {
+    font-size: 0.9rem;
+    font-weight: 500;
+    margin-bottom: 5px;
+}
+.filter-group input[type="range"] {
+    width: 150px;
+}
+.filter-group select {
+    padding: 8px;
+    border-radius: var(--border-radius);
+    border: 1px solid #ccc;
+}
+
+/* Lista de Profissionais */
+.provider-list {
+    display: grid;
+    gap: 20px;
+}
+
+.provider-card {
+    background-color: var(--white-color);
+    border-radius: var(--border-radius);
+    box-shadow: 0 4px 15px rgba(0,0,0,0.07);
+    padding: 20px;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+.provider-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+}
+
+.provider-avatar {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.provider-info {
+    flex-grow: 1;
+}
+.provider-name {
+    font-family: var(--font-headings);
+    color: var(--dark-color);
+    font-size: 1.4rem;
+    margin: 0;
+}
+.provider-specialties {
+    font-size: 0.9rem;
+    color: var(--text-color);
+    margin-bottom: 8px;
+}
+
+.provider-rating {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    font-size: 0.9rem;
+}
+.rating-number {
+    font-weight: 700;
+    color: var(--dark-color);
+}
+.rating-count {
+    color: var(--text-color);
+}
+.provider-distance {
+    font-size: 0.9rem;
+    margin-top: 5px;
+}
+.provider-distance i {
+    color: var(--primary-color);
+}
+
+.provider-actions {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    min-width: 150px;
+}
+.provider-actions .btn {
+    width: 100%;
+    padding: 10px 15px;
+}
+
+.listing-footer {
+    text-align: center;
+    margin-top: 40px;
+}
+
+/* Responsivo para os cards */
+@media (max-width: 600px) {
+    .provider-card {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    .provider-actions {
+        width: 100%;
+        flex-direction: row;
+    }
+    .provider-actions .btn {
+        flex-grow: 1;
+    }
+}

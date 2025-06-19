@@ -1,0 +1,45 @@
+/* Arquivo: assets/css/index.css */
+
+/* HERO */
+.hero { background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('https://images.unsplash.com/photo-1581578731548-c64695cc6952?q=80&w=2070&auto=format&fit=crop'); background-size: cover; background-position: center; padding: 120px 0; text-align: center; color: var(--white-color); }
+.hero-title { font-family: var(--font-headings); font-size: 3.5rem; font-weight: 800; margin-bottom: 20px; }
+.hero-subtitle { font-size: 1.3rem; max-width: 700px; margin: 0 auto 40px auto; opacity: 0.9; }
+
+/* COMO FUNCIONA */
+.feature-section { padding: 80px 0; background-color: var(--light-color); }
+.steps-container { display: flex; justify-content: space-between; gap: 30px; margin-top: 50px; }
+.step-card { text-align: center; padding: 30px; }
+.step-icon { font-size: 3rem; color: var(--primary-color); margin-bottom: 20px; }
+.step-card h3 { font-family: var(--font-headings); color: var(--dark-color); font-size: 1.5rem; margin-bottom: 10px; }
+
+/* CATEGORIAS */
+.category-section { padding: 80px 0; }
+.category-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 25px; }
+.category-card { background-color: var(--white-color); border: 1px solid #ddd; border-radius: var(--border-radius); padding: 40px 20px; text-align: center; text-decoration: none; color: var(--text-color); box-shadow: 0 4px 15px rgba(0,0,0,0.05); cursor: pointer; }
+.category-card:hover { border-color: var(--primary-color); }
+.category-card i { font-size: 2.5rem; color: var(--primary-color); margin-bottom: 15px; }
+.category-card h3 { font-family: var(--font-headings); color: var(--dark-color); font-size: 1.2rem; }
+
+/* DEPOIMENTOS */
+.testimonial-section { padding: 80px 0; background-color: var(--light-color); }
+.testimonial-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; }
+.testimonial-card { background-color: var(--white-color); padding: 30px; border-radius: var(--border-radius); border-left: 5px solid var(--primary-color); box-shadow: 0 5px 15px rgba(0,0,0,0.08); }
+.testimonial-text { font-style: italic; margin-bottom: 20px; }
+.testimonial-author { font-weight: 700; color: var(--dark-color); }
+
+/* CTA PARA PROFISSIONAIS */
+.cta-section { background-color: var(--primary-color); color: var(--white-color); padding: 80px 0; text-align: center; }
+.cta-title { font-family: var(--font-headings); font-size: 2.5rem; margin-bottom: 15px; }
+.cta-text { max-width: 600px; margin: 0 auto 30px auto; opacity: 0.9; }
+
+/* CONTATO */
+.contact-section { padding: 80px 0; }
+.contact-form { max-width: 700px; margin: 0 auto; display: flex; flex-direction: column; gap: 20px; }
+.contact-form input, .contact-form textarea { width: 100%; padding: 15px; border: 1px solid #ccc; border-radius: var(--border-radius); font-family: var(--font-body); font-size: 1rem; }
+.contact-form input:focus, .contact-form textarea:focus { outline: none; border-color: var(--primary-color); box-shadow: 0 0 0 3px rgba(41, 128, 185, 0.2); }
+.contact-form input.error, .contact-form textarea.error { border-color: #e74c3c; background-color: #fbecec; }
+.contact-form button { width: fit-content; align-self: center; }
+
+/* Media Queries da Página */
+@media (max-width: 768px) { .steps-container { flex-direction: column; } .hero-title { font-size: 2.5rem; } }
+@media (max-width: 480px) { .hero-title { font-size: 2rem; } .hero-subtitle { font-size: 1.1rem; } }

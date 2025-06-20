@@ -3,15 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Fale Conosco - Home Service</title>
-    
+    <title>Cadastro de Profissional - Home Service</title>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700;800&family=Roboto:wght@400;500&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
-
     <link rel="stylesheet" href="assets/css/base.css">
     <link rel="stylesheet" href="assets/css/pages.css">
 </head>
-<body>
+<body id="page-signup">
+    
     <header class="main-header">
         <div class="container">
             <a href="index.html" class="logo">HOME SERVICE</a>
@@ -37,28 +36,30 @@
     </header>
 
     <main>
-        <section class="page-section">
+        <section class="page-section" style="background-color: var(--light-color);">
             <div class="container">
-                 <div class="page-header">
-                    <h1>Fale Conosco</h1>
-                    <p class="section-subtitle">Envie sua dúvida, sugestão ou proposta. Nossa equipe retornará o mais breve possível.</p>
-                </div>
-                <div class="page-content">
-                    <form class="login-form"> <div class="form-group">
-                            <label for="name">Seu Nome</label>
-                            <input type="text" id="name" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="email">Seu E-mail</label>
-                            <input type="email" id="email" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="message">Mensagem</label>
-                            <textarea id="message" rows="6" required></textarea>
-                        </div>
-                        <button type="submit" class="btn btn-primary">Enviar Mensagem</button>
-                    </form>
-                </div>
+                <form id="signup-form" class="signup-form">
+                    <h1 id="signup-title" style="text-align: center; margin-bottom: 10px;">Crie seu Perfil</h1>
+                    <p id="signup-subtitle" style="text-align: center; margin-bottom: 30px; font-size: 1.1rem; color: var(--primary-color);"></p>
+
+                    <div class="form-group">
+                        <label for="full-name">Nome Completo</label>
+                        <input type="text" id="full-name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Seu Melhor E-mail</label>
+                        <input type="email" id="email" required>
+                    </div>
+                     <div class="form-group">
+                        <label for="phone">Celular com WhatsApp</label>
+                        <input type="tel" id="phone" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="password">Crie uma Senha</label>
+                        <input type="password" id="password" required>
+                    </div>
+                    <button type="submit" class="btn btn-primary btn-large">Próximo Passo</button>
+                </form>
             </div>
         </section>
     </main>
@@ -103,6 +104,5 @@
     <script src="assets/js/components.js"></script>
     <script src="assets/js/animations.js"></script>
     <script src="assets/js/main.js"></script>
-    
 </body>
 </html>

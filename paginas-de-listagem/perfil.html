@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Perfil de Joana Lima - Home Service</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700;800&family=Roboto:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <link rel="stylesheet" href="../assets/css/base.css">
+    <link rel="stylesheet" href="../assets/css/perfil.css">
+</head>
+<body>
+
+    <header class="main-header">
+        <div class="container">
+            <a href="../index.html" class="logo">HOME SERVICE</a>
+            <nav class="main-nav">
+                <ul>
+                    <li><a href="../index.html#categorias">Categorias</a></li>
+                    <li><a href="../profissionais.html">Para Profissionais</a></li>
+                    <li><a href="../marketplace.html">Loja</a></li>
+                </ul>
+            </nav>
+            <div class="header-right">
+                <a href="../sobre.html" class="nav-link">Sobre Nós</a>
+                <a href="../login.html" class="nav-link nav-link--icon">
+                    <i class="fa-solid fa-user"></i>
+                    <span>Login</span>
+                </a>
+                <a href="../profissionais.html" class="btn btn-secondary">Área do Profissional</a>
+                <button class="mobile-menu-toggle" aria-label="Abrir menu">
+                    <i class="fa-solid fa-bars"></i>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <section class="profile-page">
+            <div class="container">
+                <div class="profile-header">
+                    <img src="https://via.placeholder.com/150" alt="Foto de Joana Lima" class="profile-header__avatar">
+                    <div class="profile-header__info">
+                        <h1>Joana Lima</h1>
+                        <p>Diarista em Recife, PE</p>
+                        <div class="profile-header__rating">
+                            <div class="rating-stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
+                            <span>5.0 (baseado em 42 avaliações)</span>
+                        </div>
+                        <div class="profile-header__actions">
+                            <button class="btn btn-primary btn-large" onclick="openWhatsApp('Joana Lima')"><i class="fa-brands fa-whatsapp"></i> Chamar no WhatsApp</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="profile-layout">
+                    <div class="profile-main">
+                        <div class="profile-section">
+                            <h2>Sobre Mim</h2>
+                            <p>Olá! Sou a Joana, profissional de limpeza com mais de 8 anos de experiência. Sou extremamente detalhista e dedicada a deixar cada ambiente impecável e organizado. Minha maior satisfação é ver a alegria dos clientes com o resultado do meu trabalho. Pontualidade e confiança são minhas prioridades.</p>
+                        </div>
+
+                        <div class="profile-section">
+                            <h2>Meu Portfólio</h2>
+                            <div class="portfolio-grid">
+                                <img src="https://via.placeholder.com/200x150.png?text=Sala+Limpa" alt="Sala de estar limpa">
+                                <img src="https://via.placeholder.com/200x150.png?text=Cozinha" alt="Cozinha organizada">
+                                <img src="https://via.placeholder.com/200x150.png?text=Banheiro" alt="Banheiro brilhando">
+                                <img src="https://via.placeholder.com/200x150.png?text=Quarto" alt="Quarto arrumado">
+                            </div>
+                        </div>
+
+                        <div class="profile-section">
+                            <h2>Avaliações de Clientes</h2>
+                            <div class="reviews-list">
+                                <div class="review-card">
+                                    <div class="review-header">
+                                        <h4 class="review-header__author">Mariana Silva</h4>
+                                        <div class="rating-stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
+                                    </div>
+                                    <p class="review-card__text">"Joana é excepcional! Muito cuidadosa com os detalhes e sempre deixa a casa impecável. Pontual e confiável, recomendo sem hesitar."</p>
+                                </div>
+                                <div class="review-card">
+                                    <div class="review-header">
+                                        <h4 class="review-header__author">Carlos Mendes</h4>
+                                        <div class="rating-stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
+                                    </div>
+                                    <p class="review-card__text">"Profissional exemplar! Cuida da nossa casa há 2 anos e nunca tivemos problemas. Muito organizada e respeitosa."</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <aside class="profile-sidebar">
+                        <div class="sidebar-box">
+                            <h3>Informações Rápidas</h3>
+                            <ul>
+                                <li><i class="fa-solid fa-location-dot"></i><div><strong>Atende em:</strong><br>Boa Viagem, Pina e região</div></li>
+                                <li><i class="fa-solid fa-map"></i><div><strong>Raio de Atendimento:</strong><br>Até 20km</div></li>
+                                <li><i class="fa-regular fa-clock"></i><div><strong>Horários:</strong><br>Seg a Sex, 8h às 18h</div></li>
+                            </ul>
+                        </div>
+                         <div class="sidebar-box">
+                            <h3>Verificação</h3>
+                             <ul>
+                                <li><i class="fa-solid fa-check"></i> <strong>Selo Profissional Verificado</strong></li>
+                            </ul>
+                        </div>
+                    </aside>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="main-footer-section">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-column about-column">
+                    <h3 class="footer-logo">HOME SERVICE</h3>
+                    <p>A plataforma que conecta você aos melhores profissionais, de forma justa e transparente.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fa-brands fa-instagram"></i></a>
+                        <a href="#"><i class="fa-brands fa-facebook"></i></a>
+                        <a href="#"><i class="fa-brands fa-linkedin"></i></a>
+                    </div>
+                </div>
+                <div class="footer-column">
+                    <h4>Navegação</h4>
+                    <ul>
+                        <li><a href="../sobre.html">Sobre Nós</a></li>
+                        <li><a href="../index.html#categorias">Categorias</a></li>
+                        <li><a href="../marketplace.html">Loja</a></li>
+                        <li><a href="../blog.html">Blog</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h4>Suporte</h4>
+                    <ul>
+                        <li><a href="../faq.html">FAQ (Perguntas Frequentes)</a></li>
+                        <li><a href="../contato.html">Fale Conosco</a></li>
+                        <li><a href="../termos.html">Termos de Uso e Privacidade</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Home Service. Todos os direitos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="../assets/js/helpers.js"></script>
+    <script src="../assets/js/components.js"></script>
+    <script src="../assets/js/animations.js"></script>
+    <script src="../assets/js/main.js"></script>
+    
+</body>
+</html>

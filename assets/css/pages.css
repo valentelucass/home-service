@@ -146,4 +146,39 @@
     max-height: 300px; /* Altura suficiente para o conteúdo */
     padding: 0 20px 0 20px;
 }
+
+/* No arquivo: assets/css/pages.css (adicionar no final) */
+
+.payment-form {
+    max-width: 500px;
+    margin: 0 auto;
+    background-color: var(--white-color);
+    padding: 40px;
+    border-radius: var(--border-radius);
+    box-shadow: 0 5px 25px rgba(0,0,0,0.1);
+}
+.plan-summary {
+    background-color: var(--light-color);
+    padding: 20px;
+    border-radius: var(--border-radius);
+    margin-bottom: 30px;
+    text-align: center;
+}
+.plan-summary h3 {
+    margin: 0;
+    color: var(--dark-color);
+}
+.plan-summary p {
+    margin: 5px 0 0 0;
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--primary-color);
+}
+.form-row {
+    display: flex;
+    gap: 20px;
+}
+.form-row .form-group {
+    flex: 1;
+}
 /* [FIM] ESTILOS DO FAQ */

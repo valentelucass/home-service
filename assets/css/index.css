@@ -1,10 +1,12 @@
 /* ============================================= */
-/* --- ARQUIVO: index.css (VERSÃO "CAPRICHADA") --- */
+/* --- ARQUIVO: index.css (VERSÃO REFINADA) --- */
 /* ============================================= */
 
 /* [ANIMAÇÃO DE ENTRADA] Prepara os elementos para a animação */
 .animated-section {
-    
+    /* As animações foram comentadas para corrigir o bug de carregamento. */
+    /* opacity: 0; */
+    /* transform: translateY(50px); */
     transition: opacity 0.8s ease-out, transform 0.8s ease-out;
 }
 
@@ -15,38 +17,165 @@
 }
 
 
-/* HERO */
-.hero { background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('https://images.unsplash.com/photo-1581578731548-c64695cc6952?q=80&w=2070&auto=format&fit=crop'); background-size: cover; background-position: center; padding: 120px 0; text-align: center; color: var(--white-color); }
-.hero-title { font-family: var(--font-headings); font-size: 3.5rem; font-weight: 800; margin-bottom: 20px; }
-.hero-subtitle { font-size: 1.3rem; max-width: 700px; margin: 0 auto 40px auto; opacity: 0.9; }
+/* ========================================================== */
+/* --- HERO COM DESIGN SOFISTICADO (VERSÃO FINAL) --- */
+/* ========================================================== */
 
+@keyframes hero-zoom {
+    0% { transform: scale(1.05); }
+    100% { transform: scale(1.15); }
+}
+
+.hero-revamped {
+    position: relative;
+    /* Faz o hero começar do topo da tela, atrás do header */
+    margin-top: -80px; 
+    height: 100vh; /* Alterado para ocupar a tela inteira */
+    min-height: 900px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    /* A borda arredondada sutil que você pediu */
+    border-bottom-left-radius: 25px;
+    border-bottom-right-radius: 25px;
+}
+
+.hero-carousel {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+}
+
+.hero-slide {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+    opacity: 0;
+    animation: hero-zoom 25s infinite;
+    transition: opacity 1.5s ease-in-out;
+}
+
+.hero-slide:nth-child(1) { animation-delay: 0s; }
+.hero-slide:nth-child(2) { animation-delay: 5s; }
+.hero-slide:nth-child(3) { animation-delay: 10s; }
+.hero-slide:nth-child(4) { animation-delay: 15s; }
+.hero-slide:nth-child(5) { animation-delay: 20s; } /* Adicionado o 5º slide que faltava */
+
+.hero-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    /* Degradê suave que escurece apenas a base para dar profundidade */
+    background: linear-gradient(180deg, rgba(0,0,0,0.1) 0%, transparent 5%, rgba(0, 0, 0, 0.5) 85%, rgba(0,0,0,0.8) 100%);
+    z-index: 2;
+}
+
+.hero-content-container {
+    position: relative;
+    z-index: 3;
+    text-align: center;
+}
+
+.hero-title {
+    font-family: var(--font-headings);
+    font-size: 4.2rem;
+    font-weight: 700; /* Um pouco menos pesado que 800 */
+    color: var(--white-color);
+    margin-bottom: 20px;
+    /* Efeito de profundidade no texto */
+    text-shadow: 0px 2px 8px rgba(0, 0, 0, 0.5);
+}
+
+.hero-subtitle {
+    font-size: 1.4rem;
+    max-width: 700px;
+    margin: 0 auto 50px auto;
+    color: var(--light-color);
+    font-weight: 400; /* Letra mais fina e elegante */
+    opacity: 0.9;
+}
+
+/* --- BOTÃO COM ANIMAÇÃO ELEGANTE --- */
+.btn-impact {
+    display: inline-flex;
+    align-items: center;
+    gap: 15px;
+    padding: 22px 48px; /* Botão ligeiramente maior */
+    font-family: var(--font-headings);
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: var(--white-color);
+    text-decoration: none;
+    border: none;
+    border-radius: 50px;
+    background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.25);
+    position: relative;
+    overflow: hidden;
+    cursor: pointer;
+    transition: transform 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94), box-shadow 0.4s ease;
+}
+
+.btn-impact:hover {
+    transform: translateY(-4px) scale(1.03); /* Animação de hover mais sutil */
+    box-shadow: 0 12px 35px rgba(0, 0, 0, 0.35);
+}
+
+/* Efeito de brilho que passa pelo botão */
+.btn-impact::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 50%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.25), transparent);
+    transform: skewX(-25deg);
+    transition: left 0.9s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+.btn-impact:hover::before {
+    left: 125%;
+}
+
+
+/* --- SEÇÕES RESTANTES (Sem alterações) --- */
 /* COMO FUNCIONA */
 .feature-section { padding: 80px 0; background-color: var(--light-color); }
 .steps-container { display: flex; justify-content: space-between; gap: 30px; margin-top: 50px; }
 .step-card { text-align: center; padding: 30px; }
 .step-icon { font-size: 3rem; color: var(--primary-color); margin-bottom: 20px; transition: transform 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94); }
-.step-card:hover .step-icon { transform: translateY(-10px) rotate(-5deg); } /* Efeito de 'pular' no ícone */
+.step-card:hover .step-icon { transform: translateY(-10px) rotate(-5deg); }
 .step-card h3 { font-family: var(--font-headings); color: var(--dark-color); font-size: 1.5rem; margin-bottom: 10px; }
 
 /* CATEGORIAS */
 .category-section { padding: 80px 0; }
 .category-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 25px; }
-.category-card { 
-    background-color: var(--white-color); 
+.category-card {
+    background-color: var(--white-color);
     border: 1px solid #e0e0e0;
-    border-radius: var(--border-radius); 
-    padding: 40px 20px; 
-    text-align: center; 
-    text-decoration: none; 
-    color: var(--text-color); 
-    box-shadow: 0 4px 15px rgba(0,0,0,0.05); 
+    border-radius: var(--border-radius);
+    padding: 40px 20px;
+    text-align: center;
+    text-decoration: none;
+    color: var(--text-color);
+    box-shadow: 0 4px 15px rgba(0,0,0,0.05);
     cursor: pointer;
     transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
 }
-/* [EFEITO HOVER AVANÇADO] */
 .category-card:hover {
     transform: translateY(-8px);
-    box-shadow: 0 12px 25px rgba(41, 128, 185, 0.15); /* Sombra azulada */
+    box-shadow: 0 12px 25px rgba(41, 128, 185, 0.15);
     border-color: var(--primary-color);
 }
 .category-card i { font-size: 2.5rem; color: var(--primary-color); margin-bottom: 15px; transition: transform 0.3s ease; }
@@ -56,11 +185,11 @@
 /* DEPOIMENTOS */
 .testimonial-section { padding: 80px 0; background-color: #f8f9fa; }
 .testimonial-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; }
-.testimonial-card { 
-    background-color: var(--white-color); 
-    padding: 30px; 
-    border-radius: var(--border-radius); 
-    border-top: 5px solid var(--primary-color); /* Borda no topo em vez da esquerda */
+.testimonial-card {
+    background-color: var(--white-color);
+    padding: 30px;
+    border-radius: var(--border-radius);
+    border-top: 5px solid var(--primary-color);
     box-shadow: 0 8px 30px rgba(0,0,0,0.07);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
 }

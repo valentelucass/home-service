@@ -321,3 +321,25 @@ function initSuccessPage() {
     }
     // Se não houver status, a página exibe a mensagem padrão para o plano gratuito.
 }
+
+function initHeroCarousel() {
+    const slides = document.querySelectorAll('.hero-slide');
+    if (slides.length === 0) return;
+
+    let currentSlide = 0;
+    
+    function showSlide(index) {
+        slides.forEach((slide, i) => {
+            slide.style.opacity = i === index ? 1 : 0;
+        });
+    }
+
+    // Mostra o primeiro slide imediatamente
+    showSlide(currentSlide);
+
+    // Troca de slide a cada 5 segundos
+    setInterval(() => {
+        currentSlide = (currentSlide + 1) % slides.length;
+        showSlide(currentSlide);
+    }, 5000);
+}

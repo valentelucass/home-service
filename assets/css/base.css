@@ -4,27 +4,28 @@
 
 /* 1. FUNDAMENTOS E VARIÁVEIS GLOBAIS */
 :root {
-    --primary-color: #2980b9;
-    --secondary-color: #27ae60;
-    --dark-color: #2c3e50;
-    --light-color: #ecf0f1;
-    --white-color: #ffffff;
-    --text-color: #555;
-    --font-headings: 'Montserrat', sans-serif;
-    --font-body: 'Roboto', sans-serif;
-    --border-radius: 8px;
+  --primary-color: #5d00ff;
+  --secondary-color: #2f00ff;
+  --dark-color: #2c3e50;
+  --light-color: #ecf0f1;
+  --white-color: #ffffff;
+  --text-color: #555555;
+  --font-headings: 'Montserrat', sans-serif;
+  --font-body: 'Roboto', sans-serif;
+  --border-radius: 8px;
 }
+
 
 /* Reset e Estilos Globais */
 * { margin: 0; padding: 0; box-sizing: border-box; }
 html { scroll-behavior: smooth; }
-body { font-family: var(--font-body); color: var(--text-color); line-height: 1.6; background-color: var(--white-color); }
+body { font-family: var(--font-body); color: var(--text-color); line-height: 1.6; background-color: #ffffff; }
 .container { width: 90%; max-width: 1200px; margin: 0 auto; }
 
 /* 2. COMPONENTES E UTILITÁRIOS */
 .btn { display: inline-block; padding: 12px 28px; border-radius: var(--border-radius); text-decoration: none; font-weight: 700; font-family: var(--font-headings); transition: transform 0.2s ease, background-color 0.2s ease; border: none; cursor: pointer; text-align: center; }
 .btn-primary { background-color: var(--primary-color); color: var(--white-color); }
-.btn-primary:hover { background-color: #3498db; transform: translateY(-3px); }
+.btn-primary:hover { background-color: #30005d; transform: translateY(-3px); }
 .btn-secondary { background-color: transparent; color: var(--primary-color); border: 2px solid var(--primary-color); }
 .btn-secondary:hover { background-color: var(--primary-color); color: var(--white-color); }
 
@@ -51,13 +52,21 @@ body { font-family: var(--font-body); color: var(--text-color); line-height: 1.6
 
 /* [INÍCIO] CÓDIGO CORRIGIDO PARA O HEADER DE BARRA ÚNICA */
 .main-header {
-    background-color: var(--white-color);
-    box-shadow: 0 2px 10px rgba(0,0,0,0.08);
-    position: sticky;
+    /* Efeito de vidro "leitoso" */
+    background: rgba(230, 194, 255, 0.7); /* transparência */
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+
+    /* Posicionamento flutuante */
+    position: fixed; /* Fixo no topo da tela */
     top: 0;
+    left: 0;
+    width: 100%; /* Ocupa a largura toda */
     z-index: 1000;
-    border-bottom: 1px solid var(--light-color);
+    
     padding: 0 20px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    transition: background 0.3s ease;
 }
 .main-header .container {
     display: flex;
@@ -131,7 +140,7 @@ body { font-family: var(--font-body); color: var(--text-color); line-height: 1.6
 
 /* [INÍCIO] CÓDIGO FINAL E CORRIGIDO PARA O FOOTER */
 .main-footer-section {
-    background-color: var(--dark-color);
+    background-color: #000000;
     color: #bdc3c7;
     padding: 60px 0 0 0;
 }

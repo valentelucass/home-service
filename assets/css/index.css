@@ -139,33 +139,47 @@
 
 
 /* ========================================================== */
-/* [INÍCIO] BOTÃO DE IMPACTO (ESTILO ESPETACULAR) */
+/* [INÍCIO] BOTÃO DE IMPACTO (ALINHADO COM PROFISSIONAIS) */
 /* ========================================================== */
 .btn-impact {
-    display: flex;
-    justify-content: center;
+    display: inline-flex;
     align-items: center;
     gap: 15px;
-    padding: 20px;
-    width: 100%;
+    padding: 22px 48px;
     font-family: var(--font-headings);
     font-size: 1.2rem;
     font-weight: 700;
     color: var(--white-color);
     text-decoration: none;
     border: none;
-    border-radius: 15px;
+    border-radius: 50px;
     background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
-    box-shadow: 0 8px 25px rgba(93, 0, 255, 0.3);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.25);
     position: relative;
     overflow: hidden;
     cursor: pointer;
-    transition: all 0.3s ease;
+    transition: transform 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94), box-shadow 0.4s ease;
 }
 
 .btn-impact:hover {
-    transform: translateY(-4px);
-    box-shadow: 0 12px 35px rgba(93, 0, 255, 0.4);
+    transform: translateY(-4px) scale(1.03);
+    box-shadow: 0 12px 35px rgba(0, 0, 0, 0.35);
+}
+
+.btn-impact::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 50%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.25), transparent);
+    transform: skewX(-25deg);
+    transition: left 0.9s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+.btn-impact:hover::before {
+    left: 125%;
 }
 /* [FIM] BOTÃO DE IMPACTO */
 

@@ -10,11 +10,11 @@ document.addEventListener("DOMContentLoaded", function() {
     initFaqAccordion();
     initRadiusSlider();
     initPortfolioGallery();
-    initSortProviders();
     
     // Inicializa funcionalidades específicas de páginas
     initMultiStepSignup();
     initPaymentPage();
+    initSuccessPage();
 
     // Inicializa as animações de rolagem
     initScrollAnimations();

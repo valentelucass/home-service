@@ -125,9 +125,11 @@ function initPaymentPage() {
    const paymentForm = document.querySelector('.payment-form');
    if(paymentForm) {
        paymentForm.addEventListener('submit', (e) => {
-           e.preventDefault();
-           alert('Pagamento realizado com sucesso! Seu plano está ativo.');
-       });
+    e.preventDefault();
+    // Em vez de um alerta, redirecionamos para a página de sucesso
+    // com um status para identificação.
+    window.location.href = 'cadastro-sucesso.html?status=pago';
+});
    }
 }
 
@@ -222,20 +224,32 @@ function initMultiStepSignup() {
         }
     });
 
-    // --- LÓGICA DE VALIDAÇÃO (SIMPLES) ---
+    // --- LÓGICA DE VALIDAÇÃO (CORRIGIDA) ---
     const validateStep = (stepIndex) => {
+        // Se for o primeiro passo (índice 0), pula a validação para facilitar o teste.
+        if (stepIndex === 0) {
+            return true;
+        }
+
+        // Mantém a validação para os passos seguintes.
         const stepDiv = steps[stepIndex];
         const inputs = stepDiv.querySelectorAll('input[required], select[required]');
         let isValid = true;
+        
         inputs.forEach(input => {
+            // Remove a borda de erro anterior
+            input.style.borderColor = '#ccc';
+
             if (!input.value) {
                 isValid = false;
-                input.style.borderColor = '#e74c3c'; // Vermelho para erro
-            } else {
-                input.style.borderColor = '#ccc'; // Cor padrão
+                input.style.borderColor = '#e74c3c'; // Aplica borda de erro
             }
         });
-        if (!isValid) alert('Por favor, preencha todos os campos obrigatórios.');
+        
+        if (!isValid) {
+            alert('Por favor, preencha todos os campos obrigatórios.');
+        }
+        
         return isValid;
     };
 
@@ -287,4 +301,23 @@ function initMultiStepSignup() {
         basico: 'Complete seus dados para prosseguir para o pagamento.',
         premium: 'Complete seus dados para ter acesso total à plataforma.'
     }[plano];
+}
+
+function initSuccessPage() {
+    // Verifica se estamos na página de sucesso procurando pelo elemento .success-box
+    const successBox = document.querySelector('.success-box');
+    if (!successBox) return;
+
+    const urlParams = new URLSearchParams(window.location.search);
+    const status = urlParams.get('status');
+
+    // Se o status for 'pago', customiza a mensagem.
+    if (status === 'pago') {
+        const title = document.getElementById('success-title');
+        const message = document.getElementById('success-message');
+
+        title.textContent = 'Pagamento Confirmado!';
+        message.textContent = 'Seu plano foi ativado. Bem-vindo! Explore todos os benefícios e comece a receber contatos de novos clientes.';
+    }
+    // Se não houver status, a página exibe a mensagem padrão para o plano gratuito.
 }

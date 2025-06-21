@@ -4,10 +4,10 @@
 
 /* [ANIMAÇÃO DE ENTRADA] Prepara os elementos para a animação */
 .animated-section {
-    opacity: 0;
-    transform: translateY(50px);
+    
     transition: opacity 0.8s ease-out, transform 0.8s ease-out;
 }
+
 /* Estado final da animação */
 .animated-section.visible {
     opacity: 1;

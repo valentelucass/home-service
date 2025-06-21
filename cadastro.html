@@ -39,27 +39,87 @@
         <section class="page-section" style="background-color: var(--light-color);">
             <div class="container">
                 <form id="signup-form" class="signup-form">
-                    <h1 id="signup-title" style="text-align: center; margin-bottom: 10px;">Crie seu Perfil</h1>
-                    <p id="signup-subtitle" style="text-align: center; margin-bottom: 30px; font-size: 1.1rem; color: var(--primary-color);"></p>
+    <h1 id="signup-title">Crie seu Perfil</h1>
+    <p id="signup-subtitle" class="text-primary"></p>
 
-                    <div class="form-group">
-                        <label for="full-name">Nome Completo</label>
-                        <input type="text" id="full-name" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="email">Seu Melhor E-mail</label>
-                        <input type="email" id="email" required>
-                    </div>
-                     <div class="form-group">
-                        <label for="phone">Celular com WhatsApp</label>
-                        <input type="tel" id="phone" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="password">Crie uma Senha</label>
-                        <input type="password" id="password" required>
-                    </div>
-                    <button type="submit" class="btn btn-primary btn-large">Próximo Passo</button>
-                </form>
+    <div class="progress-bar">
+        <div class="progress-step active" data-title="Acesso">1</div>
+        <div class="progress-step" data-title="Perfil">2</div>
+        <div class="progress-step" data-title="Dados">3</div>
+        <div class="progress-step" data-title="Revisão">4</div>
+    </div>
+
+    <div class="form-step active" data-step="1">
+        <h2 class="step-title">Comece com seu e-mail</h2>
+        <div class="form-group">
+            <label for="email">Seu melhor e-mail</label>
+            <input type="email" id="email" required placeholder="exemplo@email.com">
+        </div>
+        <div class="form-group">
+            <label for="password">Crie uma senha segura</label>
+            <input type="password" id="password" required placeholder="Mínimo 6 caracteres">
+        </div>
+        <div class="form-navigation">
+            <button type="button" class="btn btn-primary next-step">Próximo Passo <i class="fa-solid fa-arrow-right"></i></button>
+        </div>
+    </div>
+
+    <div class="form-step" data-step="2">
+        <h2 class="step-title">Descreva seus Serviços</h2>
+        <div class="form-group">
+            <label for="professional-category">Selecione sua categoria principal</label>
+            <select id="professional-category">
+                <option value="">-- Escolha uma categoria --</option>
+                <option value="residencial">Serviços Residenciais</option>
+                <option value="diarista">Diarista / Limpeza</option>
+                <option value="eventos">Eventos</option>
+                <option value="automotivo">Automotivo</option>
+                <option value="saude">Saúde e Bem-estar</option>
+                <option value="aulas">Aulas Particulares</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label>Marque suas especialidades</label>
+            <div id="services-checkbox-container" class="services-checkbox-group">
+                <p class="text-center text-muted">Selecione uma categoria acima para ver as especialidades.</p>
+            </div>
+        </div>
+        <div class="form-navigation">
+            <button type="button" class="btn btn-secondary prev-step"><i class="fa-solid fa-arrow-left"></i> Voltar</button>
+            <button type="button" class="btn btn-primary next-step">Próximo Passo <i class="fa-solid fa-arrow-right"></i></button>
+        </div>
+    </div>
+
+    <div class="form-step" data-step="3">
+        <h2 class="step-title">Informações de Contato</h2>
+        <div class="form-group">
+            <label for="full-name">Nome Completo</label>
+            <input type="text" id="full-name" required placeholder="Seu nome como aparecerá no perfil">
+        </div>
+        <div class="form-group">
+            <label for="phone">Celular com WhatsApp</label>
+            <input type="tel" id="phone" required placeholder="(99) 99999-9999">
+        </div>
+        <div class="form-group">
+            <label for="city">Sua cidade / Estado</label>
+            <input type="text" id="city" required placeholder="Ex: São Paulo, SP">
+        </div>
+        <div class="form-navigation">
+            <button type="button" class="btn btn-secondary prev-step"><i class="fa-solid fa-arrow-left"></i> Voltar</button>
+            <button type="button" class="btn btn-primary next-step">Revisar Cadastro <i class="fa-solid fa-arrow-right"></i></button>
+        </div>
+    </div>
+
+    <div class="form-step" data-step="4">
+        <h2 class="step-title">Revise suas Informações</h2>
+        <div id="review-container" class="review-box">
+            </div>
+        <div class="form-navigation">
+            <button type="button" class="btn btn-secondary prev-step"><i class="fa-solid fa-arrow-left"></i> Corrigir</button>
+            <button type="submit" class="btn btn-primary btn-large">Finalizar e Criar Perfil <i class="fa-solid fa-check"></i></button>
+        </div>
+    </div>
+</form>
             </div>
         </section>
     </main>

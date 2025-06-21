@@ -20,7 +20,7 @@
 
 
 function initScrollAnimations() {
-    const animatedSections = document.querySelectorAll('.animated-section');
+    const animatedSections = document.querySelectorAll('main .animated-section:not(:first-child)');
 
     if ("IntersectionObserver" in window) {
         const observer = new IntersectionObserver((entries, observer) => {

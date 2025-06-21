@@ -4,12 +4,13 @@
 
 /* 1. FUNDAMENTOS E VARIÁVEIS GLOBAIS */
 :root {
-  --primary-color: #5d00ff;
-  --secondary-color: #2f00ff;
-  --dark-color: #2c3e50;
-  --light-color: #ecf0f1;
+  --primary-color: #5d00ff; /* Seu roxo vibrante */
+  --secondary-color: #2f00ff; /* Seu roxo para contraste */
+  --accent-color: #270039;  /* Seu novo tom de azul para detalhes */
+  --dark-color: hsl(0, 0%, 4%);
+  --light-color: #f0f0f0;   /* Seu novo cinza claro */
   --white-color: #ffffff;
-  --text-color: #555555;
+  --text-color: #181818;
   --font-headings: 'Montserrat', sans-serif;
   --font-body: 'Roboto', sans-serif;
   --border-radius: 8px;
@@ -41,7 +42,7 @@ body { font-family: var(--font-body); color: var(--text-color); line-height: 1.6
 /* [FIM] CÓDIGO ADICIONADO */
 
 .btn-whatsapp { background-color: var(--secondary-color); color: var(--white-color); }
-.btn-whatsapp:hover { background-color: #2ecc71; transform: translateY(-3px); }
+.btn-whatsapp:hover { background-color: #270039; transform: translateY(-3px); }
 .btn-whatsapp i { margin-right: 8px; }
 
 .section-title { font-family: var(--font-headings); color: var(--dark-color); font-size: 2.8rem; text-align: center; margin-bottom: 20px; }
@@ -53,7 +54,7 @@ body { font-family: var(--font-body); color: var(--text-color); line-height: 1.6
 /* [INÍCIO] CÓDIGO CORRIGIDO PARA O HEADER DE BARRA ÚNICA */
 .main-header {
     /* Efeito de vidro "leitoso" */
-    background: rgba(230, 194, 255, 0.7); /* transparência */
+    background: rgba(255, 255, 255, 0.7); /* transparência */
     backdrop-filter: blur(15px);
     -webkit-backdrop-filter: blur(15px);
 

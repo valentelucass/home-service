@@ -4,7 +4,8 @@
 
 /* Estilos gerais para páginas de conteúdo */
 .page-section {
-    padding: 80px 0;
+    padding-top: 140px; /* AUMENTE ESTE VALOR para afastar do menu */
+    padding-bottom: 80px; /* Mantém o espaço na parte de baixo */
 }
 .page-header {
     text-align: center;
@@ -530,4 +531,101 @@ i.fa-solid { margin-left: 8px; }
     justify-content: center;
     gap: 15px;
 }
-/* [FIM] ESTILOS DO FAQ */
+
+/* ============================================= */
+/* --- ESTILOS PARA PÁGINA DE TERMOS E PRIVACIDADE --- */
+/* ============================================= */
+
+.terms-content .terms-intro {
+    text-align: center;
+    font-size: 1.1rem;
+    font-style: italic;
+    color: var(--text-color);
+}
+
+.terms-content h2 {
+    font-size: 1.8rem;
+    color: var(--dark-color);
+    margin-top: 40px;
+    margin-bottom: 20px;
+    padding-bottom: 10px;
+    border-bottom: 2px solid var(--primary-color);
+    display: inline-block; /* Faz a borda ficar só no tamanho do texto */
+}
+
+.terms-content h3 {
+    font-size: 1.3rem;
+    color: var(--dark-color);
+    margin-top: 30px;
+    margin-bottom: 15px;
+    font-weight: 700;
+}
+
+.terms-content p {
+    margin-bottom: 1.5em;
+    line-height: 1.8;
+}
+
+.terms-content ul {
+    list-style: none; /* Remove os bullets padrão */
+    padding-left: 0;
+    margin-bottom: 1.5em;
+}
+
+.terms-content ul li {
+    padding-left: 25px;
+    position: relative;
+    margin-bottom: 12px;
+}
+
+.terms-content ul li::before {
+    content: '\f058'; /* Ícone de check-circle do Font Awesome */
+    font-family: 'Font Awesome 6 Free';
+    font-weight: 900; /* Necessário para ícones sólidos */
+    color: var(--secondary-color);
+    position: absolute;
+    left: 0;
+    top: 4px;
+}
+
+.terms-content hr {
+    border: 0;
+    height: 1px;
+    background-color: var(--light-color);
+    margin: 60px auto;
+}
+
+.terms-content a {
+    color: var(--primary-color);
+    text-decoration: none;
+    font-weight: 700;
+    border-bottom: 2px solid transparent;
+    transition: border-bottom-color 0.3s ease;
+}
+
+.terms-content a:hover {
+    border-bottom-color: var(--primary-color);
+}
+
+/* Bloco de Código Corrigido e Simplificado */
+
+.terms-content .contact-info p {
+    font-size: 1.1rem;
+    margin-bottom: 10px;
+    display: flex;
+    align-items: baseline; /* AQUI ESTÁ A CORREÇÃO: 'baseline' alinha pela base do texto */
+    gap: 10px;
+}
+
+.terms-content .contact-info i {
+    color: var(--primary-color);
+    font-size: 1.2rem; /* Leve ajuste para harmonia */
+    width: 25px; 
+    text-align: center;
+}
+
+.terms-content .contact-info a {
+    color: var(--primary-color);
+    text-decoration: none;
+    font-weight: 700;
+}

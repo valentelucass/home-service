@@ -202,3 +202,11 @@ h2, .section-title, .cta-title {
     /* Este comando alinha os itens no centro do eixo transversal (horizontal, neste caso) */
     align-items: center;
 }
+
+/* --- AJUSTE CIRÚRGICO: Espaçamento do badge "Mais Popular" nos planos --- */
+
+/* Alvo: O card de plano que tem o destaque "featured" (o Premium) */
+.plan-card.featured {
+    /* Adiciona uma margem no topo, empurrando-o para baixo e criando espaço */
+    margin-top: 25px;
+}

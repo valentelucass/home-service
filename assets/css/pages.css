@@ -629,3 +629,299 @@ i.fa-solid { margin-left: 8px; }
     text-decoration: none;
     font-weight: 700;
 }
+
+/* ============================================= */
+/* --- ESTILOS DA NOVA PÁGINA DE BLOG --- */
+/* ============================================= */
+
+#page-blog .page-section {
+    background-color: #f8f9fa; /* Um fundo suave para a seção */
+}
+
+#page-blog .page-header h1 {
+    font-size: 3.5rem;
+}
+
+/* --- POST EM DESTAQUE --- */
+.featured-post {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+    align-items: center;
+    margin-bottom: 80px;
+    background-color: var(--white-color);
+    padding: 20px;
+    border-radius: var(--border-radius);
+    box-shadow: 0 15px 40px rgba(0,0,0,0.08);
+    overflow: hidden;
+}
+
+.featured-post__image img {
+    width: 100%;
+    height: 400px;
+    object-fit: cover;
+    border-radius: var(--border-radius);
+    transition: transform 0.4s ease;
+}
+
+.featured-post:hover .featured-post__image img {
+    transform: scale(1.05);
+}
+
+.featured-post__content {
+    padding: 20px;
+}
+
+.featured-post__content h2 {
+    font-size: 2.2rem;
+    line-height: 1.3;
+    margin: 15px 0;
+    border: none;
+    padding: 0;
+}
+
+.featured-post__content h2 a {
+    color: var(--dark-color);
+    text-decoration: none;
+    background-image: linear-gradient(var(--primary-color), var(--primary-color));
+    background-size: 0% 2px;
+    background-repeat: no-repeat;
+    background-position: left bottom;
+    transition: background-size 0.3s ease;
+}
+
+.featured-post__content h2 a:hover {
+    background-size: 100% 2px;
+}
+
+.featured-post__content p {
+    font-size: 1.1rem;
+    color: #555;
+}
+
+/* --- CATEGORIA E METADADOS DO POST --- */
+.post-category {
+    display: inline-block;
+    background-color: var(--primary-color);
+    color: var(--white-color);
+    padding: 5px 15px;
+    border-radius: 50px;
+    font-size: 0.8rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    text-decoration: none;
+    letter-spacing: 0.5px;
+}
+
+.post-meta {
+    margin-top: 20px;
+    font-size: 0.9rem;
+    color: #777;
+    display: flex;
+    gap: 20px;
+}
+
+/* --- ESTILOS DOS CARDS DO BLOG --- */
+
+.blog-grid {
+    display: grid;
+    /* 3 colunas em desktop, 2 em tablet, 1 em celular */
+    grid-template-columns: repeat(3, 1fr); 
+    gap: 30px;
+}
+
+.blog-post-card {
+    background-color: var(--white-color);
+    border-radius: var(--border-radius);
+    box-shadow: 0 8px 25px rgba(0,0,0,0.07);
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.blog-post-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 12px 35px rgba(0,0,0,0.12);
+}
+
+.blog-post-card__image-container {
+    position: relative;
+    height: 220px;
+}
+
+.blog-post-card__image-container img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.4s ease;
+}
+
+.blog-post-card:hover .blog-post-card__image-container img {
+    transform: scale(1.1);
+}
+
+.blog-post-card__image-container .post-category {
+    position: absolute;
+    top: 15px;
+    left: 15px;
+    z-index: 1;
+}
+
+.blog-post-card__content {
+    padding: 25px;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.blog-post-card__content h3 {
+    font-size: 1.3rem;
+    line-height: 1.4;
+    margin-bottom: 15px;
+    flex-grow: 1;
+}
+
+.blog-post-card__content h3 a {
+    color: var(--dark-color);
+    text-decoration: none;
+}
+.blog-post-card__content h3 a:hover {
+    color: var(--primary-color);
+}
+
+.blog-post-card__content p {
+    font-size: 1rem;
+    margin-bottom: 20px;
+}
+
+.blog-post-card__content .post-meta {
+    margin-top: auto; /* Alinha a data no final do card */
+}
+
+
+/* --- PAGINAÇÃO --- */
+.pagination {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 80px;
+}
+.page-link {
+    display: inline-block;
+    padding: 10px 18px;
+    border: 1px solid #ddd;
+    background-color: var(--white-color);
+    color: var(--dark-color);
+    text-decoration: none;
+    border-radius: var(--border-radius);
+    font-weight: 700;
+    transition: all 0.2s ease;
+}
+.page-link:hover {
+    background-color: var(--primary-color);
+    color: var(--white-color);
+    border-color: var(--primary-color);
+}
+.page-link.active {
+    background-color: var(--primary-color);
+    color: var(--white-color);
+    border-color: var(--primary-color);
+}
+
+
+/* --- RESPONSIVIDADE DO BLOG --- */
+@media (max-width: 992px) {
+    .featured-post {
+        grid-template-columns: 1fr; /* Coluna única em tablets */
+        gap: 0;
+    }
+    .featured-post__image img {
+        height: 300px;
+    }
+    .blog-grid {
+        grid-template-columns: repeat(2, 1fr); /* 2 colunas em tablets */
+    }
+}
+
+@media (max-width: 768px) {
+    #page-blog .page-header h1 {
+        font-size: 2.5rem;
+    }
+    .blog-grid {
+        grid-template-columns: 1fr; /* Coluna única em celulares */
+    }
+}
+
+/* ============================================= */
+/* --- ESTILOS DA NOVA PÁGINA DE BLOG FINAL --- */
+/* ============================================= */
+
+
+/* ============================================= */
+/* --- ESTILOS DO NOVO SELETOR DE PLANOS --- */
+/* ============================================= */
+
+.plan-switcher {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 15px;
+    margin-bottom: 30px;
+}
+
+.plan-option {
+    background-color: var(--white-color);
+    border: 2px solid #e0e0e0;
+    border-radius: var(--border-radius);
+    padding: 20px;
+    text-align: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    position: relative;
+}
+
+.plan-option:hover {
+    border-color: var(--primary-color);
+    transform: translateY(-5px);
+    box-shadow: 0 8px 25px rgba(93, 0, 255, 0.1);
+}
+
+.plan-option.active {
+    border-color: var(--primary-color);
+    background-color: #f0eaff; /* Um fundo roxo bem claro */
+    box-shadow: 0 8px 25px rgba(93, 0, 255, 0.15);
+    transform: translateY(-5px);
+}
+
+.plan-option .plan-name {
+    display: block;
+    font-weight: 700;
+    color: var(--dark-color);
+    font-size: 1.1rem;
+    margin-bottom: 8px;
+}
+
+.plan-option .plan-price {
+    display: block;
+    font-size: 1.5rem;
+    font-weight: 800;
+    color: var(--primary-color);
+}
+
+/* Adiciona um checkmark no plano ativo para clareza visual */
+.plan-option.active::before {
+    content: '\f058'; /* Código do ícone de check-circle do Font Awesome */
+    font-family: 'Font Awesome 6 Free';
+    font-weight: 900;
+    color: var(--white-color);
+    background-color: var(--primary-color);
+    border-radius: 50%;
+    width: 28px;
+    height: 28px;
+    line-height: 28px;
+    text-align: center;
+    position: absolute;
+    top: -14px;
+    right: -14px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+}

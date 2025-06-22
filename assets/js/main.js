@@ -1,7 +1,3 @@
-/* =================================================================== */
-/* --- Módulo Final: main.js (O Orquestrador Principal) --- */
-/* =================================================================== */
-
 document.addEventListener("DOMContentLoaded", function() {
     console.log("Home Service - Scripts Modulares Carregados!");
 
@@ -11,7 +7,6 @@ document.addEventListener("DOMContentLoaded", function() {
     initHeroCarousel(); // <- Adicionado para o novo hero
     initRadiusSlider();
     initPortfolioGallery();
-    initSortProviders();
     
     // Inicializa funcionalidades específicas de páginas
     initMultiStepSignup();

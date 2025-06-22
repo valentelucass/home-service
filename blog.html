@@ -11,7 +11,7 @@
     <link rel="stylesheet" href="assets/css/base.css">
     <link rel="stylesheet" href="assets/css/pages.css">
 </head>
-<body>
+<body id="page-blog">
 
     <header class="main-header">
         <div class="container">
@@ -38,46 +38,126 @@
     </header>
 
     <main>
-        <section class="page-section">
+        <section class="page-section blog-section">
             <div class="container">
                 <div class="page-header">
-                    <h1>Blog Home Service</h1>
-                    <p class="section-subtitle">Dicas, novidades e tudo sobre o universo de serviços para o seu lar e negócio.</p>
+                    <h1>Nosso Blog</h1>
+                    <p class="section-subtitle">Dicas, novidades e informações sobre serviços para casa e empresa.</p>
+                </div>
+
+                <div class="featured-post">
+                    <div class="featured-post__image">
+                        <img src="https://blog.ferramentaskennedy.com.br/wp-content/uploads/2024/06/INTERNA-02-7-dicas-de-como-organizar-ferramentas.jpg" alt="Ferramentas organizadas em uma parede">
+                    </div>
+                    <div class="featured-post__content">
+                        <a href="#" class="post-category">Manutenção</a>
+                        <h2><a href="#">Manutenção Preventiva: Por que é mais barato que consertar?</a></h2>
+                        <p>Entenda como pequenos cuidados com sua casa podem evitar grandes dores de cabeça e despesas inesperadas no futuro. Acompanhe nosso guia completo e economize.</p>
+                        <div class="post-meta">
+                            <span class="post-author">Por Augusto Tenório</span>
+                            <span class="post-date">21 de Junho, 2025</span>
+                        </div>
+                    </div>
                 </div>
 
                 <div class="blog-grid">
                     <div class="blog-post-card">
-                        <a href="#"><img src="https://via.placeholder.com/400x250.png?text=Dicas+de+Limpeza" alt="Dicas de Limpeza"></a>
+                        <div class="blog-post-card__image-container">
+                            <a href="#"><img src="https://images.unsplash.com/photo-1581578731548-c64695cc6952?q=80&w=2070&auto=format&fit=crop" alt="Dicas de Limpeza"></a>
+                            <a href="#" class="post-category">Dicas</a>
+                        </div>
                         <div class="blog-post-card__content">
                             <h3><a href="#">5 Dicas para Contratar a Diarista Perfeita</a></h3>
                             <p>Encontrar um profissional de confiança pode ser um desafio. Veja nossas dicas para fazer a melhor escolha...</p>
-                            <a href="#" class="btn-link">Ler mais &rarr;</a>
+                             <div class="post-meta">
+                                <span class="post-date">18 de Junho, 2025</span>
+                            </div>
                         </div>
                     </div>
                     
                     <div class="blog-post-card">
-                        <a href="#"><img src="https://via.placeholder.com/400x250.png?text=Manutenção" alt="Manutenção Preventiva"></a>
-                        <div class="blog-post-card__content">
-                            <h3><a href="#">Manutenção Preventiva: Por que é mais barato que consertar?</a></h3>
-                            <p>Entenda como pequenos cuidados com sua casa podem evitar grandes dores de cabeça e despesas no futuro.</p>
-                            <a href="#" class="btn-link">Ler mais &rarr;</a>
+                        <div class="blog-post-card__image-container">
+                             <a href="#"><img src="https://images.unsplash.com/photo-1556911220-bff31c812dba?q=80&w=2070&auto=format&fit=crop" alt="Cuidando do Carro"></a>
+                            <a href="#" class="post-category">Automotivo</a>
                         </div>
-                    </div>
-                    
-                    <div class="blog-post-card">
-                        <a href="#"><img src="https://via.placeholder.com/400x250.png?text=Carro" alt="Cuidando do Carro"></a>
                         <div class="blog-post-card__content">
-                            <h3><a href="#">3 Serviços Automotivos que Você Mesmo Pode Avaliar</a></h3>
+                            <h3><a href="#">3 Serviços Automotivos que Você Pode Avaliar</a></h3>
                             <p>Nem tudo precisa de um mecânico. Saiba o que verificar no seu carro para mantê-lo sempre em bom estado.</p>
-                            <a href="#" class="btn-link">Ler mais &rarr;</a>
+                             <div class="post-meta">
+                                <span class="post-date">15 de Junho, 2025</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="blog-post-card">
+                        <div class="blog-post-card__image-container">
+                           <a href="#"><img src="https://images.unsplash.com/photo-1516455590571-18256e5bb9ff?q=80&w=2070&auto=format&fit=crop" alt="Decoração de festa"></a>
+                           <a href="#" class="post-category">Eventos</a>
+                        </div>
+                        <div class="blog-post-card__content">
+                            <h3><a href="#">Como Organizar uma Festa Inesquecível (Sem Estresse)</a></h3>
+                            <p>De bartenders a decoradores, saiba quais profissionais contratar para garantir o sucesso do seu evento.</p>
+                            <div class="post-meta">
+                                <span class="post-date">12 de Junho, 2025</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="blog-post-card">
+                        <div class="blog-post-card__image-container">
+                            <a href="#"><img src="https://images.unsplash.com/photo-1516455590571-18256e5bb9ff?q=80&w=2070&auto=format&fit=crop" alt="Pessoa tendo aula particular"></a>
+                            <a href="#" class="post-category">Educação</a>
+                        </div>
+                        <div class="blog-post-card__content">
+                            <h3><a href="#">Aulas Particulares: O Investimento que Transforma o Futuro</a></h3>
+                            <p>Descubra como um professor particular pode acelerar o aprendizado e abrir novas portas.</p>
+                             <div class="post-meta">
+                                <span class="post-date">10 de Junho, 2025</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="blog-post-card">
+                        <div class="blog-post-card__image-container">
+                            <a href="#"><img src="https://images.unsplash.com/photo-1516455590571-18256e5bb9ff?q=80&w=2070&auto=format&fit=crop" alt="Pintor profissional pintando uma parede"></a>
+                            <a href="#" class="post-category">Reformas</a>
+                        </div>
+                        <div class="blog-post-card__content">
+                            <h3><a href="#">Pintura Residencial: Cores que Renovarão seu Ambiente</a></h3>
+                            <p>Veja as tendências de cores para 2025 e como um profissional pode fazer toda a diferença no resultado.</p>
+                             <div class="post-meta">
+                                <span class="post-date">08 de Junho, 2025</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="blog-post-card">
+                         <div class="blog-post-card__image-container">
+                            <a href="#"><img src="https://images.unsplash.com/photo-1516455590571-18256e5bb9ff?q=80&w=2070&auto=format&fit=crop" alt="Cuidador de idosos"></a>
+                            <a href="#" class="post-category">Saúde</a>
+                        </div>
+                        <div class="blog-post-card__content">
+                            <h3><a href="#">Cuidadores de Idosos: A Importância do Cuidado Humanizado</a></h3>
+                            <p>Contratar um profissional de saúde para cuidar de quem amamos é um ato de carinho. Saiba o que avaliar.</p>
+                             <div class="post-meta">
+                                <span class="post-date">05 de Junho, 2025</span>
+                            </div>
                         </div>
                     </div>
                 </div>
+
+                <div class="pagination">
+                    <a href="#" class="page-link active">1</a>
+                    <a href="#" class="page-link">2</a>
+                    <a href="#" class="page-link">3</a>
+                    <a href="#" class="page-link">&raquo;</a>
+                </div>
+
             </div>
         </section>
     </main>
     
-    <footer class="main-footer-section">
+   <footer class="main-footer-section">
         <div class="container">
             <div class="footer-grid">
                 <div class="footer-column about-column">

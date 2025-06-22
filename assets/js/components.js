@@ -105,32 +105,48 @@ function initPortfolioGallery() {
 
 
 function initPaymentPage() {
-   if (document.body.id !== 'page-payment') return;
+    // Verifica se estamos na página correta
+    if (document.body.id !== 'page-payment') return;
 
-   const urlParams = new URLSearchParams(window.location.search);
-   const plano = urlParams.get('plano');
+    const urlParams = new URLSearchParams(window.location.search);
+    // Pega o plano da URL ou define 'basico' como padrão
+    let currentPlan = urlParams.get('plano') || 'basico'; 
 
-   if (plano) {
-       const precos = {
-           basico: 'R$ 29,00/mês',
-           premium: 'R$ 99,00/mês'
-       };
-       const summaryDiv = document.querySelector('#plan-summary');
-       summaryDiv.innerHTML = `
-           <h3>Plano ${plano.charAt(0).toUpperCase() + plano.slice(1)}</h3>
-           <p>${precos[plano]}</p>
-       `;
-   }
+    const planOptions = document.querySelectorAll('.plan-option');
 
-   const paymentForm = document.querySelector('.payment-form');
-   if(paymentForm) {
-       paymentForm.addEventListener('submit', (e) => {
-    e.preventDefault();
-    // Em vez de um alerta, redirecionamos para a página de sucesso
-    // com um status para identificação.
-    window.location.href = 'cadastro-sucesso.html?status=pago';
-});
-   }
+    // Função para atualizar a seleção na tela
+    function updateSelection(selectedPlan) {
+        planOptions.forEach(option => {
+            if (option.dataset.plan === selectedPlan) {
+                option.classList.add('active');
+            } else {
+                option.classList.remove('active');
+            }
+        });
+        console.log(`Plano selecionado: ${selectedPlan}`);
+    }
+
+    // Adiciona o evento de clique para cada opção de plano
+    planOptions.forEach(option => {
+        option.addEventListener('click', () => {
+            currentPlan = option.dataset.plan; // Atualiza o plano atual
+            updateSelection(currentPlan); // Atualiza a interface
+        });
+    });
+
+    // Define o estado inicial assim que a página carrega
+    updateSelection(currentPlan);
+
+    // Lógica de submissão do formulário (mantida)
+    const paymentForm = document.querySelector('.payment-form');
+    if(paymentForm) {
+        paymentForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            // Adicionar lógica de pagamento real aqui no futuro
+            // Por enquanto, redireciona para a página de sucesso
+            window.location.href = `cadastro-sucesso.html?status=pago&plano=${currentPlan}`;
+        });
+    }
 }
 
 
@@ -161,6 +177,45 @@ function initMultiStepSignup() {
 
     let currentStep = 0;
 
+    // --- LÓGICA DE VALIDAÇÃO (CORRIGIDA) ---
+    // ESTA É A FUNÇÃO QUE ESTAVA FALTANDO NO SEU CÓDIGO
+    const validateStep = (stepIndex) => {
+        const stepDiv = steps[stepIndex];
+        // Adiciona a busca por 'select' que também pode ser obrigatório
+        const inputs = stepDiv.querySelectorAll('input[required], select[required]');
+        let isValid = true;
+        
+        inputs.forEach(input => {
+            // Remove a borda de erro anterior para nova validação
+            input.style.borderColor = '#ccc';
+
+            // Verifica se o campo está vazio
+            if (!input.value || (input.type === 'checkbox' && !input.checked)) {
+                isValid = false;
+                input.style.borderColor = '#e74c3c'; // Aplica borda de erro
+            }
+        });
+
+        // Validação específica para o passo dos checkboxes de serviço
+        if (stepIndex === 1) {
+            const checkboxes = servicesContainer.querySelectorAll('input[type="checkbox"]:checked');
+            if (checkboxes.length === 0) {
+                isValid = false;
+                servicesContainer.style.borderColor = '#e74c3c';
+            } else {
+                servicesContainer.style.borderColor = '#ddd';
+            }
+        }
+        
+        if (!isValid) {
+            // Usando a função de notificação que já existe no seu código
+            showErrorNotification('Por favor, preencha todos os campos obrigatórios.');
+        }
+        
+        return isValid;
+    };
+
+
     // --- LÓGICA DE NAVEGAÇÃO E ANIMAÇÃO ---
     const showStep = (stepIndex) => {
         const currentStepDiv = steps[currentStep];
@@ -180,6 +235,7 @@ function initMultiStepSignup() {
 
     nextButtons.forEach(button => {
         button.addEventListener('click', () => {
+            // A validação agora funciona para todos os passos
             if (validateStep(currentStep) && currentStep < steps.length - 1) {
                 showStep(currentStep + 1);
             }
@@ -224,34 +280,17 @@ function initMultiStepSignup() {
         }
     });
 
-    // --- LÓGICA DE VALIDAÇÃO (CORRIGIDA) ---
-    const validateStep = (stepIndex) => {
-        // Se for o primeiro passo (índice 0), pula a validação para facilitar o teste.
-        if (stepIndex === 0) {
-            return true;
-        }
-
-        // Mantém a validação para os passos seguintes.
-        const stepDiv = steps[stepIndex];
-        const inputs = stepDiv.querySelectorAll('input[required], select[required]');
-        let isValid = true;
-        
-        inputs.forEach(input => {
-            // Remove a borda de erro anterior
-            input.style.borderColor = '#ccc';
-
-            if (!input.value) {
-                isValid = false;
-                input.style.borderColor = '#e74c3c'; // Aplica borda de erro
-            }
-        });
-        
-        if (!isValid) {
-            alert('Por favor, preencha todos os campos obrigatórios.');
-        }
-        
-        return isValid;
-    };
+    // --- FUNÇÃO DE NOTIFICAÇÃO (Já existe no seu código, mas mantendo aqui para referência) ---
+    function showErrorNotification(message) {
+        const notification = document.createElement('div');
+        notification.className = 'notification notification-error';
+        notification.textContent = message;
+        document.body.appendChild(notification);
+        setTimeout(() => {
+            notification.style.opacity = '0';
+            setTimeout(() => notification.remove(), 300);
+        }, 3000);
+    }
 
     // --- PREENCHER A TELA DE REVISÃO ---
     const populateReview = () => {
@@ -277,6 +316,13 @@ function initMultiStepSignup() {
     // --- LÓGICA DA SUBMISSÃO FINAL ---
     signupForm.addEventListener('submit', function(event) {
         event.preventDefault();
+        
+        // Validação final antes de submeter
+        if (!validateStep(3)) { // Valida o último passo (revisão)
+            showErrorNotification("Parece que há um erro nos seus dados. Por favor, volte e verifique.");
+            return;
+        }
+
         const urlParams = new URLSearchParams(window.location.search);
         const plano = urlParams.get('plano') || 'gratis';
         
@@ -288,7 +334,6 @@ function initMultiStepSignup() {
     });
 
     // --- INICIALIZAÇÃO ---
-    // Configura os títulos com base no plano (código que você já tinha)
     const urlParams = new URLSearchParams(window.location.search);
     const plano = urlParams.get('plano') || 'gratis';
     document.querySelector('#signup-title').textContent = {
@@ -302,6 +347,8 @@ function initMultiStepSignup() {
         premium: 'Complete seus dados para ter acesso total à plataforma.'
     }[plano];
 }
+
+
 
 function initSuccessPage() {
     // Verifica se estamos na página de sucesso procurando pelo elemento .success-box

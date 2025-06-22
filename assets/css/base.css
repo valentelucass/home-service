@@ -54,7 +54,7 @@ body { font-family: var(--font-body); color: var(--text-color); line-height: 1.6
 /* [INÍCIO] CÓDIGO CORRIGIDO PARA O HEADER DE BARRA ÚNICA */
 .main-header {
     /* Efeito de vidro "leitoso" */
-    background: rgba(255, 255, 255, 0.7); /* transparência */
+    background: rgba(255, 255, 255, 0.84); /* transparência */
     backdrop-filter: blur(15px);
     -webkit-backdrop-filter: blur(15px);
 
@@ -234,4 +234,212 @@ body { font-family: var(--font-body); color: var(--text-color); line-height: 1.6
 }
 @media (max-width: 480px) {
     .section-title { font-size: 1.8rem; }
+}
+
+/* ============================================= */
+/* --- 6. ESTILOS DO MEGA MENU (VERSÃO FINAL COM EFEITO 3D) --- */
+/* ============================================= */
+
+.nav-item-dropdown {
+    position: static;
+}
+
+.mega-menu-wrapper {
+    position: absolute;
+    top: 80px;
+    left: 0;
+    right: 0;
+    z-index: 999;
+    
+    /* O DEGRADÊ GENIAL DE 4 PONTOS */
+    background: linear-gradient(
+        to bottom, 
+        rgba(221, 221, 221, 0.97), /* Ponto 1: Topo quase sólido */
+        rgba(222, 222, 222, 0.98) 30%,/* Ponto 2: Início da transição suave */
+        rgba(220, 220, 220, 0.99) 70%,/* Ponto 3: Fica um pouco mais transparente */
+        rgb(237, 237, 237)  /* Ponto 4: Base com a maior transparência */
+    );
+    
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border-top: 1px solid rgba(0, 0, 0, 0.05);
+    box-shadow: 0 10px 50px rgba(0,0,0,0.1);
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    transform: translateY(-20px);
+    transition: opacity 0.4s ease, transform 0.4s ease;
+    padding: 50px 0px 400px 0px; /* Mantendo seu padding personalizado */
+}
+
+/* Garante que o container interno se comporte como um bloco que pode ser alinhado */
+.mega-menu-wrapper .container {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start; /* Alinha todo o conteúdo para o topo do painel */
+}
+
+.mega-menu-wrapper.is-visible {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+    transform: translateY(0);
+}
+
+.mega-menu-header {
+    text-align: center;
+    margin-bottom: 60px;
+}
+
+.mega-menu-header h2 {
+    font-family: var(--font-headings);
+    font-size: 2.5rem;
+    color: var(--dark-color);
+    margin-bottom: 8px;
+}
+
+.mega-menu-header p {
+    font-size: 1.2rem;
+    color: var(--text-color);
+    max-width: 500px;
+    margin: 0 auto;
+}
+
+.mega-menu-grid {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    gap: 25px;
+}
+
+/* ESTILOS DO BOTÃO COM EFEITO 3D ATUALIZADO */
+.mega-menu-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+    padding: 35px 20px;
+    text-align: center;
+    border-radius: 12px;
+    background-color: var(--white-color);
+    text-decoration: none;
+    color: var(--dark-color);
+    
+    /* EFEITO 3D E SOMBRA MARCANTE */
+    border: 1px solid rgba(0, 0, 0, 0.08);
+    border-bottom: 4px solid rgba(0, 0, 0, 0.15);
+    box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+    
+    transition: transform 0.2s ease, box-shadow 0.2s ease, border-bottom-width 0.2s ease;
+}
+
+.mega-menu-item:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 18px 35px rgba(0,0,0,0.12);
+}
+
+.mega-menu-item:active {
+    transform: translateY(-1px);
+    border-bottom-width: 2px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+.mega-menu-item i {
+    font-size: 2.5rem;
+    color: var(--primary-color);
+    transition: transform 0.3s ease;
+}
+
+.mega-menu-item:hover i {
+    transform: scale(1.2);
+}
+
+.mega-menu-item span {
+    font-family: var(--font-headings);
+    color: var(--dark-color);
+    font-size: 1.2rem;
+    font-weight: 700;
+}
+
+
+/* Responsividade do Mega Menu */
+@media (max-width: 1200px) {
+    .mega-menu-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+@media (max-width: 992px) {
+    .mega-menu-wrapper {
+        display: none;
+    }
+}
+
+/* ============================================= */
+/* --- ESTILOS FINAIS PARA O MEGA MENU "COMO FUNCIONA" --- */
+/* ============================================= */
+
+/* Seleciona a grid específica do menu "Como Funciona" */
+#como-funciona-menu .mega-menu-grid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+}
+
+/* Aplica os estilos de card 3D apenas aos itens dentro deste menu específico */
+#como-funciona-menu .mega-menu-item {
+    cursor: default; /* Deixa claro que não é um link */
+    flex-direction: column;
+    align-items: center; /* Centraliza o ícone e o título */
+    text-align: center;
+    padding: 40px 30px;
+    
+    /* AS BORDAS ARREDONDADAS CORRETAS */
+    border-radius: 24px;
+    
+    /* EFEITO 3D E SOMBRA MARCANTE */
+    border: 1px solid rgba(0, 0, 0, 0.08);
+    border-bottom: 4px solid rgba(0, 0, 0, 0.15);
+    background-color: var(--white-color); /* Fundo branco sólido */
+    box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+
+    /* Remove a transição de clique, pois não é um botão */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Efeito de elevação no hover, agora direcionado corretamente */
+#como-funciona-menu .mega-menu-item:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 20px 40px rgba(93, 0, 255, 0.15);
+}
+
+/* Seleciona o ícone dentro deste menu */
+#como-funciona-menu .mega-menu-item i {
+    font-size: 2.5rem;
+    margin-bottom: 15px; /* Espaço entre ícone e texto */
+}
+
+/* O container do texto para garantir o alinhamento */
+#como-funciona-menu .mega-menu-item-text {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+/* O título do passo */
+#como-funciona-menu .mega-menu-item-text span:first-child {
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin-bottom: 10px;
+}
+
+/* A descrição do passo */
+#como-funciona-menu .mega-menu-item-desc {
+    font-family: var(--font-body);
+    font-size: 1rem;
+    font-weight: 400;
+    color: var(--text-color);
+    opacity: 0.9;
+    line-height: 1.6;
+    max-width: 280px; /* Garante que o texto não fique muito largo */
 }

@@ -390,3 +390,89 @@ function initHeroCarousel() {
         showSlide(currentSlide);
     }, 5000);
 }
+
+
+// Função para o novo Mega Menu animado
+function initMegaMenu() {
+    const triggers = document.querySelectorAll('[data-menu-trigger]');
+    if (!triggers.length) return;
+
+    triggers.forEach(trigger => {
+        const menuId = trigger.dataset.menuTrigger;
+        const menu = document.getElementById(menuId);
+
+        if (!menu) return;
+
+        let hideTimeout;
+
+        trigger.addEventListener('mouseenter', () => {
+            clearTimeout(hideTimeout);
+            showMenu(menu);
+        });
+
+        trigger.addEventListener('mouseleave', () => {
+            hideTimeout = setTimeout(() => {
+                hideMenu(menu);
+            }, 200);
+        });
+
+        menu.addEventListener('mouseenter', () => {
+            clearTimeout(hideTimeout);
+        });
+
+        menu.addEventListener('mouseleave', () => {
+            hideMenu(menu);
+        });
+    });
+
+    function showMenu(menu) {
+        // Esconde outros menus que possam estar abertos
+        document.querySelectorAll('.mega-menu-wrapper.is-visible').forEach(m => {
+            if (m !== menu) m.classList.remove('is-visible');
+        });
+        menu.classList.add('is-visible');
+    }
+
+    function hideMenu(menu) {
+        menu.classList.remove('is-visible');
+    }
+}
+
+// --- VERSÃO FINAL E CORRIGIDA DA FUNÇÃO DE ORDENAÇÃO ---
+function initSortProviders() {
+    const sortSelect = document.getElementById('sort');
+    const providerList = document.querySelector('.provider-list');
+
+    // Se não encontrar os elementos na página, não faz nada.
+    if (!sortSelect || !providerList) {
+        return;
+    }
+
+    sortSelect.addEventListener('change', () => {
+        const sortBy = sortSelect.value;
+        // Pega todos os cards de profissionais.
+        const cards = Array.from(providerList.querySelectorAll('.provider-card'));
+        
+        // Identifica o primeiro elemento que NÃO é um card (como o rodapé com o botão).
+        const firstNonCard = providerList.querySelector(':scope > :not(.provider-card)');
+
+        // Ordena a lista de cards em memória.
+        cards.sort((a, b) => {
+            if (sortBy === 'rating') {
+                const ratingA = parseFloat(a.querySelector('.rating-number').textContent.replace(',', '.'));
+                const ratingB = parseFloat(b.querySelector('.rating-number').textContent.replace(',', '.'));
+                return ratingB - ratingA; // Ordem decrescente
+            } else if (sortBy === 'distance') {
+                const distanceA = parseFloat(a.querySelector('.provider-distance').textContent.replace(',', '.'));
+                const distanceB = parseFloat(b.querySelector('.provider-distance').textContent.replace(',', '.'));
+                return distanceA - distanceB; // Ordem crescente
+            }
+            return 0;
+        });
+
+        // A MÁGICA DA CORREÇÃO:
+        // Reinsere cada card ordenado, um por um, antes do primeiro elemento que não é um card.
+        // Isso mantém o rodapé sempre no final, exatamente onde ele deve estar.
+        cards.forEach(card => providerList.insertBefore(card, firstNonCard));
+    });
+}

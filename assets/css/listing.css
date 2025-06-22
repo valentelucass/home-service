@@ -1,10 +1,8 @@
-/* Arquivo: assets/css/listing.css */
-
 .listing-page {
-    padding: 60px 0;
+    /* Aumenta o padding superior para 140px e mantém o inferior em 80px */
+    padding: 140px 0 80px 0; 
     background-color: #f8f9fa;
 }
-
 /* Cabeçalho da Listagem */
 .listing-header {
     background-color: var(--white-color);

@@ -322,38 +322,69 @@
 
 
 /* ========================================================== */
-/* [INÍCIO] MEDIA QUERIES (AJUSTES RESPONSIVOS) */
+/* [INÍCIO] SEÇÃO DE CATEGORIAS (COM DESIGN UNIFICADO) */
 /* ========================================================== */
-@media (max-width: 992px) {
-    .hero-content-container {
-        flex-direction: column;
-        text-align: center;
-    }
-    .hero-text-content {
-        text-align: center;
-        margin-bottom: 40px;
-    }
-    .hero-subtitle {
-        margin-left: auto;
-        margin-right: auto;
-    }
-    .hero-cta-panel {
-        width: 100%;
-        max-width: 450px;
-    }
-    .hero-cta-panel .cta-info-item {
-        justify-content: center;
-    }
-    .steps-container {
-        flex-direction: column;
-    }
+
+.category-section { 
+    padding: 100px 0; 
+    background-color: #f8f9fa; 
 }
 
-@media (max-width: 768px) {
-    .hero-title { font-size: 3rem; }
+.category-grid { 
+    display: grid; 
+    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); 
+    gap: 25px; 
 }
 
-@media (max-width: 480px) {
-    .hero-title { font-size: 2.5rem; }
+/* O CARD DE CATEGORIA COM O NOVO VISUAL */
+.category-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 30px 20px;
+    text-align: center;
+    text-decoration: none;
+    color: var(--text-color);
+    
+    /* FUNDO BRANCO E BORDAS ARREDONDADAS */
+    background-color: var(--white-color);
+    border-radius: 24px;
+
+    /* EFEITO 3D E SOMBRA MARCANTE */
+    border: 1px solid rgba(0, 0, 0, 0.08);
+    border-bottom: 4px solid rgba(0, 0, 0, 0.15);
+    box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+
+    transition: transform 0.3s ease, box-shadow 0.3s ease, border-bottom-width 0.2s ease;
 }
-/* [FIM] MEDIA QUERIES */
+
+.category-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 20px 40px rgba(93, 0, 255, 0.15);
+}
+
+.category-card:active {
+    transform: translateY(-2px);
+    border-bottom-width: 2px;
+    box-shadow: 0 6px 15px rgba(0,0,0,0.1);
+}
+
+.category-card i { 
+    font-size: 2.5rem; 
+    color: var(--primary-color); 
+    margin-bottom: 20px; 
+    transition: transform 0.3s ease; 
+}
+
+.category-card:hover i { 
+    transform: scale(1.15); 
+}
+
+.category-card h3 { 
+    font-family: var(--font-headings); 
+    color: var(--dark-color); 
+    font-size: 1.2rem; 
+    font-weight: 700;
+}
+/* [FIM] SEÇÃO DE CATEGORIAS */

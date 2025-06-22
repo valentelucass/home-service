@@ -1,12 +1,18 @@
+/* =================================================================== */
+/* --- Módulo Final: main.js (O Orquestrador Principal) --- */
+/* =================================================================== */
+
 document.addEventListener("DOMContentLoaded", function() {
     console.log("Home Service - Scripts Modulares Carregados!");
 
     // Inicializa componentes da Interface de Usuário (UI)
     initMobileMenu();
     initFaqAccordion();
-    initHeroCarousel(); // <- Adicionado para o novo hero
+    initHeroCarousel();
     initRadiusSlider();
     initPortfolioGallery();
+    initMegaMenu();
+    initSortProviders(); // <--- LINHA REATIVADA AQUI
     
     // Inicializa funcionalidades específicas de páginas
     initMultiStepSignup();

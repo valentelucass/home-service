@@ -16,28 +16,98 @@
 <body>
 
     <header class="main-header">
+    <div class="container">
+        <a href="index.html" class="logo">HOME SERVICE</a>
+        <nav class="main-nav">
+            <ul>
+                <li class="nav-item-dropdown" data-menu-trigger="categorias-menu">
+                    <a href="index.html#categorias">Categorias</a>
+                </li>
+                <li class="nav-item-dropdown" data-menu-trigger="como-funciona-menu">
+                    <a href="index.html#como-funciona">Como Funciona</a>
+                </li>
+                <li><a href="marketplace.html">Loja</a></li>
+            </ul>
+        </nav>
+        <div class="header-actions">
+            <a href="sobre.html" class="nav-link">Sobre Nós</a>
+            <a href="login.html" class="nav-link nav-link--icon">
+                <i class="fa-solid fa-user"></i>
+                <span>Login</span>
+            </a>
+            <a href="profissionais.html" class="btn btn-secondary">Área do Profissional</a>
+            <button class="mobile-menu-toggle" aria-label="Abrir menu">
+                <i class="fa-solid fa-bars"></i>
+            </button>
+        </div>
+    </div>
+
+    <div class="mega-menu-wrapper" id="categorias-menu">
         <div class="container">
-            <a href="index.html" class="logo">HOME SERVICE</a>
-            <nav class="main-nav">
-                <ul>
-                    <li><a href="index.html#categorias">Categorias</a></li>
-                    <li><a href="index.html#como-funciona">Como Funciona</a></li>
-                    <li><a href="marketplace.html">Loja</a></li>
-                </ul>
-            </nav>
-            <div class="header-actions">
-                <a href="sobre.html" class="nav-link">Sobre Nós</a>
-                <a href="login.html" class="nav-link nav-link--icon">
-                    <i class="fa-solid fa-user"></i>
-                    <span>Login</span>
+            <div class="mega-menu-header">
+                <h2>Explore nossos serviços</h2>
+                <p>Tudo o que você precisa, em um só lugar.</p>
+            </div>
+            <div class="mega-menu-grid">
+                <a href="paginas-de-listagem/providers-residencial.html" class="mega-menu-item">
+                    <i class="fa-solid fa-house-chimney"></i>
+                    <span>Residenciais</span>
                 </a>
-                <a href="profissionais.html" class="btn btn-secondary">Área do Profissional</a>
-                <button class="mobile-menu-toggle" aria-label="Abrir menu">
-                    <i class="fa-solid fa-bars"></i>
-                </button>
+                <a href="paginas-de-listagem/providers-diarista.html" class="mega-menu-item">
+                    <i class="fa-solid fa-broom"></i>
+                    <span>Diarista</span>
+                </a>
+                <a href="paginas-de-listagem/providers-eventos.html" class="mega-menu-item">
+                    <i class="fa-solid fa-champagne-glasses"></i>
+                    <span>Eventos Pessoais</span>
+                </a>
+                <a href="paginas-de-listagem/providers-automotivo.html" class="mega-menu-item">
+                    <i class="fa-solid fa-car"></i>
+                    <span>Automotivo</span>
+                </a>
+                <a href="paginas-de-listagem/providers-saude.html" class="mega-menu-item">
+                    <i class="fa-solid fa-heart-pulse"></i>
+                    <span>Saúde</span>
+                </a>
+                <a href="paginas-de-listagem/providers-professor.html" class="mega-menu-item">
+                    <i class="fa-solid fa-book-open-reader"></i>
+                    <span>Professor Particular</span>
+                </a>
             </div>
         </div>
-    </header>
+    </div>
+
+    <div class="mega-menu-wrapper" id="como-funciona-menu">
+        <div class="container">
+            <div class="mega-menu-header">
+                <h2>É simples, rápido e direto</h2>
+            </div>
+            <div class="mega-menu-grid how-it-works-grid">
+                <div class="mega-menu-item">
+                    <i class="fa-solid fa-magnifying-glass"></i>
+                    <div class="mega-menu-item-text">
+                        <span>1. Busque o Serviço</span>
+                        <span class="mega-menu-item-desc">Navegue pelas categorias ou pesquise o que você precisa.</span>
+                    </div>
+                </div>
+                <div class="mega-menu-item">
+                    <i class="fa-solid fa-address-card"></i>
+                    <div class="mega-menu-item-text">
+                        <span>2. Escolha o Profissional</span>
+                        <span class="mega-menu-item-desc">Veja perfis, com fotos de trabalhos e avaliações verificadas.</span>
+                    </div>
+                </div>
+                <div class="mega-menu-item">
+                    <i class="fa-brands fa-whatsapp"></i>
+                    <div class="mega-menu-item-text">
+                        <span>3. Conecte-se Direto</span>
+                        <span class="mega-menu-item-desc">Fale diretamente com o profissional por WhatsApp ou telefone.</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
 
     <main>
         <section class="hero-revamped">

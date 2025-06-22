@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
     <link rel="stylesheet" href="assets/css/base.css">
     <link rel="stylesheet" href="assets/css/pages.css">
+    <link rel="stylesheet" href="assets/css/mobile.css" media="(max-width: 992px)">
 </head>
 <body id="page-signup">
     
@@ -15,27 +16,39 @@
     <div class="container">
         <a href="/" class="logo">HOME SERVICE</a>
         <nav class="main-nav">
-            <ul>
-                <li class="nav-item-dropdown" data-menu-trigger="categorias-menu">
-                    <a href="index.html#categorias">Categorias</a>
-                </li>
-                <li class="nav-item-dropdown" data-menu-trigger="como-funciona-menu">
-                    <a href="index.html#como-funciona">Como Funciona</a>
-                </li>
-                <li><a href="marketplace.html">Loja</a></li>
-            </ul>
-        </nav>
-        <div class="header-actions">
-            <a href="sobre.html" class="nav-link">Sobre Nós</a>
-            <a href="login.html" class="nav-link nav-link--icon">
-                <i class="fa-solid fa-user"></i>
-                <span>Login</span>
-            </a>
-            <a href="profissionais.html" class="btn btn-secondary">Área do Profissional</a>
-            <button class="mobile-menu-toggle" aria-label="Abrir menu">
-                <i class="fa-solid fa-bars"></i>
-            </button>
-        </div>
+    <ul class="desktop-nav">
+        <li class="nav-item-dropdown" data-menu-trigger="categorias-menu">
+    <a href="index.html#categorias">Categorias <i class="fa-solid fa-chevron-right nav-arrow"></i></a>
+</li>
+<li class="nav-item-dropdown" data-menu-trigger="como-funciona-menu">
+    <a href="index.html#como-funciona">Como Funciona <i class="fa-solid fa-chevron-right nav-arrow"></i></a>
+</li>
+        <li><a href="marketplace.html">Loja</a></li>
+    </ul>
+
+    <div class="mobile-nav-menu">
+        <ul>
+            <li><a href="index.html#categorias">Categorias</a></li>
+            <li><a href="index.html#como-funciona">Como Funciona</a></li>
+            <li><a href="marketplace.html">Loja</a></li>
+            <li><a href="sobre.html">Sobre Nós</a></li>
+            <li><a href="login.html">Login</a></li>
+        </ul>
+        <a href="profissionais.html" class="btn btn-impact">Área do Profissional</a>
+    </div>
+</nav>
+
+<div class="header-actions">
+    <a href="sobre.html" class="nav-link desktop-only">Sobre Nós</a>
+    <a href="login.html" class="nav-link nav-link--icon desktop-only">
+        <i class="fa-solid fa-user"></i>
+        <span>Login</span>
+    </a>
+    <a href="profissionais.html" class="btn btn-secondary desktop-only">Área do Profissional</a>
+    <button class="mobile-menu-toggle" aria-label="Abrir menu">
+        <i class="fa-solid fa-bars"></i>
+    </button>
+</div>
     </div>
 
     <div class="mega-menu-wrapper" id="categorias-menu">

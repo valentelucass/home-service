@@ -87,21 +87,33 @@ body { font-family: var(--font-body); color: var(--text-color); line-height: 1.6
     display: flex;
     justify-content: center;
 }
-.main-nav ul {
+
+/* CORREÇÃO: Aplica os estilos diretamente na classe .desktop-nav que está na tag <ul> */
+.desktop-nav {
     list-style: none;
-    display: flex;
+    display: flex; /* <-- Garante que os itens fiquem lado a lado */
     align-items: center;
-    gap: 30px;
+    gap: 30px; /* <-- Recria o espaçamento entre os links */
     margin: 0;
     padding: 0;
 }
-.main-nav a {
+
+/* Garante que o menu mobile nunca apareça no desktop */
+.mobile-nav-menu {
+    display: none;
+}
+
+/* Ajusta os links dentro da nova estrutura do desktop */
+.desktop-nav a {
     text-decoration: none;
     color: var(--text-color);
     font-weight: 500;
     transition: color 0.2s ease;
+    display: flex;
+    align-items: center;
 }
-.main-nav a:hover {
+
+.desktop-nav a:hover {
     color: var(--primary-color);
 }
 .header-actions {
@@ -443,3 +455,46 @@ body { font-family: var(--font-body); color: var(--text-color); line-height: 1.6
     line-height: 1.6;
     max-width: 280px; /* Garante que o texto não fique muito largo */
 }
+
+
+
+/* --- CONTROLE DE VISIBILIDADE DO MENU (DESKTOP) --- */
+/*----------------------------------------------------*/
+/*----------------------------------------------------*/
+
+.mobile-nav-menu {
+    display: none; /* Esconde o menu mobile em telas grandes por padrão */
+}
+
+.desktop-nav {
+    display: flex; /* Garante que o menu desktop original (agora com a classe .desktop-nav) continue aparecendo */
+}
+
+/* Esconde os links duplicados que agora só servem para o desktop */
+.header-actions .nav-link.desktop-only,
+.header-actions .btn.desktop-only {
+    display: flex; /* Garante que os botões/links do header desktop fiquem visíveis */
+}
+
+/*----------------------------------------------------*/
+/*----------------------------------------------------*/
+
+
+
+/* --- ESTILO E ANIMAÇÃO DA SETA DO MENU DESKTOP --- */
+.nav-arrow {
+    font-size: 0.8rem; /* Tamanho pequeno e minimalista */
+    margin-left: 8px;
+    color: var(--primary-color); /* A cor roxa padrão do site */
+    transition: transform 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94); /* Animação suave */
+}
+
+/* Anima a seta quando o mouse passa sobre o link */
+.nav-item-dropdown > a:hover .nav-arrow {
+    transform: rotate(90deg); /* Gira a seta '>' para baixo 'v' */
+}
+
+
+
+/*----------------------------------------------------*/
+/*----------------------------------------------------*/

@@ -1,0 +1,197 @@
+/* ============================================= */
+/* --- ARQUIVO: mobile.css (VERSÃO FINAL) --- */
+/* ============================================= */
+
+/* --- 1. ESCONDENDO ITENS DO DESKTOP --- */
+.desktop-nav, .desktop-only, .mega-menu-wrapper {
+    display: none !important;
+}
+
+/* --- 2. LAYOUT SANDUÍCHE E AJUSTES GERAIS --- */
+.steps-container,
+.plans-container,
+.footer-grid,
+.hero-content-container,
+.profile-layout,
+.listing-header,
+.provider-card,
+.featured-post,
+.shop-header,
+.form-row,
+.testimonial-grid {
+    flex-direction: column !important;
+    gap: 30px;
+}
+
+.category-grid,
+.blog-grid,
+.product-grid {
+    grid-template-columns: 1fr !important;
+}
+
+/* --- 3. TAMANHO DAS FONTES E TÍTULOS --- */
+.hero-title {
+    font-size: 2.5rem !important;
+    line-height: 1.2;
+}
+h1, .hero-professionals .hero-title, .page-header h1 {
+    font-size: 2.1rem !important;
+    line-height: 1.3;
+}
+h2, .section-title, .cta-title {
+    font-size: 1.8rem !important;
+}
+.hero-subtitle {
+    font-size: 1.1rem !important;
+    max-width: 100%;
+}
+
+/* --- 4. CALIBRAGEM DE PADDINGS --- */
+.page-section {
+    padding-top: 100px !important; /* Aumenta o espaçamento superior para 100px */
+}
+.feature-section,
+.category-section,
+.testimonial-section,
+.cta-section,
+.plans-section,
+.faq-section,
+.listing-page,
+.shop-section {
+    padding-top: 80px !important;
+    padding-bottom: 80px !important;
+}
+.main-header .container {
+    height: 70px; /* Reduz um pouco a altura do header no mobile */
+}
+.profile-header {
+    padding: 20px !important;
+    text-align: center;
+}
+.profile-header__avatar {
+    margin: 0 auto;
+    width: 120px;
+    height: 120px;
+}
+.login-form, .payment-form, .signup-form {
+    padding: 20px;
+}
+
+/* --- 5. CORREÇÃO DO CARROSSEL (HERO SECTION) --- */
+.hero-revamped {
+    min-height: auto;
+    height: auto;
+    padding: 100px 20px 60px 20px;
+    border-bottom-left-radius: 30px;
+    border-bottom-right-radius: 30px;
+}
+.hero-cta-panel {
+    flex-basis: 100%;
+    background: rgba(255, 255, 255, 0.9);
+    padding: 30px;
+}
+
+/* --- 6. ESTILOS DO NOVO MENU MOBILE --- */
+.mobile-nav-menu {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background-color: rgba(10, 0, 25, 0.98);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000; /* Abaixo do botão toggle */
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-20px);
+    transition: opacity 0.4s ease, visibility 0.4s ease, transform 0.4s ease;
+}
+/* Classe que ativa o menu */
+.main-nav.active .mobile-nav-menu {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+.mobile-nav-menu ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    text-align: center;
+}
+.mobile-nav-menu li {
+    margin-bottom: 25px;
+}
+.mobile-nav-menu a {
+    text-decoration: none;
+    color: var(--white-color);
+    font-size: 1.8rem;
+    font-weight: 700;
+    font-family: var(--font-headings);
+    transition: color 0.3s ease;
+}
+.mobile-nav-menu a:hover {
+    color: var(--primary-color);
+}
+.mobile-nav-menu .btn-impact {
+    margin-top: 40px;
+    padding: 18px 40px;
+    font-size: 1.1rem;
+}
+/* Posição e estilo do botão de menu (hambúrguer/X) */
+.mobile-menu-toggle {
+    z-index: 1001; /* Fica acima de tudo */
+    position: relative;
+}
+
+/* --- 7. AJUSTES FINOS --- */
+.footer-grid {
+    text-align: center;
+}
+.social-links {
+    justify-content: center;
+}
+
+
+/* --- CORREÇÃO FINAL: Centraliza o profissional na foto da home --- */
+
+/* Alvo: Exclusivamente o primeiro slide do carrossel */
+.hero-carousel .hero-slide:nth-child(1) {
+    /* Define o ponto de foco da imagem. 25% na horizontal, 50% na vertical. */
+    background-position: 25% 50% !important;
+}
+
+
+/* --- AJUSTE CIRÚRGICO: PÁGINA DA LOJA (MARKETPLACE) --- */
+
+/* Alvo: A seção hero da loja */
+.marketplace-hero {
+    /* Reduz drasticamente o espaçamento superior */
+    padding-top: 100px !important;
+}
+
+/* Alvo: O título principal da loja */
+.marketplace-hero .hero-title {
+    /* Diminui o tamanho da fonte para se ajustar melhor à tela */
+    font-size: 2.2rem !important;
+    line-height: 1.3;
+    text-align: center; /* Garante o alinhamento central */
+}
+
+/* Alvo: A barra de busca */
+.search-bar {
+    padding: 6px; /* Reduz o padding interno */
+}
+.search-bar input {
+    font-size: 1rem; /* Diminui a fonte do campo de busca */
+    padding: 8px 0;
+}
+.search-bar .btn {
+    padding: 10px 20px; /* Diminui o tamanho do botão "Buscar" */
+    font-size: 0.9rem;
+}
+

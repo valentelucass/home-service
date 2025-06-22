@@ -195,3 +195,10 @@ h2, .section-title, .cta-title {
     font-size: 0.9rem;
 }
 
+/* --- AJUSTE CIRÚRGICO: Centraliza os cards de planos (Página Profissionais) --- */
+
+/* Alvo: O container dos planos de assinatura */
+.plans-container {
+    /* Este comando alinha os itens no centro do eixo transversal (horizontal, neste caso) */
+    align-items: center;
+}

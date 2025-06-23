@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Meu Painel - Home Service</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700;800&family=Roboto:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    
+    <link rel="stylesheet" href="assets/css/base.css">
+    <link rel="stylesheet" href="assets/css/dashboard.css"> <link rel="stylesheet" href="assets/css/mobile.css" media="(max-width: 992px)">
+</head>
+<body>
+
+    <header class="main-header">
+        <div class="container">
+            <a href="index.html" class="logo">HOME SERVICE</a>
+            <nav class="main-nav">
+                </nav>
+            <div class="header-actions">
+                <a href="#" id="logout-button" class="btn btn-secondary">Sair</a>
+                <button class="mobile-menu-toggle" aria-label="Abrir menu">
+                    <i class="fa-solid fa-bars"></i>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <section class="dashboard-page">
+            <div class="container">
+                <div class="page-header">
+                    <h1>Meu Painel</h1>
+                    <p class="section-subtitle">Aqui você gerencia suas informações, fotos e portfólio.</p>
+                </div>
+
+                <form class="dashboard-form">
+                    <div class="form-section">
+                        <h2>Informações Públicas</h2>
+                        <div class="form-group">
+                            <label for="display-name">Seu nome de exibição</label>
+                            <input type="text" id="display-name" value="Joana Lima">
+                        </div>
+                        <div class="form-group">
+                            <label for="profile-description">Sobre Mim (sua descrição)</label>
+                            <textarea id="profile-description" rows="6">Olá! Sou a Joana, profissional de limpeza com mais de 8 anos de experiência...</textarea>
+                        </div>
+                    </div>
+
+                    <div class="form-section">
+                        <h2>Meu Portfólio</h2>
+                        <div class="portfolio-manager">
+                            <div class="portfolio-item">
+                                <img src="https://via.placeholder.com/200x150.png?text=Sala+Limpa" alt="Foto do portfólio">
+                                <button class="delete-photo-btn" aria-label="Excluir foto">&times;</button>
+                            </div>
+                            <div class="portfolio-item">
+                                <img src="https://via.placeholder.com/200x150.png?text=Cozinha" alt="Foto do portfólio">
+                                <button class="delete-photo-btn" aria-label="Excluir foto">&times;</button>
+                            </div>
+                            <label for="add-photo-input" class="add-photo-label">
+                                <i class="fa-solid fa-plus"></i>
+                                <span>Adicionar Foto</span>
+                            </label>
+                            <input type="file" id="add-photo-input" accept="image/*" style="display:none;">
+                        </div>
+                    </div>
+
+                    <div class="form-actions">
+                        <button type="submit" class="btn btn-primary btn-large">Salvar Alterações</button>
+                    </div>
+                </form>
+            </div>
+        </section>
+    </main>
+    
+    <footer class="main-footer-section">
+        </footer>
+
+    <script src="assets/js/main.js"></script>
+
+</body>
+</html>

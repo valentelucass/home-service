@@ -1,0 +1,124 @@
+/* ========================================================== */
+/* --- ARQUIVO: dashboard.css --- */
+/* ========================================================== */
+
+.dashboard-page {
+    padding: 120px 0 80px 0;
+    background-color: #f8f9fa;
+}
+
+.dashboard-form {
+    max-width: 800px;
+    margin: 0 auto;
+    background-color: #fff;
+    padding: 40px;
+    border-radius: 8px;
+    box-shadow: 0 5px 25px rgba(0,0,0,0.08);
+}
+
+.form-section {
+    margin-bottom: 40px;
+    border-bottom: 1px solid #e0e0e0;
+    padding-bottom: 30px;
+}
+.form-section:last-child {
+    border-bottom: none;
+    margin-bottom: 0;
+}
+
+.form-section h2 {
+    font-size: 1.6rem;
+    margin-bottom: 25px;
+    color: var(--dark-color);
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    display: block;
+    font-weight: 500;
+    margin-bottom: 8px;
+}
+
+.form-group input,
+.form-group textarea {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: var(--border-radius);
+    font-size: 1rem;
+    font-family: var(--font-body);
+}
+
+.form-group textarea {
+    resize: vertical;
+    min-height: 120px;
+}
+
+.portfolio-manager {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+    gap: 15px;
+}
+
+.portfolio-item {
+    position: relative;
+    border-radius: var(--border-radius);
+    overflow: hidden;
+}
+
+.portfolio-item img {
+    width: 100%;
+    height: 120px;
+    object-fit: cover;
+    display: block;
+}
+
+.delete-photo-btn {
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    background-color: rgba(0,0,0,0.6);
+    color: white;
+    border: none;
+    border-radius: 50%;
+    width: 28px;
+    height: 28px;
+    font-size: 1.2rem;
+    line-height: 28px;
+    text-align: center;
+    cursor: pointer;
+    opacity: 0;
+    transition: opacity 0.2s ease;
+}
+
+.portfolio-item:hover .delete-photo-btn {
+    opacity: 1;
+}
+
+.add-photo-label {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border: 2px dashed #ccc;
+    border-radius: var(--border-radius);
+    height: 120px;
+    color: #888;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+.add-photo-label:hover {
+    color: var(--primary-color);
+    border-color: var(--primary-color);
+    background-color: #f0eaff;
+}
+.add-photo-label i { font-size: 2rem; }
+.add-photo-label span { margin-top: 8px; font-weight: 500; }
+
+.form-actions {
+    text-align: right;
+    margin-top: 30px;
+}

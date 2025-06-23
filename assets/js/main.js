@@ -56,7 +56,6 @@ document.addEventListener("DOMContentLoaded", function() {
     initSortProviders(); 
     
     // Inicializa funcionalidades específicas de páginas
-    initMultiStepSignup();
     initPaymentPage();
     initSuccessPage();
     initLoginPage(); // <--- LINHA ADICIONADA CONFORME SOLICITADO

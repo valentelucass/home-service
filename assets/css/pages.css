@@ -929,3 +929,137 @@ i.fa-solid { margin-left: 8px; }
     right: -14px;
     box-shadow: 0 4px 10px rgba(0,0,0,0.2);
 }
+
+/* ================================================================ */
+/* --- CSS FINAL P/ BARRA DE PROGRESSO (COM AJUSTE DE ETAPA ATIVA) --- */
+/* ================================================================ */
+
+/* --- O CONTAINER GERAL --- */
+.progress-container {
+    position: relative;
+    width: 100%;
+    max-width: 600px;
+    margin: 30px auto 80px auto;
+}
+
+/* --- A LINHA DE FUNDO DA BARRA --- */
+.progress-container::before {
+    content: '';
+    position: absolute;
+    top: 18px;
+    left: 0;
+    transform: translateY(-50%);
+    height: 4px;
+    width: 100%;
+    background-color: #f0f2f5;
+    z-index: 1;
+}
+
+/* --- A BARRA DE COR ANIMADA --- */
+.progress-bar-animated {
+    position: absolute;
+    top: 18px;
+    left: 0;
+    transform: translateY(-50%);
+    height: 4px;
+    width: 0%;
+    background: var(--primary-color);
+    border-radius: 4px;
+    z-index: 2;
+    transition: width 0.8s cubic-bezier(0.86, 0, 0.07, 1);
+}
+
+/* --- O CONTAINER DOS CÍRCULOS --- */
+.progress-steps {
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    z-index: 3;
+}
+
+/* --- ESTILO BASE DE CADA CÍRCULO --- */
+.progress-step {
+    width: 36px;
+    height: 36px;
+    background-color: var(--white-color);
+    border: 2px solid #e2e8f0;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: var(--font-headings);
+    font-weight: 700;
+    font-size: 1rem;
+    color: #a0aec0;
+    position: relative;
+    transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* --- O TÍTULO ABAIXO DE CADA CÍRCULO --- */
+.progress-step::after {
+    content: attr(data-title);
+    position: absolute;
+    top: 135%;
+    font-size: 0.8rem;
+    font-weight: 500;
+    color: #718096;
+    white-space: nowrap;
+    opacity: 0.7;
+    transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+
+/* ================================================================ */
+/* --- ESTADOS INTERATIVOS (COM SEU AJUSTE) --- */
+/* ================================================================ */
+
+/* --- ETAPA ATIVA: Borda roxa, fundo branco, NÚMERO VISÍVEL --- */
+.progress-step.active {
+    border-color: var(--primary-color);
+    background-color: var(--white-color); /* << ALTERAÇÃO PRINCIPAL */
+    color: var(--primary-color);           /* << ALTERAÇÃO PRINCIPAL */
+    transform: scale(1.1);
+    box-shadow: 0 0 0 6px rgba(93, 0, 255, 0.12);
+}
+.progress-step.active::after {
+    color: var(--primary-color);
+    font-weight: 700;
+    opacity: 1;
+}
+
+/* --- ETAPA CONCLUÍDA: Fundo roxo, com ÍCONE DE CHECK --- */
+.progress-step.completed {
+    border-color: var(--primary-color);
+    background-color: var(--primary-color);
+    color: transparent; /* Esconde o número para mostrar o check */
+    animation: pop 0.3s ease-out;
+}
+.progress-step.completed::after {
+    color: #4a5568;
+    opacity: 1;
+}
+/* Adiciona o ícone de "V" (check) */
+.progress-step.completed::before {
+    content: '\f00c';
+    font-family: 'Font Awesome 6 Free';
+    font-weight: 900;
+    font-size: 1rem;
+    color: var(--white-color);
+    position: absolute;
+    line-height: 1;
+    transform: scale(0);
+    animation: popIn 0.3s 0.2s forwards;
+}
+
+/* --- ANIMAÇÕES --- */
+@keyframes pop {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.15); }
+    100% { transform: scale(1); }
+}
+
+@keyframes popIn {
+    from { transform: scale(0); opacity: 0; }
+    to { transform: scale(1); opacity: 1; }
+}

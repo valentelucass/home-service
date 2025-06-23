@@ -44,7 +44,7 @@
         <i class="fa-solid fa-user"></i>
         <span>Login</span>
     </a>
-    <a href="profissionais.html" class="btn btn-secondary desktop-only">Área do Profissional</a>
+    <a href="profissionais.html" class="btn btn-secondary desktop-only js-dynamic-link">Área do Profissional</a>
     <button class="mobile-menu-toggle" aria-label="Abrir menu">
         <i class="fa-solid fa-bars"></i>
     </button>
@@ -151,7 +151,7 @@
         <h2 class="step-title">Descreva seus Serviços</h2>
         <div class="form-group">
             <label for="professional-category">Selecione sua categoria principal</label>
-            <select id="professional-category">
+            <select id="professional-category" name="category">
                 <option value="">-- Escolha uma categoria --</option>
                 <option value="residencial">Serviços Residenciais</option>
                 <option value="diarista">Diarista / Limpeza</option>
@@ -199,7 +199,7 @@
             </div>
         <div class="form-navigation">
             <button type="button" class="btn btn-secondary prev-step"><i class="fa-solid fa-arrow-left"></i> Corrigir</button>
-            <button type="button" id="final-submit-button" class="btn btn-primary btn-large">Finalizar e Criar Perfil <i class="fa-solid fa-check"></i></button>
+            <button type="submit" id="final-submit-button" class="btn btn-primary btn-large">Finalizar e Criar Perfil <i class="fa-solid fa-check"></i></button>
         </div>
     </div>
 </form>
@@ -246,6 +246,8 @@
     <script src="assets/js/helpers.js"></script>
     <script src="assets/js/components.js"></script>
     <script src="assets/js/animations.js"></script>
+    <script src="assets/js/auth.js"></script>
     <script src="assets/js/main.js"></script>
+
 </body>
 </html>

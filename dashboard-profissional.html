@@ -13,18 +13,110 @@
 <body>
 
     <header class="main-header">
+    <div class="container">
+        <a href="index.html" class="logo">HOME SERVICE</a>
+        <nav class="main-nav">
+    <ul class="desktop-nav">
+        <li class="nav-item-dropdown" data-menu-trigger="categorias-menu">
+    <a href="index.html#categorias">Categorias <i class="fa-solid fa-chevron-right nav-arrow"></i></a>
+</li>
+<li class="nav-item-dropdown" data-menu-trigger="como-funciona-menu">
+    <a href="index.html#como-funciona">Como Funciona <i class="fa-solid fa-chevron-right nav-arrow"></i></a>
+</li>
+        <li><a href="marketplace.html">Loja</a></li>
+    </ul>
+
+    <div class="mobile-nav-menu">
+        <ul>
+            <li><a href="index.html#categorias">Categorias</a></li>
+            <li><a href="index.html#como-funciona">Como Funciona</a></li>
+            <li><a href="marketplace.html">Loja</a></li>
+            <li><a href="sobre.html">Sobre Nós</a></li>
+            <li><a href="login.html">Login</a></li>
+        </ul>
+        <a href="profissionais.html" class="btn btn-impact">Área do Profissional</a>
+    </div>
+</nav>
+
+<div class="header-actions">
+    <a href="sobre.html" class="nav-link desktop-only">Sobre Nós</a>
+    <a href="login.html" class="nav-link nav-link--icon desktop-only">
+        <i class="fa-solid fa-user"></i>
+        <span>Login</span>
+    </a>
+    <a href="profissionais.html" class="btn btn-secondary desktop-only js-dynamic-link">Área do Profissional</a>
+    <button class="mobile-menu-toggle" aria-label="Abrir menu">
+        <i class="fa-solid fa-bars"></i>
+    </button>
+</div>
+    </div>
+
+    <div class="mega-menu-wrapper" id="categorias-menu">
         <div class="container">
-            <a href="index.html" class="logo">HOME SERVICE</a>
-            <nav class="main-nav">
-                </nav>
-            <div class="header-actions">
-                <a href="#" id="logout-button" class="btn btn-secondary">Sair</a>
-                <button class="mobile-menu-toggle" aria-label="Abrir menu">
-                    <i class="fa-solid fa-bars"></i>
-                </button>
+            <div class="mega-menu-header">
+                <h2>Explore nossos serviços</h2>
+                <p>Tudo o que você precisa, em um só lugar.</p>
+            </div>
+            <div class="mega-menu-grid">
+                <a href="paginas-de-listagem/providers-residencial.html" class="mega-menu-item">
+                    <i class="fa-solid fa-house-chimney"></i>
+                    <span>Residenciais</span>
+                </a>
+                <a href="paginas-de-listagem/providers-diarista.html" class="mega-menu-item">
+                    <i class="fa-solid fa-broom"></i>
+                    <span>Diarista</span>
+                </a>
+                <a href="paginas-de-listagem/providers-eventos.html" class="mega-menu-item">
+                    <i class="fa-solid fa-champagne-glasses"></i>
+                    <span>Eventos Pessoais</span>
+                </a>
+                <a href="paginas-de-listagem/providers-automotivo.html" class="mega-menu-item">
+                    <i class="fa-solid fa-car"></i>
+                    <span>Automotivo</span>
+                </a>
+                <a href="paginas-de-listagem/providers-saude.html" class="mega-menu-item">
+                    <i class="fa-solid fa-heart-pulse"></i>
+                    <span>Saúde</span>
+                </a>
+                <a href="paginas-de-listagem/providers-professor.html" class="mega-menu-item">
+                    <i class="fa-solid fa-book-open-reader"></i>
+                    <span>Professor Particular</span>
+                </a>
             </div>
         </div>
-    </header>
+    </div>
+
+    <div class="mega-menu-wrapper" id="como-funciona-menu">
+        <div class="container">
+            <div class="mega-menu-header">
+                <h2>É simples, rápido e direto</h2>
+            </div>
+            <div class="mega-menu-grid how-it-works-grid">
+                <div class="mega-menu-item">
+                    <i class="fa-solid fa-magnifying-glass"></i>
+                    <div class="mega-menu-item-text">
+                        <span>1. Busque o Serviço</span>
+                        <span class="mega-menu-item-desc">Navegue pelas categorias ou pesquise o que você precisa.</span>
+                    </div>
+                </div>
+                <div class="mega-menu-item">
+                    <i class="fa-solid fa-address-card"></i>
+                    <div class="mega-menu-item-text">
+                        <span>2. Escolha o Profissional</span>
+                        <span class="mega-menu-item-desc">Veja perfis, com fotos de trabalhos e avaliações verificadas.</span>
+                    </div>
+                </div>
+                <div class="mega-menu-item">
+                    <i class="fa-brands fa-whatsapp"></i>
+                    <div class="mega-menu-item-text">
+                        <span>3. Conecte-se Direto</span>
+                        <span class="mega-menu-item-desc">Fale diretamente com o profissional por WhatsApp ou telefone.</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
 
     <main>
         <section class="dashboard-page">
@@ -75,8 +167,44 @@
     </main>
     
     <footer class="main-footer-section">
-        </footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-column about-column">
+                    <h3 class="footer-logo">HOME SERVICE</h3>
+                    <p>A plataforma que conecta você aos melhores profissionais, de forma justa e transparente.</p>
+                    <div class="social-links">
+                        <a href="#" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+                        <a href="#" aria-label="Facebook"><i class="fa-brands fa-facebook"></i></a>
+                        <a href="#" aria-label="LinkedIn"><i class="fa-brands fa-linkedin"></i></a>
+                    </div>
+                </div>
+                <div class="footer-column">
+                    <h4>Navegação</h4>
+                    <ul>
+                        <li><a href="sobre.html">Sobre Nós</a></li>
+                        <li><a href="index.html#categorias">Categorias</a></li>
+                        <li><a href="marketplace.html">Loja</a></li>
+                        <li><a href="blog.html">Blog</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h4>Suporte</h4>
+                    <ul>
+                        <li><a href="faq.html">FAQ (Perguntas Frequentes)</a></li>
+                        <li><a href="contato.html">Fale Conosco</a></li>
+                        <li><a href="termos.html">Termos de Uso e Privacidade</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Home Service. Todos os direitos reservados a @valentelucass.</p>
+            </div>
+        </div>
+    </footer>
 
+    <script src="assets/js/helpers.js"></script>
+    <script src="assets/js/components.js"></script>
+    <script src="assets/js/animations.js"></script>
     <script src="assets/js/main.js"></script>
 
 </body>

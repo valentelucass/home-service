@@ -2,36 +2,37 @@
 /* --- Módulo Final: main.js (O Orquestrador Principal) --- */
 /* =================================================================== */
 
-// --- LÓGICA DE LOGIN SIMULADO ---
+// --- VERSÃO DEFINITIVA E CORRIGIDA DA LÓGICA DE LOGIN/LOGOUT ---
+
 function checkLoginStatus() {
-    // Em um sistema real, esta função verificaria um cookie ou token.
-    // Para nosso teste, vamos usar uma variável simples.
-    // Mude para 'true' para simular que o profissional está logado.
-    const isUserLoggedIn = false; 
+    const isUserLoggedIn = localStorage.getItem('isProfessionalLoggedIn') === 'true';
 
-    // Seleciona TODOS os links que apontam para a página de profissionais.
-    // Usamos querySelectorAll para garantir que todos os links sejam atualizados (no header, no rodapé, etc.)
-    const professionalLinks = document.querySelectorAll('a[href="profissionais.html"]');
+    // ANTES: Procurava todos os links que apontavam para profissionais.html
+    // AGORA: Procura apenas os links que marcamos com a classe .js-dynamic-link
+    const dynamicLinks = document.querySelectorAll('.js-dynamic-link');
 
-    if (isUserLoggedIn && professionalLinks.length > 0) {
-        professionalLinks.forEach(link => {
-            // Se estiver logado, muda o link para o dashboard
-            link.href = 'dashboard-profissional.html';
+    if (isUserLoggedIn && dynamicLinks.length > 0) {
+        dynamicLinks.forEach(link => {
+            // A lógica de redirecionamento que já funciona
+            const newHref = link.getAttribute('href').includes('../') 
+                ? '../dashboard-profissional.html' 
+                : 'dashboard-profissional.html';
+            link.href = newHref;
         });
     }
-    // Se não estiver logado, os links continuam com o href original.
 }
 
-// --- LÓGICA DE LOGOUT SIMULADO ---
 function setupLogout() {
     const logoutButton = document.getElementById('logout-button');
     if (logoutButton) {
         logoutButton.addEventListener('click', function(e) {
             e.preventDefault();
-            // Em um sistema real, isso limparia o cookie/token.
-            alert("Você foi deslogado. (Simulação)");
-            // Redireciona para a página inicial após o logout
-            window.location.href = 'index.html';
+            console.log("Executando logout...");
+            // Remove a chave do localStorage, efetivamente "deslogando" o usuário.
+            localStorage.removeItem('isProfessionalLoggedIn');
+            alert("Você foi deslogado.");
+            // Redireciona para a página inicial, que está na raiz.
+            window.location.href = window.location.origin + '/index.html';
         });
     }
 }
@@ -58,6 +59,7 @@ document.addEventListener("DOMContentLoaded", function() {
     initMultiStepSignup();
     initPaymentPage();
     initSuccessPage();
+    initLoginPage(); // <--- LINHA ADICIONADA CONFORME SOLICITADO
 
     // Inicializa as animações de rolagem
     initScrollAnimations();

@@ -342,6 +342,10 @@
     margin-top: 20px;
     margin-bottom: 30px;
 }
+/* --- AJUSTE DE ALINHAMENTO (DESKTOP): Título do Formulário de Cadastro --- */
+.signup-form #signup-title {
+    text-align: center;
+}
 .form-group label {
     display: block;
     margin-bottom: 8px;

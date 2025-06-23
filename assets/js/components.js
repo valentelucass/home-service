@@ -150,92 +150,91 @@ function initPaymentPage() {
 }
 
 
-// --- NOVA FUNÇÃO PARA O CADASTRO MULTI-PASSOS (VERSÃO REVOLUCIONÁRIA) ---
+
+// --- FUNÇÃO DE CADASTRO MULTI-PASSOS (VERSÃO GLOBALMENTE CORRIGIDA) ---
 function initMultiStepSignup() {
     const signupForm = document.querySelector('#signup-form');
-    if (!signupForm) return;
+    if (!signupForm) return; // Sai da função se não estiver na página de cadastro.
 
-    // --- MAPEAMENTO DE SERVIÇOS ---
-    const servicosPorCategoria = {
-        residencial: ["Eletricista", "Encanador", "Pintor", "Montador de Móveis", "Reparos Gerais"],
-        diarista: ["Faxina Padrão", "Faxina Pesada", "Limpeza Pós-obra", "Passar Roupas"],
-        eventos: ["Bartender", "Garçom/Garçonete", "Segurança", "Churrasqueiro", "Recepcionista"],
-        automotivo: ["Mecânica Geral", "Lava-rápido", "Estética Automotiva", "Elétrica Automotiva"],
-        saude: ["Cuidador(a) de Idosos", "Personal Trainer", "Fisioterapeuta", "Técnico(a) de Enfermagem"],
-        aulas: ["Reforço Escolar", "Professor(a) de Idiomas", "Professor(a) de Música", "Informática"]
-    };
-
-    // --- ELEMENTOS DO FORMULÁRIO ---
+    // --- Seleção de todos os elementos necessários ---
     const steps = Array.from(signupForm.querySelectorAll('.form-step'));
     const nextButtons = signupForm.querySelectorAll('.next-step');
     const prevButtons = signupForm.querySelectorAll('.prev-step');
     const progressBar = signupForm.querySelector('.progress-bar');
-    const progressSteps = Array.from(progressBar.querySelectorAll('.progress-step'));
+    const progressSteps = progressBar ? Array.from(progressBar.querySelectorAll('.progress-step')) : [];
     const categorySelect = document.getElementById('professional-category');
     const servicesContainer = document.getElementById('services-checkbox-container');
     const reviewContainer = document.getElementById('review-container');
 
     let currentStep = 0;
 
-    // --- LÓGICA DE VALIDAÇÃO (CORRIGIDA) ---
-    // ESTA É A FUNÇÃO QUE ESTAVA FALTANDO NO SEU CÓDIGO
+    // --- Função de Validação (Corrigida e Mais Robusta) ---
     const validateStep = (stepIndex) => {
         const stepDiv = steps[stepIndex];
-        // Adiciona a busca por 'select' que também pode ser obrigatório
-        const inputs = stepDiv.querySelectorAll('input[required], select[required]');
+        if (!stepDiv) return false;
+
         let isValid = true;
         
-        inputs.forEach(input => {
-            // Remove a borda de erro anterior para nova validação
-            input.style.borderColor = '#ccc';
-
-            // Verifica se o campo está vazio
-            if (!input.value || (input.type === 'checkbox' && !input.checked)) {
+        // 1. Valida todos os inputs com 'required'
+        const requiredInputs = stepDiv.querySelectorAll('input[required]');
+        requiredInputs.forEach(input => {
+            input.style.borderColor = '#ccc'; // Reseta a borda
+            if (!input.value.trim()) {
                 isValid = false;
-                input.style.borderColor = '#e74c3c'; // Aplica borda de erro
+                input.style.borderColor = '#e74c3c'; // Marca o erro
             }
         });
 
-        // Validação específica para o passo dos checkboxes de serviço
+        // 2. Validação específica para o Passo 2 (Categoria e Especialidades)
         if (stepIndex === 1) {
+            // Valida a seleção da categoria
+            categorySelect.style.borderColor = '#ccc';
+            if (!categorySelect.value) {
+                isValid = false;
+                categorySelect.style.borderColor = '#e74c3c';
+            }
+            // Valida se ao menos uma especialidade foi marcada
             const checkboxes = servicesContainer.querySelectorAll('input[type="checkbox"]:checked');
+            servicesContainer.style.border = '1px solid #ddd';
             if (checkboxes.length === 0) {
                 isValid = false;
-                servicesContainer.style.borderColor = '#e74c3c';
-            } else {
-                servicesContainer.style.borderColor = '#ddd';
+                servicesContainer.style.border = '2px solid #e74c3c';
             }
         }
         
-        if (!isValid) {
-            // Usando a função de notificação que já existe no seu código
-            showErrorNotification('Por favor, preencha todos os campos obrigatórios.');
+        if (!isValid && typeof showNotification === 'function') {
+            showNotification('Por favor, preencha todos os campos obrigatórios.', 'error');
         }
         
         return isValid;
     };
 
-
-    // --- LÓGICA DE NAVEGAÇÃO E ANIMAÇÃO ---
+    // --- Função para Mudar de Passo ---
     const showStep = (stepIndex) => {
-        const currentStepDiv = steps[currentStep];
-        currentStepDiv.classList.add('exiting');
-        
-        setTimeout(() => {
-            currentStepDiv.classList.remove('active', 'exiting');
-            steps[stepIndex].classList.add('active');
-            currentStep = stepIndex;
-            updateProgressBar();
+        // Esconde todos os passos e mostra apenas o correto
+        steps.forEach((step, index) => {
+            step.classList.toggle('active', index === stepIndex);
+        });
+        currentStep = stepIndex;
 
-            if (currentStep === 3) { // Se for o passo de revisão
-                populateReview();
-            }
-        }, 400);
+        // Atualiza a barra de progresso
+        if(progressSteps.length > 0) {
+            progressSteps.forEach((step, index) => {
+                step.classList.toggle('active', index <= currentStep);
+            });
+            const progressPercentage = (currentStep / (progressSteps.length - 1)) * 100;
+            progressBar.style.setProperty('--progress-width', `${progressPercentage}%`);
+        }
+        
+        // Preenche a revisão se estiver no último passo
+        if (currentStep === 3 && reviewContainer) {
+            populateReview();
+        }
     };
 
+    // --- Event Listeners para os Botões ---
     nextButtons.forEach(button => {
         button.addEventListener('click', () => {
-            // A validação agora funciona para todos os passos
             if (validateStep(currentStep) && currentStep < steps.length - 1) {
                 showStep(currentStep + 1);
             }
@@ -249,103 +248,62 @@ function initMultiStepSignup() {
             }
         });
     });
-
-    // --- LÓGICA DA BARRA DE PROGRESSO ---
-    const updateProgressBar = () => {
-        progressSteps.forEach((step, index) => {
-            step.classList.toggle('active', index <= currentStep);
-        });
-        const progressPercentage = (currentStep / (progressSteps.length - 1)) * 100;
-        progressBar.style.setProperty('--progress-width', `${progressPercentage}%`);
-    };
     
-    // --- LÓGICA DE SELEÇÃO DINÂMICA DE SERVIÇOS ---
-    categorySelect.addEventListener('change', () => {
-        const selectedCategory = categorySelect.value;
-        servicesContainer.innerHTML = ''; // Limpa as opções anteriores
-        
-        if (selectedCategory && servicosPorCategoria[selectedCategory]) {
+    // --- Lógica para os Checkboxes de Serviço (RESTAURADA) ---
+    const servicosPorCategoria = {
+        residencial: ["Eletricista", "Encanador", "Pintor", "Montador de Móveis", "Reparos Gerais"],
+        diarista: ["Faxina Padrão", "Faxina Pesada", "Limpeza Pós-obra", "Passar Roupas"],
+        eventos: ["Bartender", "Garçom/Garçonete", "Segurança", "Churrasqueiro", "Recepcionista"],
+        automotivo: ["Mecânica Geral", "Lava-rápido", "Estética Automotiva", "Elétrica Automotiva"],
+        saude: ["Cuidador(a) de Idosos", "Personal Trainer", "Fisioterapeuta", "Técnico(a) de Enfermagem"],
+        aulas: ["Reforço Escolar", "Professor(a) de Idiomas", "Professor(a) de Música", "Informática"]
+    };
+    if (categorySelect && servicesContainer) {
+        categorySelect.addEventListener('change', () => {
+            const selectedCategory = categorySelect.value;
+            servicesContainer.innerHTML = '';
             const services = servicosPorCategoria[selectedCategory];
-            services.forEach(service => {
-                const div = document.createElement('div');
-                const checkboxId = `service-${service.replace(/\s+/g, '-')}`;
-                div.innerHTML = `
-                    <input type="checkbox" id="${checkboxId}" name="servicos" value="${service}">
-                    <label for="${checkboxId}">${service}</label>
-                `;
-                servicesContainer.appendChild(div);
-            });
-        } else {
-            servicesContainer.innerHTML = '<p class="text-center text-muted">Selecione uma categoria acima para ver as especialidades.</p>';
-        }
-    });
-
-    // --- FUNÇÃO DE NOTIFICAÇÃO (Já existe no seu código, mas mantendo aqui para referência) ---
-    function showErrorNotification(message) {
-        const notification = document.createElement('div');
-        notification.className = 'notification notification-error';
-        notification.textContent = message;
-        document.body.appendChild(notification);
-        setTimeout(() => {
-            notification.style.opacity = '0';
-            setTimeout(() => notification.remove(), 300);
-        }, 3000);
+            if (services) {
+                services.forEach(service => {
+                    const div = document.createElement('div');
+                    const checkboxId = `service-${service.replace(/\s+/g, '-')}`;
+                    div.innerHTML = `<input type="checkbox" id="${checkboxId}" name="servicos" value="${service}"><label for="${checkboxId}">${service}</label>`;
+                    servicesContainer.appendChild(div);
+                });
+            } else {
+                servicesContainer.innerHTML = '<p class="text-center text-muted">Selecione uma categoria para ver as especialidades.</p>';
+            }
+        });
     }
 
-    // --- PREENCHER A TELA DE REVISÃO ---
+    // --- Lógica da Submissão Final ---
+    signupForm.addEventListener('submit', function(event) {
+        event.preventDefault();
+        // A submissão só acontece no último botão, então não precisamos de validação aqui.
+        // O botão "Finalizar" é do tipo submit, então ele aciona este evento.
+        window.location.href = 'cadastro-sucesso.html';
+    });
+
+    // Função para preencher a tela de revisão
     const populateReview = () => {
         const nome = document.getElementById('full-name').value;
         const email = document.getElementById('email').value;
         const telefone = document.getElementById('phone').value;
         const categoria = categorySelect.options[categorySelect.selectedIndex].text;
-        const servicosSelecionados = Array.from(document.querySelectorAll('input[name="servicos"]:checked')).map(cb => cb.value);
-
+        const servicosSelecionados = Array.from(document.querySelectorAll('input[name="servicos"]:checked')).map(cb => `<li>${cb.value}</li>`).join('');
         reviewContainer.innerHTML = `
             <h4>Conta e Contato</h4>
             <p><strong>Nome:</strong> ${nome}</p>
             <p><strong>Email:</strong> ${email}</p>
             <p><strong>Telefone:</strong> ${telefone}</p>
+            <hr>
             <h4>Serviços</h4>
             <p><strong>Categoria:</strong> ${categoria}</p>
-            <ul>
-                ${servicosSelecionados.map(s => `<li>${s}</li>`).join('')}
-            </ul>
-        `;
+            <ul>${servicosSelecionados || "<li>Nenhuma especialidade marcada</li>"}</ul>`;
     };
 
-    // --- LÓGICA DA SUBMISSÃO FINAL ---
-    signupForm.addEventListener('submit', function(event) {
-        event.preventDefault();
-        
-        // Validação final antes de submeter
-        if (!validateStep(3)) { // Valida o último passo (revisão)
-            showErrorNotification("Parece que há um erro nos seus dados. Por favor, volte e verifique.");
-            return;
-        }
-
-        const urlParams = new URLSearchParams(window.location.search);
-        const plano = urlParams.get('plano') || 'gratis';
-        
-        if (plano === 'gratis') {
-            window.location.href = 'cadastro-sucesso.html';
-        } else {
-            window.location.href = `pagamento.html?plano=${plano}`;
-        }
-    });
-
-    // --- INICIALIZAÇÃO ---
-    const urlParams = new URLSearchParams(window.location.search);
-    const plano = urlParams.get('plano') || 'gratis';
-    document.querySelector('#signup-title').textContent = {
-        gratis: 'Crie seu Perfil Gratuito',
-        basico: 'Você está a um passo do Plano Básico',
-        premium: 'Excelente escolha! Finalize seu cadastro Premium'
-    }[plano];
-    document.querySelector('#signup-subtitle').textContent = {
-        gratis: 'Siga os passos para ter seu perfil online hoje mesmo.',
-        basico: 'Complete seus dados para prosseguir para o pagamento.',
-        premium: 'Complete seus dados para ter acesso total à plataforma.'
-    }[plano];
+    // --- Inicialização ---
+    showStep(0); // Garante que o primeiro passo sempre seja exibido ao carregar.
 }
 
 

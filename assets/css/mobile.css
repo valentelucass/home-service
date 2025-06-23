@@ -210,3 +210,175 @@ h2, .section-title, .cta-title {
     /* Adiciona uma margem no topo, empurrando-o para baixo e criando espaço */
     margin-top: 25px;
 }
+
+/* =================================================================== */
+/* --- CORREÇÕES FINAIS DE TIPOGRAFIA E LAYOUT (MÓVEL) --- */
+/* =================================================================== */
+
+/* 1. Ajustes no Formulário de Cadastro (cadastro.html) */
+body#page-signup h1,
+body#page-signup #signup-title {
+    font-size: 1.8rem !important;
+    line-height: 1.3 !important;
+}
+
+body#page-signup #signup-subtitle {
+    font-size: 1rem !important;
+}
+
+body#page-signup .step-title {
+    font-size: 1.5rem !important;
+}
+
+/* 2. Ajustes nas Páginas de Listagem de Serviços (ex: /paginas-de-listagem/providers-residencial.html) */
+.listing-page .listing-title h1 {
+    font-size: 1.8rem !important;
+    line-height: 1.3 !important;
+}
+
+.listing-page .listing-title p {
+    font-size: 1rem !important;
+}
+
+/* ========================================================== */
+/* --- ARQUIVO mobile.css - VERSÃO FINAL E CENTRALIZADA --- */
+/* ========================================================== */
+
+/* --- 1. GERAL: ESCONDER ITENS DE DESKTOP E AJUSTAR LAYOUTS --- */
+.desktop-nav, .desktop-only, .mega-menu-wrapper {
+    display: none !important;
+}
+.steps-container, .plans-container, .footer-grid, .hero-content-container,
+.profile-layout, .listing-header, .provider-card, .featured-post,
+.shop-header, .form-row, .testimonial-grid {
+    flex-direction: column !important;
+    gap: 30px;
+}
+.category-grid, .blog-grid, .product-grid, .plan-switcher {
+    grid-template-columns: 1fr !important;
+}
+
+/* --- 2. GERAL: TIPOGRAFIA E PADDINGS --- */
+h1, .page-header h1, .hero-professionals .hero-title {
+    font-size: 2rem !important; line-height: 1.3 !important; text-align: center !important;
+}
+h2, .section-title, .cta-title {
+    font-size: 1.8rem !important; text-align: center !important;
+}
+.page-section, .feature-section, .category-section, .testimonial-section,
+.cta-section, .plans-section, .faq-section, .listing-page, .shop-section {
+    padding-top: 80px !important;
+    padding-bottom: 80px !important;
+}
+
+/* --- 3. PÁGINA INICIAL (index.html) --- */
+.hero-revamped {
+    min-height: auto; height: auto; padding: 100px 20px 60px 20px;
+    border-radius: 0 0 30px 30px;
+}
+.hero-revamped .hero-title {
+    font-size: 2.5rem !important; text-align: center !important;
+}
+.hero-carousel .hero-slide:nth-child(1) {
+    background-position: 25% 50% !important;
+}
+.hero-cta-panel {
+    background: rgba(255, 255, 255, 0.9); padding: 30px;
+}
+
+/* --- 4. MENU MOBILE --- */
+.mobile-menu-toggle { z-index: 1001; position: relative; }
+.mobile-menu-toggle i.fa-xmark { color: var(--white-color) !important; }
+.mobile-nav-menu {
+    position: fixed; top: 0; left: 0; width: 100%; height: 100vh;
+    background-color: rgba(10, 0, 25, 0.98);
+    backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px);
+    display: flex; flex-direction: column; justify-content: center; align-items: center;
+    z-index: 1000; opacity: 0; visibility: hidden;
+    transform: translateY(-20px);
+    transition: opacity 0.4s ease, visibility 0.4s ease, transform 0.4s ease;
+}
+.main-nav.active .mobile-nav-menu { opacity: 1; visibility: visible; transform: translateY(0); }
+.mobile-nav-menu ul { list-style: none; padding: 0; margin: 0; text-align: center; }
+.mobile-nav-menu li { margin-bottom: 25px; }
+.mobile-nav-menu a {
+    text-decoration: none; color: var(--white-color); font-size: 1.8rem;
+    font-weight: 700; font-family: var(--font-headings); transition: color 0.3s ease;
+}
+.mobile-nav-menu a:hover { color: var(--primary-color); }
+.mobile-nav-menu .btn-impact { margin-top: 40px; padding: 18px 40px; font-size: 1.1rem; }
+
+/* --- 5. PÁGINA DE CADASTRO (cadastro.html) --- */
+.signup-form { padding: 25px; }
+.signup-form h1, .signup-form #signup-title {
+    font-size: 1.8rem !important; line-height: 1.3 !important; text-align: center !important;
+}
+.signup-form p, .signup-form #signup-subtitle {
+    font-size: 1rem !important; line-height: 1.5 !important; text-align: center !important;
+    margin-bottom: 35px !important;
+}
+.signup-form .step-title {
+    font-size: 1.5rem !important; text-align: center !important;
+}
+
+/* --- 6. PÁGINAS DE LISTAGEM DE SERVIÇOS --- */
+.listing-page .listing-title h1 {
+    font-size: 1.6rem !important; /* Diminui o tamanho do título */
+    line-height: 1.3 !important;
+    text-align: left !important; /* Alinha o título à esquerda */
+}
+.listing-page .listing-title p {
+    font-size: 1rem !important;
+    text-align: left !important; /* Alinha o subtítulo à esquerda */
+}
+
+/* --- 7. PÁGINA DE SUCESSO NO CADASTRO (cadastro-sucesso.html) --- */
+.success-box { padding: 30px; text-align: center; }
+.success-icon { font-size: 4rem !important; }
+.success-box h1 { font-size: 1.8rem !important; }
+.success-box p { font-size: 1rem !important; }
+.success-actions {
+    flex-direction: column !important; gap: 15px; align-items: stretch;
+}
+
+/* --- 8. OUTROS AJUSTES FINOS --- */
+.plan-card.featured { margin-top: 25px; }
+.plans-container { align-items: center; }
+.plan-option .plan-price { font-size: 1.3rem !important; }
+
+/* ========================================================== */
+/* --- REFINAMENTOS FINAIS: BOTÕES E TELA DE REVISÃO --- */
+/* ========================================================== */
+
+/*
+   1. CORREÇÃO: Botões de Navegação do Formulário
+   Alvo: Botões "Voltar", "Revisar Cadastro", "Corrigir", etc.
+*/
+.form-navigation .btn {
+    display: inline-flex !important;   /* Alinha ícone e texto na mesma linha */
+    justify-content: center !important; /* Centraliza o conteúdo horizontalmente */
+    align-items: center !important;   /* Centraliza o conteúdo verticalmente */
+    gap: 8px !important;              /* Cria um espaço entre o ícone e o texto */
+}
+
+
+/*
+   2. CORREÇÃO: Alinhamento da Tela de Revisão
+   Alvo: O texto de revisão que estava centralizado indevidamente.
+*/
+.signup-form .review-box,
+.signup-form .review-box h4,
+.signup-form .review-box p,
+.signup-form .review-box ul,
+.signup-form .review-box li {
+    text-align: left !important; /* Força o alinhamento de todo o conteúdo à esquerda */
+}
+
+
+/* --- AJUSTE FINAL: Centraliza o botão no cabeçalho do perfil --- */
+.profile-header__actions {
+    display: flex;
+    justify-content: center;
+    width: 100%; /* Garante que o container ocupe todo o espaço disponível */
+}
+

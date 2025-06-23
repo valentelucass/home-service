@@ -1,0 +1,10 @@
+title: Home Service
+description: Plataforma de serviços online
+theme: jekyll-theme-primer
+
+exclude:
+  - backend
+  - node_modules
+  - .vscode
+  - README.md
+  - dummy.txt

@@ -33,6 +33,8 @@
 .hero-title {
     font-size: 2.5rem !important;
     line-height: 1.2;
+    text-align: left; /* 1. Alinha o texto para a direita */
+    text-shadow: 0 2px 8px rgba(0, 0, 0, 0.25); /* 2. Sombra mais suave */
 }
 h1, .hero-professionals .hero-title, .page-header h1 {
     font-size: 2.1rem !important;
@@ -179,7 +181,6 @@ h2, .section-title, .cta-title {
     /* Diminui o tamanho da fonte para se ajustar melhor à tela */
     font-size: 2.2rem !important;
     line-height: 1.3;
-    text-align: center; /* Garante o alinhamento central */
 }
 
 /* Alvo: A barra de busca */
@@ -260,7 +261,7 @@ body#page-signup .step-title {
 
 /* --- 2. GERAL: TIPOGRAFIA E PADDINGS --- */
 h1, .page-header h1, .hero-professionals .hero-title {
-    font-size: 2rem !important; line-height: 1.3 !important; text-align: center !important;
+    font-size: 2rem !important; line-height: 1.3 !important;
 }
 h2, .section-title, .cta-title {
     font-size: 1.8rem !important; text-align: center !important;
@@ -277,7 +278,7 @@ h2, .section-title, .cta-title {
     border-radius: 0 0 30px 30px;
 }
 .hero-revamped .hero-title {
-    font-size: 2.5rem !important; text-align: center !important;
+    font-size: 2.5rem !important;
 }
 .hero-carousel .hero-slide:nth-child(1) {
     background-position: 25% 50% !important;
@@ -404,12 +405,6 @@ h2, .section-title, .cta-title {
     border-bottom: 1px solid var(--card-border);
     padding-bottom: 25px;
     margin-bottom: 40px;
-}
-
-/* Este é o novo container para o título e a descrição */
-.page-header__title-group {
-    /* Este container não precisa de CSS especial,
-       o HTML fará a mágica de agrupá-los */
 }
 
 .dashboard-page .page-header h1 {
@@ -549,7 +544,6 @@ h2, .section-title, .cta-title {
     border: 1px solid #f4f5f7;
     border-radius: 12px;
     box-shadow: none;
-    -webkit-appearance: none;
     transition: all 0.2s ease-in-out;
 }
 .form-group textarea {

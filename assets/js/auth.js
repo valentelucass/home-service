@@ -146,5 +146,3 @@ function initMultiStepSignup() {
     // Inicia o formulário na primeira etapa
     showStep(0);
 }
-
-

@@ -35,11 +35,11 @@ app.get('/', (req, res) => {
 });
 
 /**
- * ROTA PARA CADASTRAR UM NOVO PROFISSIONAL
- * Usada pelo formulário de cadastro de múltiplos passos.
+ * ROTA PARA CADASTRAR UM NOVO PROFISSIONAL (VERSÃO CORRIGIDA E MAIS SEGURA)
  */
 app.post('/api/profissionais', async (req, res) => {
     console.log('→ [ROTA] /api/profissionais chamada com body:', req.body);
+    let connection; // Declara a conexão aqui fora para que o bloco 'finally' a acesse
 
     try {
         const { nome, email, senha, telefone, cidade, servicos, categoria } = req.body;
@@ -49,9 +49,8 @@ app.post('/api/profissionais', async (req, res) => {
         }
 
         const senha_hash = await bcrypt.hash(senha, saltRounds);
-        const connection = await mysql.createConnection(dbConfig);
+        connection = await mysql.createConnection(dbConfig);
 
-        // Inicia uma transação para garantir que ambas as inserções funcionem ou nenhuma
         await connection.beginTransaction();
 
         // 1) Cria o usuário na tabela 'usuarios'
@@ -61,15 +60,13 @@ app.post('/api/profissionais', async (req, res) => {
         );
         const usuarioId = usuarioResult.insertId;
 
-        // 2) Cria o perfil em 'perfis_profissionais' (sem a descrição, como decidido)
+        // 2) Cria o perfil em 'perfis_profissionais'
         await connection.execute(
             `INSERT INTO perfis_profissionais (usuario_id, telefone, cidade_estado, especialidades, categoria) VALUES (?, ?, ?, ?, ?)`,
             [usuarioId, telefone, cidade, servicos ? servicos.join(', ') : '', categoria]
         );
 
-        // Se tudo deu certo, confirma a transação
         await connection.commit();
-        await connection.end();
 
         return res.status(201).json({
             message: 'Usuário e perfil profissional criados com sucesso!',
@@ -78,16 +75,19 @@ app.post('/api/profissionais', async (req, res) => {
 
     } catch (err) {
         console.error('→ [ERRO /api/profissionais]', err.stack || err);
-        // Desfaz a transação em caso de erro
-        // await connection.rollback(); // Descomentar se a conexão ainda estiver aberta
+        
+        // Se a transação foi iniciada, desfaz ela em caso de erro
+        if (connection) await connection.rollback();
 
         if (err.code === 'ER_DUP_ENTRY') {
             return res.status(409).json({ message: 'Este e-mail já está cadastrado.' });
         }
         return res.status(500).json({ message: 'Erro interno ao criar perfil.' });
+    } finally {
+        // Garante que a conexão com o banco seja sempre fechada, mesmo se ocorrer um erro
+        if (connection) await connection.end();
     }
 });
-
 
 /**
  * ROTA PARA VERIFICAR SE O E-MAIL JÁ EXISTE (Para validação em tempo real)

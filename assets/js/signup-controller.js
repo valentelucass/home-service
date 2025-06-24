@@ -1,29 +1,32 @@
 /* =================================================================== */
-/* --- Módulo Final: signup-controller.js (Versão Definitiva) --- */
+/* --- Módulo: signup-controller.js (Com Validação de E-mail) --- */
 /* =================================================================== */
 
 document.addEventListener('DOMContentLoaded', () => {
     
     const signupForm = document.querySelector('#signup-form');
-    if (!signupForm) return; 
+    if (!signupForm) return;
 
-    // --- SELEÇÃO CORRETA DOS ELEMENTOS ---
+    // --- SELEÇÃO DE ELEMENTOS ---
     const formSteps = Array.from(signupForm.querySelectorAll('.form-step'));
     const nextButtons = signupForm.querySelectorAll('.next-step');
     const prevButtons = signupForm.querySelectorAll('.prev-step');
-    
-    // Alvo corrigido: Agora miramos na barra que criamos.
     const progressBar = document.querySelector('.progress-bar-animated'); 
-    
-    // Alvo corrigido: Os passos agora estão dentro de .progress-steps
-    const progressSteps = document.querySelectorAll('.progress-steps .progress-step'); 
-    
+    const progressSteps = document.querySelectorAll('.progress-steps .progress-step');
     const categorySelect = document.getElementById('professional-category');
     const servicesContainer = document.getElementById('services-checkbox-container');
     
+    // Elementos para a nova validação de e-mail
+    const emailInput = document.getElementById('email');
+    const emailError = document.getElementById('email-error');
+    const firstNextButton = formSteps[0].querySelector('.next-step');
+
     let currentStepIndex = 0;
     
+    // --- FUNÇÕES ---
+
     function updateUI(stepIndex) {
+        // ... (código da função updateUI que já tínhamos, sem alterações)
         formSteps.forEach((step, index) => {
             step.classList.toggle('active', index === stepIndex);
         });
@@ -31,9 +34,6 @@ document.addEventListener('DOMContentLoaded', () => {
         if (progressBar && progressSteps.length > 0) {
             const totalSteps = formSteps.length;
             const progressPercentage = stepIndex > 0 ? (stepIndex / (totalSteps - 1)) * 100 : 0;
-            
-            // A MÁGICA FINAL:
-            // O JavaScript agora altera a largura da barra correta.
             progressBar.style.width = `${progressPercentage}%`;
 
             progressSteps.forEach((step, index) => {
@@ -53,7 +53,43 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
 
-    // --- LÓGICA DOS BOTÕES (Sem alterações, já estava correta) ---
+    // ---> NOVA FUNÇÃO PARA VERIFICAR O E-MAIL
+    async function checkEmailExists() {
+        const email = emailInput.value.trim();
+        
+        // Só verifica se o e-mail parece válido
+        if (email.length < 5 || !email.includes('@')) {
+            emailError.textContent = '';
+            firstNextButton.disabled = false;
+            return;
+        }
+
+        try {
+            const response = await fetch(`http://localhost:3000/api/check-email?email=${encodeURIComponent(email)}`);
+            const data = await response.json();
+
+            if (data.exists) {
+                emailError.textContent = 'Este e-mail já está em uso. Tente outro.';
+                firstNextButton.disabled = true; // Desabilita o botão
+                firstNextButton.style.opacity = '0.5';
+            } else {
+                emailError.textContent = '';
+                firstNextButton.disabled = false; // Habilita o botão
+                firstNextButton.style.opacity = '1';
+            }
+        } catch (error) {
+            console.error("Erro ao verificar e-mail:", error);
+            emailError.textContent = 'Não foi possível verificar o e-mail no momento.';
+            firstNextButton.disabled = true; // Segurança: bloqueia se não puder verificar
+            firstNextButton.style.opacity = '0.5';
+        }
+    }
+
+    // --- EVENT LISTENERS ---
+
+    // Adiciona o evento para disparar a verificação quando o usuário sai do campo de e-mail
+    emailInput.addEventListener('blur', checkEmailExists);
+
     nextButtons.forEach(button => {
         button.addEventListener('click', (e) => {
             e.preventDefault();
@@ -72,7 +108,8 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
-    // --- CÓDIGO RESTANTE (Não precisa de alteração) ---
+    // --- (Resto do código para Lógica de Especialidades, Revisão e Envio continua igual) ---
+    // ... cole o restante do seu signup-controller.js aqui ...
     const servicesByCategory = {
         residencial: ['Limpeza Geral', 'Jardinagem', 'Pintura', 'Reformas Leves'],
         diarista: ['Limpeza Pesada', 'Passadoria', 'Organização de Armários'],
@@ -126,7 +163,7 @@ document.addEventListener('DOMContentLoaded', () => {
             alert('Preencha todos os campos obrigatórios.');
             return;
         }
-        const payload = { nome, email, senha, descricao_perfil: '', telefone, cidade, categoria, servicos };
+        const payload = { nome, email, senha, telefone, cidade, categoria, servicos };
         try {
             const response = await fetch('http://localhost:3000/api/profissionais', {
                 method: 'POST',

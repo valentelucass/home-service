@@ -1063,3 +1063,14 @@ i.fa-solid { margin-left: 8px; }
     from { transform: scale(0); opacity: 0; }
     to { transform: scale(1); opacity: 1; }
 }
+
+/* ============================================= */
+/* --- ESTILO PARA MENSAGEM DE ERRO EM FORMULÁRIOS --- */
+/* ============================================= */
+.form-error-message {
+    color: #e74c3c; /* Vermelho para erros */
+    font-size: 0.85rem;
+    margin-top: 8px;
+    font-weight: 500;
+    min-height: 1.2em; /* Garante que o layout não "pule" quando a msg aparece */
+}

@@ -121,23 +121,24 @@
     <main>
         <section class="page-section" style="background-color: var(--light-color);">
             <div class="container">
-                <form class="login-form">
-                    <h1 style="text-align: center; margin-bottom: 30px;">Acesse sua Conta</h1>
-                    <div class="form-group">
-                        <label for="email">E-mail</label>
-                        <input type="email" id="email" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="password">Senha</label>
-                        <input type="password" id="password" required>
-                    </div>
-                    <button type="submit" class="btn btn-primary">Entrar</button>
-                    
-                    <div class="form-footer">
-                        <a href="esqueci-senha.html">Esqueci minha senha</a>
-                        <p>Não tem uma conta? <a href="profissionais.html">Cadastre-se</a></p>
-                    </div>
-                </form>
+                <form id="login-form" class="login-form">
+    <h2>Acesse sua conta</h2>
+    <div class="form-group">
+        <label for="email">E-mail</label>
+        <input type="email" id="email" name="email" required>
+    </div>
+    <div class="form-group">
+        <label for="password">Senha</label>
+        <input type="password" id="password" name="password" required>
+    </div>
+    
+    <div id="login-error-message" class="form-error-message" style="text-align: center; margin-bottom: 15px;"></div>
+    
+    <button type="submit" class="btn btn-primary">Entrar</button>
+    <div class="form-footer">
+        <p>Não tem uma conta? <a href="profissionais.html">Cadastre-se como profissional</a>.</p>
+    </div>
+</form>
             </div>
         </section>
     </main>
@@ -181,27 +182,8 @@
     <script src="assets/js/helpers.js"></script>
     <script src="assets/js/components.js"></script>
     <script src="assets/js/animations.js"></script>
-    <script src="assets/js/auth.js"></script> <script src="assets/js/main.js"></script>
+    <script src="assets/js/login-controller.js"></script>
     <script src="assets/js/main.js"></script>
-    <script>
-        // Seleciona o formulário de login da página
-        const loginForm = document.querySelector('.login-form');
-
-        // Adiciona um "escutador" que espera pelo evento de envio do formulário
-        if (loginForm) {
-            loginForm.addEventListener('submit', function(event) {
-                // Previne o comportamento padrão de recarregar a página
-                event.preventDefault(); 
-                
-                // 1. Simula o login e armazena o status no navegador
-                // Em um sistema real, aqui você receberia uma resposta do seu back-end.
-                localStorage.setItem('isProfessionalLoggedIn', 'true');
-                
-                // 2. Avisa o usuário e redireciona para o painel
-                alert("Login realizado com sucesso! Redirecionando para o seu painel...");
-                window.location.href = 'dashboard-profissional.html';
-            });
-        }
-    </script>
+    
 </body>
 </html>

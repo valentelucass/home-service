@@ -2,13 +2,12 @@
 /* --- Módulo Final: main.js (O Orquestrador Principal) --- */
 /* =================================================================== */
 
-// --- VERSÃO DEFINITIVA E CORRIGIDA DA LÓGICA DE LOGIN/LOGOUT ---
-
+/**
+ * Verifica se o usuário está logado e atualiza a interface.
+ * - Altera o link "Área do Profissional" para ir direto para o dashboard.
+ */
 function checkLoginStatus() {
     const isUserLoggedIn = localStorage.getItem('isProfessionalLoggedIn') === 'true';
-
-    // ANTES: Procurava todos os links que apontavam para profissionais.html
-    // AGORA: Procura apenas os links que marcamos com a classe .js-dynamic-link
     const dynamicLinks = document.querySelectorAll('.js-dynamic-link');
 
     if (isUserLoggedIn && dynamicLinks.length > 0) {
@@ -22,51 +21,54 @@ function checkLoginStatus() {
     }
 }
 
+/**
+ * Configura o botão de logout para remover os dados de login e redirecionar.
+ */
 function setupLogout() {
     const logoutButton = document.getElementById('logout-button');
     if (logoutButton) {
         logoutButton.addEventListener('click', function(e) {
             e.preventDefault();
-            console.log("Executando logout...");
-            // Remove a chave do localStorage, efetivamente "deslogando" o usuário.
+            
             localStorage.removeItem('isProfessionalLoggedIn');
-            alert("Você foi deslogado.");
-            // Redireciona para a página inicial, que está na raiz.
-            window.location.href = window.location.origin + '/index.html';
+            localStorage.removeItem('userId');
+            
+            alert("Você foi deslogado com sucesso.");
+            window.location.href = '/index.html'; // Redireciona para a página inicial
         });
     }
 }
 
-
-// --- O Orquestrador Principal que Roda Quando a Página Carrega ---
+/**
+ * Função principal que inicializa todos os scripts do site
+ * quando a página termina de carregar.
+ */
 document.addEventListener("DOMContentLoaded", function() {
     console.log("Home Service - Scripts Modulares Carregados!");
 
-    // --- Novas funções para verificar login e configurar logout ---
+    // Funções globais que rodam em todas as páginas
     checkLoginStatus();
     setupLogout();
 
-    // Inicializa componentes da Interface de Usuário (UI)
-    initMobileMenu();
-    initFaqAccordion();
-    initHeroCarousel();
-    initRadiusSlider();
-    initPortfolioGallery();
-    initMegaMenu();
-    initSortProviders(); 
+    // Funções de inicialização de componentes (código original mantido)
+    // Elas são seguras pois já verificam se os elementos existem
+    if(typeof initMobileMenu === 'function') initMobileMenu();
+    if(typeof initFaqAccordion === 'function') initFaqAccordion();
+    if(typeof initHeroCarousel === 'function') initHeroCarousel();
+    if(typeof initRadiusSlider === 'function') initRadiusSlider();
+    if(typeof initPortfolioGallery === 'function') initPortfolioGallery();
+    if(typeof initMegaMenu === 'function') initMegaMenu();
+    if(typeof initSortProviders === 'function') initSortProviders(); 
     
-    // Inicializa funcionalidades específicas de páginas
-    initPaymentPage();
-    initSuccessPage();
-    initLoginPage(); // <--- LINHA ADICIONADA CONFORME SOLICITADO
+    // Funções de inicialização de páginas específicas (código original mantido)
+    if(typeof initPaymentPage === 'function') initPaymentPage();
+    if(typeof initSuccessPage === 'function') initSuccessPage();
+    if(typeof initLoginPage === 'function') initLoginPage(); 
 
-    // Inicializa as animações de rolagem
-    initScrollAnimations();
+    // Inicializa as animações de rolagem (código original mantido)
+    if(typeof initScrollAnimations === 'function') initScrollAnimations();
 
-    /* ============================================= */
-    /* --- CORREÇÃO DE SEGURANÇA PARA ANIMAÇÕES --- */
-    /* Força a visibilidade das seções se o IntersectionObserver falhar ou demorar */
-    /* ============================================= */
+    // Fallback de segurança para animações (código original mantido)
     setTimeout(() => {
         const animatedSections = document.querySelectorAll('.animated-section');
         animatedSections.forEach(section => {
@@ -74,5 +76,5 @@ document.addEventListener("DOMContentLoaded", function() {
                 section.classList.add('visible');
             }
         });
-    }, 1000); // 1 segundo de espera
+    }, 1000);
 });

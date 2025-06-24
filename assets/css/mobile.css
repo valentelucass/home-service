@@ -634,3 +634,83 @@ h2, .section-title, .cta-title {
 .btn-logout i {
     margin-right: 0;
 }
+
+
+/* =================================================================== */
+/* === A REVOLUÇÃO DO RODAPÉ (MOBILE-FIRST E GENIAL) === */
+/* =================================================================== */
+
+/* --- A BASE DO NOVO RODAPÉ --- */
+.main-footer-section {
+    padding: 40px 15px 20px; /* Reduz o padding vertical drasticamente */
+    text-align: center; /* Centraliza todo o conteúdo */
+}
+
+/* Destruindo o grid do desktop e simplificando */
+.footer-grid {
+    flex-direction: column !important; /* Força o empilhamento */
+    gap: 25px !important; /* Espaçamento entre os blocos */
+    margin-bottom: 30px;
+}
+
+/* A coluna principal com logo e redes sociais */
+.footer-column.about-column {
+    margin-bottom: 10px;
+}
+
+/* O logo com mais destaque */
+.footer-logo {
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+}
+
+.about-column p {
+    font-size: 0.95rem;
+    max-width: 300px; /* Evita que a descrição fique muito larga */
+    margin: 0 auto 20px; /* Centraliza a descrição */
+}
+
+/* Ícones de redes sociais maiores e mais espaçados */
+.social-links {
+    display: flex;
+    justify-content: center;
+    gap: 25px; /* Espaço generoso entre os ícones */
+}
+.social-links a {
+    font-size: 1.6rem; /* Ícones bem maiores e fáceis de tocar */
+    color: var(--text-primary);
+}
+
+/* --- LISTAS DE LINKS: HORIZONTAIS E DISCRETAS --- */
+.footer-column h4 {
+    display: none; /* Esconde os títulos "Navegação" e "Suporte" */
+}
+
+.footer-column ul {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap; /* Permite que os links quebrem a linha se necessário */
+    gap: 10px 20px; /* Espaçamento vertical e horizontal entre os links */
+    padding: 0;
+    list-style: none;
+    border-top: 1px solid var(--card-border); /* Linha sutil de separação */
+    padding-top: 25px;
+}
+
+.footer-column ul li a {
+    font-size: 0.9rem;
+    color: var(--text-secondary);
+    font-weight: 500;
+}
+
+/* --- COPYRIGHT: LIMPO E SIMPLES --- */
+.footer-bottom {
+    margin-top: 30px;
+    padding-top: 20px;
+    border-top: 1px solid var(--card-border);
+}
+
+.footer-bottom p {
+    font-size: 0.8rem;
+    color: #a0aec0;
+}

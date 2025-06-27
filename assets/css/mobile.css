@@ -708,3 +708,38 @@ h2, .section-title, .cta-title {
     font-size: 0.8rem;
     color: #a0aec0;
 }
+
+/* --- AJUSTE PONTUAL PARA A PÁGINA DE PROFISSIONAIS --- */
+
+/*
+  Esta regra usa a classe '.hero-professionals' que envolve a seção
+  para garantir que o alinhamento seja aplicado SOMENTE ao título
+  dentro dela, sem afetar outras páginas.
+*/
+.hero-professionals .hero-title {
+    /* --- ALINHAMENTO --- */
+    text-align: center; /* Mantém o título centralizado */
+
+    /* --- LARGURA / PESO DA FONTE --- */
+    /* Use valores como 400 (normal), 500, 600, 700 (bold) ou 800 (extra-bold) */
+    font-weight: 600; /* Deixa a fonte mais "grossa" e encorpada */
+
+    /* --- SOMBRA DO TEXTO --- */
+    /* A sombra foi suavizada para ser menos intensa. */
+    /* Formato: [deslocamento horizontal] [deslocamento vertical] [esfumaçado] [cor] */
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.114); /* Sombra mais discreta */
+
+    /* --- TAMANHO DA FONTE --- */
+    /* Ajuste o tamanho conforme sua preferência */
+    font-size: 2.2rem; /* Exemplo: um pouco maior que o padrão */
+
+    /* --- ESPAÇAMENTO ENTRE LETRAS --- */
+    /* Pode ajudar na legibilidade. Use 'normal' ou valores como -0.5px, 1px, etc. */
+    letter-spacing: normal;
+
+    /* --- ALTURA DA LINHA --- */
+    /* Útil se o título quebrar em duas linhas, para controlar o espaço entre elas. */
+    line-height: 1.2;
+
+    padding: 0 0 25px 0;
+}

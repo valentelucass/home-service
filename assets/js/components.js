@@ -50,7 +50,7 @@ function initRadiusSlider() {
     if (!radiusSlider || !radiusValue) return; // VERIFICAÇÃO DE SEGURANÇA
 
     radiusSlider.addEventListener("input", function() {
-        radiusValue.textContent = this.value + ' km'; // Adicionado ' km' para clareza
+        radiusValue.textContent = this.value; // Adicionado ' km' para clareza
     });
 }
 

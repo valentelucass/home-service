@@ -44,3 +44,17 @@ function showNotification(message, type = "info") {
         notification.remove();
     }, 3000);
 }
+/**
+ * Abre uma janela de conversa do WhatsApp para um número de telefone específico.
+ * @param {string} phone - O número de telefone no formato internacional (ex: 5511999998888).
+ */
+function openWhatsApp(phone) {
+    // Remove quaisquer caracteres que não sejam números (como +, -, (), etc.)
+    const cleanedPhone = String(phone).replace(/\D/g, '');
+
+    // Monta a URL padrão do WhatsApp "click to chat"
+    const whatsappUrl = `https://wa.me/${cleanedPhone}`;
+
+    // Abre a URL em uma nova aba do navegador
+    window.open(whatsappUrl, '_blank');
+}

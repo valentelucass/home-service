@@ -3,6 +3,8 @@
 /* =================================================================== */
 
 document.addEventListener('DOMContentLoaded', () => {
+    const urlParams = new URLSearchParams(window.location.search);
+    const plano = urlParams.get('plano');
     
     const signupForm = document.querySelector('#signup-form');
     if (!signupForm) return;
@@ -170,8 +172,18 @@ document.addEventListener('DOMContentLoaded', () => {
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify(payload)
             });
-            if (!response.ok) throw new Error((await response.json()).message || 'Erro ao criar perfil');
+            if (!response.ok) {
+    throw new Error((await response.json()).message || 'Erro ao criar perfil');
+}
+
+        // --- LÓGICA DE REDIRECIONAMENTO CORRIGIDA ---
+        if (plano === 'basico' || plano === 'premium') {
+            // Redireciona para pagamento, passando o plano para a próxima página
+            window.location.href = `pagamento.html?plano=${plano}`;
+        } else {
+            // Redireciona para a página de sucesso para o plano gratuito
             window.location.href = 'cadastro-sucesso.html';
+        }
         } catch (error) {
             alert('Erro: ' + error.message);
             console.error(error);

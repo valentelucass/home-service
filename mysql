@@ -1,0 +1,46 @@
+-- 1. CRIA O BANCO DE DADOS (SE ELE NÃO EXISTIR)
+CREATE DATABASE IF NOT EXISTS home_service_db;
+
+-- 2. SELECIONA O BANCO DE DADOS PARA USAR
+USE home_service_db;
+SHOW TABLES;
+-- 3. CRIA A TABELA PRINCIPAL DE USUÁRIOS
+-- Esta tabela guarda os dados de login, seja cliente ou profissional.
+CREATE TABLE usuarios (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    nome_completo VARCHAR(255) NOT NULL,
+    email VARCHAR(255) NOT NULL UNIQUE,
+    senha_hash VARCHAR(255) NOT NULL,
+    tipo_usuario ENUM('cliente', 'profissional') NOT NULL,
+    data_cadastro TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
+
+-- 4. CRIA A TABELA COM OS DETALHES DO PERFIL PROFISSIONAL
+-- Esta tabela só é preenchida se o tipo_usuario for 'profissional'.
+CREATE TABLE perfis_profissionais (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    usuario_id INT NOT NULL UNIQUE,
+    descricao_perfil TEXT,
+    telefone VARCHAR(20),
+    cidade_estado VARCHAR(255),
+    especialidades TEXT, -- Armazena as especialidades separadas por vírgula, por exemplo.
+    FOREIGN KEY (usuario_id) REFERENCES usuarios(id) ON DELETE CASCADE
+);
+
+-- 5. CRIA A TABELA PARA AS AVALIAÇÕES (FEEDBACKS)
+CREATE TABLE avaliacoes (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    perfil_avaliado_id INT NOT NULL,
+    cliente_autor_id INT NOT NULL,
+    nota INT NOT NULL, -- Nota de 1 a 5
+    comentario TEXT,
+    data_avaliacao TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    FOREIGN KEY (perfil_avaliado_id) REFERENCES perfis_profissionais(id),
+    FOREIGN KEY (cliente_autor_id) REFERENCES usuarios(id)
+);
+
+SELECT * FROM usuarios;
+SELECT * FROM perfis_profissionais;
+
+ALTER TABLE perfis_profissionais DROP COLUMN descricao_perfil;
+ALTER TABLE perfis_profissionais ADD COLUMN categoria VARCHAR(255) AFTER cidade_estado;

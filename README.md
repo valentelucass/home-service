@@ -119,6 +119,13 @@ Este projeto foi desenvolvido com dedicação e atenção aos detalhes. Contribu
 4. Faça o Push para a Branch (`git push origin feature/sua-feature-incrivel`).
 5. Abra um Pull Request.
 
+
+**Descrição:** Plataforma full-stack que conecta clientes a profissionais de serviços locais de forma direta, rápida e justa.
+**Tecnologias:** Node.js, Express.js, Sequelize, MySQL/PostgreSQL, HTML5, CSS3, JavaScript
+**Demo:** https://valentelucass.github.io/home-service/
+**Destaque:** Empodera profissionais autônomos, eliminando intermediários e taxas, e oferece busca inteligente por categoria e proximidade.
+**Imagem:** home-service.png
+
 ---
 
 **Desenvolvido com ❤️ por Lucas Andrade!**

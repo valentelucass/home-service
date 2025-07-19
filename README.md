@@ -245,12 +245,12 @@ Este projeto foi desenvolvido com dedicação e atenção aos detalhes. Contribu
 5. Abra um Pull Request.
 
 <!-- PORTFOLIO-FEATURED
-Título: Home Service
-Descrição: Plataforma full-stack que conecta clientes a profissionais de serviços locais de forma direta, rápida e justa.
-Tecnologias: Node.js, Express.js, Sequelize, MySQL/PostgreSQL, HTML5, CSS3, JavaScript
-Demo: https://valentelucass.github.io/home-service/
-Destaque: Empodera profissionais autônomos, eliminando intermediários e taxas, e oferece busca inteligente por categoria e proximidade.
-Imagem: home-service.png
+title: Home Service
+description: Plataforma full-stack que conecta clientes a profissionais de serviços locais de forma direta, rápida e justa.
+technologies: Node.js, Express.js, Sequelize, MySQL/PostgreSQL, HTML5, CSS3, JavaScript
+demo: https://valentelucass.github.io/home-service/
+highlight: true
+image: home-service.png
 -->
 
 ---

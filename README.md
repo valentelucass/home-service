@@ -244,14 +244,7 @@ Este projeto foi desenvolvido com dedicação e atenção aos detalhes. Contribu
 4. Faça o Push para a Branch (`git push origin feature/sua-feature-incrivel`).
 5. Abra um Pull Request.
 
-<!-- PORTFOLIO-FEATURED
-title: Home Service
-description: Plataforma full-stack que conecta clientes a profissionais de serviços locais de forma direta, rápida e justa.
-technologies: Node.js, Express.js, Sequelize, MySQL/PostgreSQL, HTML5, CSS3, JavaScript
-demo: https://valentelucass.github.io/home-service/
-highlight: true
-image: home-service.png
--->
+<!-- PORTFOLIO-FEATURED title: Home Service description: Plataforma full-stack que conecta clientes a profissionais de serviços locais de forma direta, rápida e justa. technologies: Node.js, Express.js, Sequelize, MySQL/PostgreSQL, HTML5, CSS3, JavaScript demo: https://valentelucass.github.io/home-service/ highlight: true image: home-service.png -->
 
 ---
 

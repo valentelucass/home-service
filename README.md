@@ -129,3 +129,5 @@ Este projeto foi desenvolvido com dedicação e atenção aos detalhes. Contribu
 ---
 
 **Desenvolvido com ❤️ por Lucas Andrade!**
+
+<!-- PORTFOLIO-FEATURED -->
